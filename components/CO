@@ -1,0 +1,27 @@
+<Branding />
+      <div className="h-[950px] ">
+        {/* Video Background Component */}
+        <div className="absolute inset-0 z-0">
+          <VideoBackground />
+        </div>
+        <Headers />
+        <div className="relative z-20 max-w-7xl mx-auto  sm:px-6 lg:px-6   items-start mt-50 text-white ">
+          <div className=" w-[600px]">
+            <h1 className="text-[2rem] px-8 sm:text-[4.5rem] font-bold">
+              We Move Kids Forward
+            </h1>
+            <p className="mt-4 px-8 w-[500px] text-sm sm:text-lg ">
+              This is a simple Next.js application.This is a simple Next.js
+              application.This is a simple Next.js application.
+            </p>
+            <div className="px-8 mt-5 sm:px-8">
+              <Link
+                href="#contact"
+                className="bg-blue-400 text-black font-semibold px-8 sm:px-8 mt-5 py-2 rounded-3xl inline-block text-sm sm:text-base"
+              >
+                What we offer
+              </Link>
+            </div>
+          </div>
+        </div>
+      </div>

@@ -1,103 +1,242 @@
+import VideoBackground from "@/components/VideoBckground";
+import ValueSection from "@/components/ValueSection";
+import Link from "next/link";
+import React from "react";
 import Image from "next/image";
+import CarousselBackground from "@/components/CarousselBackground";
+import StatSession from "@/components/StatSession";
+import ScrollingCarousel from "@/components/ScrollingCarousselle";
+
+import ImageTextCard from "@/components/ImageTextCard";
+
+import ReadyToStart from "@/components/ReadyToStart";
+import Award from "@/components/Award";
 
 export default function Home() {
   return (
-    <div className="font-sans grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="font-mono list-inside list-decimal text-sm/6 text-center sm:text-left">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] font-mono font-semibold px-1 py-0.5 rounded">
-              app/page.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
-
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+    <>
+      <div className="sm:h-[650px] h-[700px] overflow-x-hidden">
+        {/* Video Background Component */}
+        <div className="absolute inset-0 z-10">
+          <VideoBackground />
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
+
+        <div className="relative z-20 max-w-7xl mx-auto  sm:px-6 lg:px-6   items-start mt-50 text-white ">
+          <div className=" w-[600px]">
+            <h1 className="text-[2rem] px-8 sm:text-[4.5rem] font-bold">
+              We Move Kids Forward
+            </h1>
+            <p className="mt-4 px-8 w-[500px] text-sm sm:text-lg ">
+              This is a simple Next.js application.This is a simple Next.js
+              application.This is a simple Next.js application.
+            </p>
+            <div className="px-8 mt-5 sm:px-8">
+              <Link
+                href="#contact"
+                className="bg-blue-400 text-black font-semibold px-8 sm:px-8 mt-5 py-2 rounded-3xl inline-block text-sm sm:text-base"
+              >
+                What we offer
+              </Link>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div className="h-[200px] text-center items-center justify-center sm:mt-50 mt-38 flex bg-gray-300 ">
+        <div className="flex justify-center py-10">
+          <Award
+            name="Best Developer 2025"
+            pdfUrl="/awards/cert.pdf" // Chemin vers ton PDF dans /public/pdfs
           />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
-    </div>
+        </div>
+      </div>
+      <div className="h-full bg-blue-500 py-10">
+        <div className="z-50 max-w-7xl mx-auto w-full px-4 sm:px-6 lg:px-8">
+          {/* Titre de section */}
+          <p className="pt-10 text-white text-xl sm:text-2xl">Our service</p>
+
+          {/* Partie texte + image */}
+          <div className="flex flex-col lg:flex-row gap-10 mt-10">
+            {/* Bloc Texte */}
+            <div className="flex flex-col gap-y-7 lg:w-[600px] w-full">
+              <h1 className="text-4xl sm:text-5xl lg:text-7xl text-white font-bold">
+                As Brilliant as the Students We Serve
+              </h1>
+              <p className="text-white text-sm sm:text-base">
+                We provide an end-to-end, future-ready transportation solution
+                powered by leading-edge platform technology...
+              </p>
+              <div>
+                <Link
+                  href="/contact/"
+                  className="bg-white text-black px-8 py-2 rounded-3xl inline-block text-sm sm:text-base"
+                >
+                  What we offer
+                </Link>
+              </div>
+            </div>
+
+            {/* Bloc Image */}
+            <div className="flex justify-center items-center w-full lg:w-[600px] bg-amber-400">
+              <Image
+                src="/next.svg"
+                className="w-full max-w-xs sm:max-w-md"
+                width={400}
+                height={200}
+                alt=""
+              />
+            </div>
+          </div>
+
+          {/* Section avec les ValueSection */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mt-10">
+            {[...Array(4)].map((_, i) => (
+              <div
+                key={i}
+                className={`border-black ${i < 2 ? "" : ""} border-t py-6`}
+              >
+                <ValueSection
+                  imageSRC="/val/value.png"
+                  altText="description image"
+                  description="An Integrated Platform for Safety & Transparency"
+                />
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+      <div className="bg-cover bg-center bg-no-repeat  relative">
+        <CarousselBackground />
+      </div>
+      <div
+        className="h-full bg-fixed bg-center bg-cover bg-no-repeat"
+        style={{ backgroundImage: "url('/backg/turner.svg')" }}
+      >
+        <div className="z-10 max-w-7xl  relative mx-auto w-full  px-4 md:px-6 lg:px-8">
+          {/* Titre de section */}
+          <p className="pt-10 text-white text-xl sm:text-2xl">Our student</p>
+
+          {/* Partie texte + image */}
+          <div className="flex flex-col lg:flex-row gap-10 mt-10">
+            {/* Bloc Texte */}
+            <div className="flex flex-col gap-y-7 w-full">
+              <h1 className="text-3xl sm:text-4xl lg:text-6xl text-white font-bold">
+                Zum Already Serves Over 4,000 Schools and Districts
+              </h1>
+              <p className="text-white text-base sm:text-lg max-w-xl">
+                We provide an end-to-end, future-ready transportation solution
+                powered by leading-edge platform technology...
+              </p>
+            </div>
+          </div>
+
+          {/* Séparateur */}
+          <div className="border-t border-black mt-8" />
+
+          {/* Texte + Image (responsive) */}
+          <div className="flex flex-col lg:flex-row  w-full mt-8 gap-8">
+            {/* Colonne texte */}
+            <div className="w-full lg:w-[50%] p-1 flex flex-col items-start">
+              <h3 className="text-gray-900 text-xl sm:text-2xl md:text-3xl font-semibold max-w-3xl">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Quidem
+                quis inventore, facilis nostrum non sapiente ullam blanditiis...
+              </h3>
+              <div className="flex flex-col sm:flex-row justify-center mt-15 gap-6 sm:gap-4 max-w-3xl mx-auto sm:mx-0">
+                <p className="text-sm sm:text-base text-gray-900 text-center sm:text-left max-w-xs">
+                  Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+                  Sapiente, sunt illo ducimus quisquam omnis ex.
+                </p>
+                <div className="hidden sm:block border-r-2 border-black mx-4 h-auto" />
+                <p className="text-sm sm:text-base text-gray-900 text-center sm:text-left max-w-xs">
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                  Quidem quis inventore, facil
+                </p>
+              </div>
+            </div>
+
+            {/* Colonne image */}
+            <div className="w-full lg:w-[600px] p-1 flex justify-center items-center rounded-lg max-w-3xl mx-auto  lg:mx-0">
+              <Image
+                src="/val/woman.jpg"
+                className="w-full max-w-full sm:max-w-full h-[400px] object-cover rounded-lg"
+                width={400}
+                height={400}
+                alt="Next.js logo"
+                loading="lazy" // Lazy load activé
+                placeholder="blur" // Placeholder flou activé
+                blurDataURL="/next-blur.svg" // Petite image floue (à créer)
+              />
+            </div>
+          </div>
+          {/* StatSession */}
+          <div className="py-10">
+            <StatSession />
+          </div>
+        </div>
+      </div>
+
+      <div className="bg-gray-200 py-10">
+        <div className="z-10 max-w-7xl relative mx-auto w-full px-4 md:px-6 lg:px-8">
+          <ScrollingCarousel />
+
+          <div className="relative h-screen mt-6 p-8">
+            {/* Image de fond avec overlay sombre */}
+            <div
+              className="absolute inset-0 bg-center bg-cover bg-no-repeat"
+              style={{ backgroundImage: "url('/val/child.png')" }}
+            />
+            <div className="absolute inset-0 bg-black/30" />{" "}
+            {/* overlay sombre */}
+            {/* Contenu au-dessus de l'image */}
+            <div className="relative z-20 max-w-[500px] ">
+              <p className="text-white mb-4">People who Zum</p>
+
+              <h1 className="text-3xl sm:text-4xl lg:text-6xl text-white font-bold mt-50">
+                Meet Peter
+              </h1>
+
+              <h2 className="text-2xl sm:text-2xl lg:text-2xl text-white font-bold mt-8">
+                Im interested in who you are as a person. I dont just see you as
+                another student. I know your name. I care about you as a person.
+              </h2>
+
+              <p className="mt-8 text-white">
+                School Bus Driver | Former Youngest Bus Driver in Arkansas
+              </p>
+
+              <div className="mt-10">
+                <Link
+                  href="#contact"
+                  className="bg-white text-black px-6 py-2 rounded-3xl inline-block text-sm sm:text-base"
+                >
+                  What we offer
+                </Link>
+              </div>
+            </div>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 mt-4 gap-4">
+            <ImageTextCard
+              imageSrc="/val/value.png"
+              imageAlt="Valeur Zum"
+              description="Découvrez comment notre plateforme améliore la sécurité des trajets scolaires."
+              linkHref="/services"
+            />
+            <ImageTextCard
+              imageSrc="/val/value.png"
+              imageAlt="Valeur Zum"
+              description="Découvrez comment notre plateforme améliore la sécurité des trajets scolaires."
+              linkHref="/services"
+            />
+            <ImageTextCard
+              imageSrc="/val/value.png"
+              imageAlt="Valeur Zum"
+              description="Découvrez comment notre plateforme améliore la sécurité des trajets scolaires."
+              linkHref="/services"
+            />
+          </div>
+        </div>
+      </div>
+      <ReadyToStart />
+    </>
   );
 }

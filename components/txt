@@ -1,0 +1,187 @@
+je suis developpeur web next js
+
+tu dois m'aider a creer mon header modulable et optimiser.
+mon header est est composer 3 grande partie:
+
+1. d'un wrapper ou une div;
+   celui contient juste un message centrer comme souvent nous avons l'habitude de voire sur les site de vente .. qui fait un appel a abonnement ou l'action de notre service.
+
+2)elle comporte aussi une navbar contenant:
+
+-un logo
+
+- une navlink composee de ; experience, schools, parents,drivers, ressources, company.
+
+-bouton contact us
+
+3. une section : qui contient une image pour background et une div dessus contenant une titre et un text.
+
+cette section doit etre ractive c'est a dire adapdative et optimisisee de tel en sorte que lorsque par exemple sur experience ,
+le background change et le texte aussi qui est dessus.
+
+nb: sur ma home page le comportement de la section est differente car apres un instant l'image dessus laisse place a une video..je crois que cela est d'actualite sur les site de nos, ce qu'on appelle communement les videobackground mais ceci se fera dans notre page uniqument sur la home page(page principal) , le reste des page suivra la loagique de base(une image et le texte dessus et de fois meme juste une background color). ceci est uniquwmwnt possible sur la la home page.
+
+maintenant passons au comportement de notre component header:
+
+-lorsque je suis sur ma home page l'image reste pendant un moment et apres une video lira en background comprend tu le principe.
+
+-lorsque je survole aussi chaque navlink un bar bleu affiche en bas de ceui ci aussi une background s'affiche sur tout
+la largeur et se limitera ou le titre sur le titre et les nav-items s'affichera.
+-lorsque je clique dessus je suis rediriger vers la partie dedier et le background changera et de meme le titre et texte change tu vois un peu la subtiliter de ma logique.
+-lorsque je scroll vers le bas la wrappr disparait et le navbar reste le haut possible et static et prend un backkground
+gray-300
+
+-tu utisasera toute les technique necessaire pour que mon composant repond au normes seo...
+
+deja je veux que tu me dis si ma logique est claire et optimisable, ne repond pas favorable et utiliser la critique pour me faire des manquments et faire des ajustement et explique et dans le cas ou ma logique n'est tres optimisable propose un truc plus optimisable tout en m'expliuquant pas a pas. je veux que mon code soit le tres optimisable et que l'execution soit fluide lorsqu l'utilisateur utilisera mon code.
+si tu veux je t'envoie le liens dune page que tu peux consulter pour comprendre ce que je veux dire
+
+cree moi un composant modulable je travaille sur next js et j'utilise typescript.
+mon composant mdulable sera diviser en deux div.
+la premiere comportera:
+
+-un balise p our une petite phrase
+-une titre h1
+-une description
+
+et la deuxieme div comportera une image.
+
+le composant doit etre aussi responsiv et optimisier pour que je puisse l'utiliser plusiuers fois
+car il doit comporter une liste de donnees que je pourrai modifier.
+
+cree moi un component valeur qui presente les valeur de mon entreprise, ses valeur seront disposer comme suit:
+
+- une image specifiant (icones) et sa description de la valeur;
+  -les valeur aurons les traits horizontal tout autour genre en et en bas
+
+ses valeur seront de finir sur deux ranger..bon je tenvoie mes valeur a toi de trouver les les icones et aussi fait le responsiv du composant..
+
+mes valeurs sont:
+
+1. _Safety_: The safety of children is our top priority.
+2. _Comfort_: We are committed to providing comfortable transportation services for children.
+3. _Reliability_: We are committed to ensuring the reliability of transportation services.
+4. _Quality of service_: We are committed to providing high quality transportation services.
+5. _Sustainable development_: We are committed to contributing to the sustainable development of Cameroon.
+
+cree moi un component qui sera modulable qui presente les differents lieux de ramassage:
+un titre h1
+un description p
+
+- une icone pour dire ok;
+  -les lieux aurons les traits horizontal tout autour genre en et en bas sauf les derniers..aussi ils seront grid -3
+
+ses lieux seront de finir sur 3 ranger..bon je tenvoie mes lieux a toi de trouver l'iconne de ok qu'on retrouve sur les checkist et aussi fait le responsiv du composant..
+
+mes lieux sont:
+School bus drivers
+Bus attendants
+Non-CDL van drivers
+Operations supervisors
+Dispatchers
+Field and safety supervisors
+Location managers
+Trainers
+Additional yard roles
+
+cree moi un composant qui sera modulable et responsiv, voila comment mon composant sera definis:
+
+un texte p
+un titre h1
+une description p
+
+en suite une grid de 3 card:
+
+la car contiendra une image , un titre h1, une description
+
+je te laisse le soin de mettre du texte, n'oublie pas que j'aimerai le reutillisr plusieurs dans plusieurs partie de mon code donc il doit etre modulable et optimiser
+
+je veux lancer une campagne de propsects pour la recherche des partenaire de voiture et des chauffeurs qualifie,
+considere toi comme un expert en community manager sur facebook et donne moi les axes necessaire pour metrre a bien
+ma campagne de prospect . deja je veux que tu choisis formulaire instanees sur messanger pour generer mes prospect. donc aide trouvers les questions profetionnelles et necessaire pour cela. deja mes differentes specifications sont les suivantes:
+
+pour les partenariat de voiture voici le style de voiture que je veux:
+
+-toyota avensis verso / toyota corolla verso Diesel (annee 2006-2009)
+-toyota hiace 5l diesel age ,ax 10ans (depuis premiere utilisation)
+-toyota coaster age max: 10ans(depuis premiere mise ne service)
+
+pour les chauffeurs voici ce que je recherche:
+✅ _Chauffeurs véhicules 5-9 places_ (Permis B)  
+✅ _Chauffeurs bus 11-35 places_ (Permis D)
+
+voci mes coordonnees:
+localisation:
+bureau: 3eme etage, immeuble aziccul, feu rouge bessengue, douala cameroun
+
+adresse mail:
+info@ktsmobility.com
+
+telephone:
+
+- +237 640020482 et 659066982
+
+j'ai pour ce fais deja fait un visuel pour le prospect des partenaire et un autre pour les prospect des chauffeurs je peux l'envoyer si tu le veux.
+
+pencher toi sur les meilleurs axes pour mettre birn cette campagne, deja mon problems que je rencontre est le suivan etant donneeque c'est prospect differents ne peux t'on pas le fairene seule pour limiter les coup ou le mieux serait de les lancer une a une? au cas on peut le faire fois, au niveau du formulaire instament comment les generer genre si c'est sur le prospect des partenares des voiture ou des chauffeurs.
+
+etant professionnel je te le soins de gerer cela.
+
+mon entreprise s'appelle KTS Mobility et nous faisons dans le transport securise, efficace et sur des enfants pour l'ecole .
+
+tu vois le header suivant que je vais t'envoyer deja j'aimerai que tu me l'optimise en faisant ceci:
+
+tu m'enleve toutes
+
+cree moi un composant modulable et optimiser que je pourrai utiliser un peu de partout dans mon code.
+ce composant aura un image pour background avec une opacite basse pour que le texte qui soit mis dessus doit plus visible.
+la partie texte sera composer:
+
+-d'un titre h1
+
+-d'une description p
+
+-s'un bouton avec rounded full
+
+tout ses donnees de meme que l'iamge doivent etre modulable, mon composant doit s'adapter a n'importe quel ecran, celui si dois etre responsiv
+
+je veux que tu me cree un composant award dans le lequelle il y'aura:
+
+- le nom de l'award
+  -les etoiles 5
+
+bon aussi j'ai l'award sur forme de pdf et j'aimerai que tu me fasse une creativite pour rendre l'experience utilisateur fluide lorsqu'il survolera le composant . je te laisse le soins de faire comme bon te semble.
+explique moi d'abord ce que tu feras.
+
+n'oublie pas le le nom doit etre au dessus de l'etoile
+
+le composant ci dessus doit etre reajuster tout en gardant sa logique de la maniere suivante:
+
+juste apres le texte tu vas ajouter:
+
+-deux bar
+et en bas de chaque bar il y'aura:
+
+-un nombre avec le pourcentage et sur l'autre bar un nombre avec l'abriviation du million(M+)
+
+et en bas de chaque nombre une description
+
+tout ceci sera dynamqiue en dehors des bar..car je vais reutiliser ses composants..
+donc il faut que je puisse changer les valeur.
+
+lorsque je demarche ,a oage ses nombre doivent compter jusu'a une valeur maximal que je definirai au preable et ses nombre auron une couleur gray-300
+
+dit moi si tu as compris et explique moi ta logique.
+
+voici le code a reajuster:
+
+en fonction de header genere moi un footer customizer et optimise, en plus des donnees de mon header tu ajouter:
+
+-un texte bien grand
+-les logos des reseaux: facebook, twitter, linkedln, instagram,
+-tu ajoutera aussi les privacy policy, terms ans conditions
+-tu ajouteras aussi: © 2025 Zum Services, Inc. All rights reserved.
+
+je te laisse le soins defaire parler ton imaginatio...
+
+voici mon header:
