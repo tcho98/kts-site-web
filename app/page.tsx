@@ -17,7 +17,7 @@ export default function Home() {
     <>
       <div className="sm:h-[650px] h-[700px] overflow-x-hidden">
         {/* Video Background Component */}
-        <div className="absolute inset-0 z-10">
+        <div className="absolute inset-0 z-0">
           <VideoBackground />
         </div>
 
@@ -41,15 +41,17 @@ export default function Home() {
           </div>
         </div>
       </div>
-      <div className="h-[200px] text-center items-center justify-center sm:mt-50 mt-38 flex bg-gray-300 ">
+      <div className="relative h-[400px] text-center items-center justify-center sm:mt-50 p-20 mt-37 flex bg-gray-300 ">
         <div className="flex justify-center py-10">
           <Award
-            name="Best Developer 2025"
-            pdfUrl="/awards/cert.pdf" // Chemin vers ton PDF dans /public/pdfs
+            name="Central Africa Startup Awards"
+            pdfUrl="/awards/cert.pdf"
+            logoUrl="/Clm.webp"
+            count={1}
           />
         </div>
       </div>
-      <div className="h-full bg-blue-500 py-10">
+      <div id="section1" className="h-full bg-blue-500 py-10">
         <div className="z-50 max-w-7xl mx-auto w-full px-4 sm:px-6 lg:px-8">
           {/* Titre de section */}
           <p className="pt-10 text-white text-xl sm:text-2xl">Our service</p>

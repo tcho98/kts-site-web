@@ -112,7 +112,7 @@ export default function CompanyPage() {
   ];
 
   return (
-    <main className="bg-gray-300  ">
+    <main className="bg-gray-300  overflow-x-hidden">
       <div className=" absolute inset-0  z-0  top-18">
         <HeroSection
           backgroundImage="/pho.jpg"
@@ -122,7 +122,7 @@ export default function CompanyPage() {
           buttonLink="/about"
         />
       </div>
-      <div className="sm:max-w-7xl max-w-md sm:h-[220vh] h-[290vh] sm:mt-200 mt-120  mx-auto p-4">
+      <div className="sm:max-w-7xl max-w-md sm:h-[220vh] h-[290vh]  mt-220  mx-auto p-4">
         {contentBlocks.map((block, idx) => {
           if (block.type === "stats") {
             return <ContentOptimise key={idx} items={block.items} />;
@@ -138,7 +138,7 @@ export default function CompanyPage() {
           }
         })}
       </div>
-      <div className="bg-blue-500 h-[300px] sm:h-[600px] mt-15 p-2 sm:p-20">
+      <div className="bg-blue-500 h-[300px] sm:h-[600px] sm:mt-15 mt-30 p-2 sm:p-20">
         <div className="sm:w-2xl mx-auto text-center">
           <h1 className="text-xl sm:text-5xl font-bold text-white">
             “I have closely worked with the Zum team over the last 3 years, and
@@ -159,7 +159,7 @@ export default function CompanyPage() {
         </div>
       </div>
 
-      <div className="sm:max-w-5xl max-w-lg mx-auto p-4">
+      <div id="section2" className="sm:max-w-5xl max-w-lg mx-auto p-4">
         <h1 className="text-2xl font-bold text-center mt-10 mb-5">
           Our Mission
         </h1>
@@ -170,7 +170,10 @@ export default function CompanyPage() {
         </p>
       </div>
 
-      <div className="sm:max-w-7xl max-w-lg mx-auto p-4 bg-white mt-30">
+      <div
+        id="section4"
+        className="sm:max-w-7xl max-w-lg mx-auto p-4 bg-white mt-30"
+      >
         <p className="text-center text-black">Our Values</p>
         <h1 className="text-3xl sm:text-5xl text-black font-bold text-center mt-10 mb-5">
           We Are Driven to Serve
@@ -189,7 +192,10 @@ export default function CompanyPage() {
               className="rounded-3xl object-cover w-full h-auto"
             />
           </div>
-          <div className="w-full md:w-1/2 text-center md:text-left">
+          <div
+            id="section5"
+            className="w-full md:w-1/2 text-center md:text-left"
+          >
             <h1 className="text-3xl sm:text-5xl font-bold mb-5">Our Team</h1>
             <p className="text-gray-700 text-lg sm:text-xl">
               Meet the dedicated team behind KTS Mobility, committed to ensuring

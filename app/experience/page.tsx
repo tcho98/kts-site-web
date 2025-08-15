@@ -36,7 +36,7 @@ export default function Home() {
           buttonLink="/about"
         />
       </div>
-      <div className="sm:max-w-7xl max-w-md sm:mt-200 mt-120  sm:h-[300vh] h-[470vh] mx-auto p-4">
+      <div className="sm:max-w-7xl max-w-md mt-210 sm:mt-230  sm:h-[300vh] h-[420vh] mx-auto p-4">
         <ContentSectionF items={sections} reverse />
         <div className="bg-gray-500 h-[400px] mt-15 ">
           <h1 className="text-xl sm:text-4xl text-center mt-10 p-10 sm:p-15">
@@ -48,18 +48,18 @@ export default function Home() {
             <Image
               src="/logos/logo3.jpg"
               alt="Logo"
-              width={100}
-              height={100}
+              width={50}
+              height={50}
               className="rounded-3xl"
             />
             <div className="hidden sm:block border-r-2 border-black mx-4 h-auto" />
             <p> John Doe, CEO of Zum</p>
           </div>
-          <div className="p-10 sm:p-0">
+          <div className="md:mt-30 mt-10 ">
             <ContentSectionF items={sections} reverse />
           </div>
 
-          <div className="bg-gray-300 h-[400px] mt-15 ">
+          <div className="bg-gray-300 sm:h-[200px]  mt-15 ">
             <h1 className="text-3xl text-black font-bold sm:text-5xl text-center mt-10 p-15">
               &quot;Let &apos;s act now to reinvent student transportation for
               the future that we want to live, learn and travel in.&quot;

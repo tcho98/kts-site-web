@@ -3,7 +3,7 @@ import ContactForm from "@/components/ContactForm";
 export default function Contact() {
   return (
     <>
-      <div className="w-full  bg-blue-900 absolute min-h-[360px] top-15 left-0 z-0">
+      <div className="w-full  bg-blue-900 absolute min-h-[360px] top-22 sm:top-15 left-0 z-0">
         <div className="sm:max-w-7xl max-w-sm  mx-auto text-start pt-30 pb-10">
           <h1 className="text-white mt-14 text-3xl sm:text-5xl font-bold">
             Contact Us

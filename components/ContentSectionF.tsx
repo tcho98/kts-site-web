@@ -37,7 +37,7 @@ const imageVariant = {
 
 const ContentSection: React.FC<ContentSectionProps> = ({ items, reverse }) => {
   return (
-    <div className="space-y-40  pt-30">
+    <div className="space-y-20 sm:space-y-40 pt-30">
       {items.map((item, index) => {
         const isReversed = reverse && index % 2 === 1;
 

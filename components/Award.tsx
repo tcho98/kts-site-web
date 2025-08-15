@@ -1,46 +1,55 @@
 "use client";
 
+import Image from "next/image";
 import { useState, useEffect } from "react";
-import { Star } from "lucide-react";
 
 interface AwardProps {
-  name: string;
-  pdfUrl: string;
+  name: string; // Nom de l'award
+  pdfUrl: string; // PDF à afficher
+  logoUrl: string; // Logo à afficher
+  count: number; // Nombre à afficher suivi de "x"
 }
 
-export default function Award({ name, pdfUrl }: AwardProps) {
+export default function Award({ name, pdfUrl, logoUrl, count }: AwardProps) {
   const [isOpen, setIsOpen] = useState(false);
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
-    setMounted(true); // Marque le composant comme monté côté client
+    setMounted(true);
   }, []);
 
   return (
     <>
       {/* Carte Award */}
       <div
-        className="bg-blue-400 rounded-xl shadow-md p-6 w-64 text-center cursor-pointer transform transition hover:scale-105 hover:shadow-lg"
+        className=" rounded-xl shadow-md p-6 w-74 text-center cursor-pointer transform transition hover:scale-105 hover:shadow-lg"
         onClick={() => setIsOpen(true)}
         role="button"
         tabIndex={0}
       >
-        <h3 className="text-lg font-bold mb-2">{name}</h3>
-
-        {/* Rendu des étoiles uniquement côté client */}
-        {mounted && (
-          <div className="flex justify-center gap-1">
-            {Array.from({ length: 5 }).map((_, i) => (
-              <Star
-                key={i}
-                className="text-yellow-500 fill-yellow-500 w-6 h-6"
-              />
-            ))}
+        {/* Logo et nombre x */}
+        <div className="flex items-center justify-center  mb-2">
+          <Image
+            src={logoUrl}
+            alt={name + " logo"}
+            width={180}
+            height={40}
+            className="object-contain"
+          />
+          <div className="flex flex-col items-center">
+            <span className="text-6xl text-blue-400  font-bold">{count}x</span>
+            <span className="text-2xl text-blue-400 font-semibold">Winner</span>
           </div>
-        )}
+        </div>
+
+        {/* Trait horizontal */}
+        <hr className="border-gray-700 my-2" />
+
+        {/* Nom de l'award */}
+        <h3 className="text-xl text-black font-bold mt-2">{name}</h3>
       </div>
 
-      {/* Modale, uniquement côté client */}
+      {/* Modale PDF */}
       {mounted && isOpen && (
         <div
           className="fixed inset-0 bg-black bg-opacity-60 flex items-center justify-center z-50"

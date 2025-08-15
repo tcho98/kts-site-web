@@ -17,7 +17,7 @@ export default function VideoBackground() {
         alt=""
         fill
         className={`object-cover absolute inset-0 transition-opacity duration-1000 ${
-          videoLoaded ? "opacity-0" : "opacity-30"
+          videoLoaded ? "opacity-0" : "opacity-100"
         }`}
         priority
         aria-hidden="true"
@@ -26,7 +26,7 @@ export default function VideoBackground() {
       {/* Vidéo en fond */}
       <video
         className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 ${
-          videoLoaded ? "opacity-30" : "opacity-0"
+          videoLoaded ? "opacity-100" : "opacity-0"
         }`}
         autoPlay
         muted
@@ -36,6 +36,7 @@ export default function VideoBackground() {
         preload="auto"
         src="/noi.mp4"
       />
+      <div className="absolute inset-0 bg-black opacity-50  z-0"></div>
     </div>
   );
 }

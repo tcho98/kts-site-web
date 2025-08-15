@@ -1,131 +1,247 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Menu, X } from "lucide-react";
+import { ChevronRight, ChevronDown, Menu, X } from "lucide-react";
+import { useEffect } from "react";
 import Image from "next/image";
 
 const navItems = [
-  { title: "Experience", path: "/experience" },
+  {
+    title: "Experience",
+    path: "/experience",
+    items: [{ label: "Our Solution", path: "/experience/our-solution" }],
+  },
 
-  { title: "Drivers", path: "/drivers" },
-
-  { title: "Company", path: "/company" },
+  {
+    title: "Parent",
+    path: "/parent",
+    items: [
+      { label: "How It Work", path: "/parent/how-it-work" },
+      { label: "Parent Reviews", path: "/parent/reviews" },
+    ],
+  },
+  {
+    title: "Drivers",
+    path: "/drivers",
+    items: [
+      { label: "Bus Driver and Bus Depot Careers", path: "/drivers/careers" },
+    ],
+  },
+  {
+    title: "Services",
+    path: "/#section1",
+    items: [
+      { label: "Community", path: "/ressources/community" },
+      { label: "Our Blog", path: "/ressources/blog" },
+      { label: "Product Releases", path: "/ressources/product-releases" },
+    ],
+  },
+  {
+    title: "Company",
+    path: "/company",
+    items: [
+      { label: "Our Story", path: "#section4" },
+      { label: "Our Vision", path: "#section3" },
+      { label: "Our Mission", path: "#section2" },
+      { label: "Our Team", path: "#section5" },
+    ],
+  },
 ];
 
 export default function Header() {
+  const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
   const [mobileOpen, setMobileOpen] = useState(false);
-  const [scrolled, setScrolled] = useState(false);
+  const [openMobileMenu, setOpenMobileMenu] = useState<string | null>(null);
   const pathname = usePathname();
+  const [scrolled, setScrolled] = useState(false);
 
-  // Gestion du scroll pour le header
   useEffect(() => {
-    const handleScroll = () => setScrolled(window.scrollY > 100);
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 100);
+
+      // change à 50/100 selon la hauteur du bloc bleu
+    };
+
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // Bloquer le scroll du body quand le menu mobile est ouvert
   useEffect(() => {
-    document.body.style.overflow = mobileOpen ? "hidden" : "";
+    if (mobileOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+    }
+
+    return () => {
+      document.body.style.overflow = "";
+    };
   }, [mobileOpen]);
 
   return (
-    <header className="sticky top-0 z-50 w-full">
-      {/* Header Desktop */}
-      <div
-        className={`transition-all duration-300 ${
-          scrolled ? "bg-gray-900/90 shadow-md" : "bg-transparent"
-        }`}
-      >
-        <div className="max-w-7xl  mx-auto flex items-center justify-between h-24 px-4">
-          {/* Logo */}
-          <Link href="/" className="flex items-center z-50">
-            <Image src="/logos/logo2.png" alt="Logo" width={150} height={50} />
+    <header className="sticky top-0 z-50 w-full  transition-all duration-300 ">
+      <div className="relative flex  inset-0 z-0">
+        {activeDropdown && (
+          <div className="fixed top-[64px] left-0 w-full h-[350px] bg-gray-900/90 z-40 pointer-events-none" />
+        )}
+        {/* Top Bar (Logo + Nav + Contact) */}
+        <div
+          className={`${
+            scrolled
+              ? "fixed top-0 w-full  left-0 right-0 bg-gray-900/90  shadow-md"
+              : "relative  "
+          } z-[50] w-full  transition-all duration-300 flex justify-between  items-center h-24 px-4 md:px-55`}
+        >
+          {/* Logo à gauche */}
+          <Link href="/" className="relative pt-2 mx-[-50px] sm:mx-0  ">
+            <Image
+              width={0}
+              height={0}
+              src="/logos/logo2.png"
+              alt="Logo"
+              sizes="(min-width: 1024px) 150px, (min-width: 768px) 200px, 144px"
+              className="w-50  md:w-70 lg:w-80 h-auto object-contain"
+            />
           </Link>
 
-          {/* Desktop Nav */}
-          <nav className="hidden md:flex space-x-6">
+          <nav className="hidden md:flex space-x-6 items-center">
             {navItems.map((nav) => (
-              <Link
+              <div
                 key={nav.title}
-                href={nav.path}
-                className={`font-medium transition-colors duration-200 pb-1 ${
-                  pathname === nav.path
-                    ? "text-blue-500 border-b-2 border-blue-500"
-                    : "text-white hover:text-blue-500"
-                }`}
+                className="relative"
+                onMouseEnter={() => setActiveDropdown(nav.title)}
+                onMouseLeave={() => setActiveDropdown(null)}
               >
-                {nav.title}
-              </Link>
+                <Link href={nav.path}>
+                  <div
+                    className={`relative font-medium transition-colors duration-200 pb-1 ${
+                      pathname === nav.path || activeDropdown === nav.title
+                        ? "text-blue-500"
+                        : "text-white hover:text-blue-500"
+                    }`}
+                  >
+                    {nav.title}
+                    {(pathname === nav.path ||
+                      activeDropdown === nav.title) && (
+                      <span className="absolute bottom-0 bg-gray-200 left-0 w-full h-0.5"></span>
+                    )}
+                  </div>
+                </Link>
+
+                <div
+                  className={`absolute text-2xl top-full w-60 z-50 ${
+                    activeDropdown === nav.title ? "block" : "hidden"
+                  }`}
+                >
+                  <div className="bg-gray-900 border-t-4 border-t-blue-500 border-b border-b-gray-300 mt-5">
+                    <div className="max-w-7xl mx-auto">
+                      <table className="w-full">
+                        <tbody className="divide-y divide-gray-300">
+                          {nav.items.map((item) => (
+                            <tr key={item.label}>
+                              <td className="pt-2 pb-2">
+                                <Link
+                                  href={item.path}
+                                  className="flex items-center text-sm justify-between text-gray-50 hover:text-gray-200/55 transition-colors duration-200"
+                                >
+                                  {item.label}
+                                  <ChevronRight className="w-6 h-6 ml-4" />
+                                </Link>
+                              </td>
+                            </tr>
+                          ))}
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                </div>
+              </div>
             ))}
           </nav>
 
-          {/* Desktop Contact */}
-          <div className="hidden md:flex">
+          <div className="hidden md:flex mx-[-0px] sm:px-0">
             <Link
               href="/contact"
-              className="bg-gray-300 text-black font-semibold px-6 py-2 rounded-3xl"
+              className="bg-gray-300 text-black font-semibold mx-15 px-14 relative py-2 rounded-3xl text-center"
             >
               Contact Us
             </Link>
           </div>
 
-          {/* Mobile Menu Button */}
           <button
             onClick={() => setMobileOpen(!mobileOpen)}
-            className="md:hidden text-white z-50"
+            className="md:hidden text-white"
+            aria-label="Toggle Menu"
           >
-            {mobileOpen ? <X size={30} /> : <Menu size={30} />}
+            {mobileOpen ? (
+              <X className="w-8 h-8" />
+            ) : (
+              <Menu className="w-8 h-8" />
+            )}
           </button>
         </div>
+
+        {/* Separator */}
+
+        {/* Mobile Menu */}
+        {mobileOpen && (
+          <div className="fixed inset-15  w-full  left-0 right-0 bottom-0 z-20   bg-gray-900 overflow-y-auto pt-30 ">
+            <div className="border-t border-gray-400 mb-4 mt-4" />
+            <nav className=" ">
+              {navItems.map((nav) => (
+                <div
+                  key={nav.title}
+                  className="border-b font-normal text-2xl p-3 border-gray-500"
+                >
+                  <button
+                    className={`flex justify-between items-center w-full py-2 font-semibold transition-colors duration-200 ${
+                      openMobileMenu === nav.title
+                        ? "text-blue-500"
+                        : "text-white"
+                    }`}
+                    onClick={() =>
+                      setOpenMobileMenu(
+                        openMobileMenu === nav.title ? null : nav.title
+                      )
+                    }
+                  >
+                    {nav.title}
+                    <ChevronDown
+                      className={`w-4 h-4 transform transition-transform duration-300 ${
+                        openMobileMenu === nav.title ? "rotate-180" : "rotate-0"
+                      }`}
+                    />
+                  </button>
+                  {openMobileMenu === nav.title && (
+                    <div className="pl-4 pb-2">
+                      {nav.items.map((item) => (
+                        <Link
+                          key={item.label}
+                          href={item.path}
+                          className="block text-sm text-gray-300 py-1"
+                        >
+                          {item.label}
+                        </Link>
+                      ))}
+                    </div>
+                  )}
+                </div>
+              ))}
+              <div className=" flex justify-center items-center   mt-15">
+                <Link
+                  href="/contact/"
+                  className="block bg-gray-100 text px-30  text-black py-3 rounded-3xl text-center"
+                >
+                  Contact Us
+                </Link>
+              </div>
+            </nav>
+          </div>
+        )}
       </div>
-
-      {/* Mobile Menu */}
-      {mobileOpen && (
-        <div className="fixed inset-0 z-[100] bg-gray-900 md:hidden flex flex-col p-6 pt-4">
-          {/* Top Bar: Logo + Close */}
-          <div className="flex items-center justify-between mb-8">
-            <Link href="/">
-              <Image
-                src="/logos/logo2.png"
-                alt="Logo"
-                width={150}
-                height={70}
-              />
-            </Link>
-            <button onClick={() => setMobileOpen(false)} className="text-white">
-              <X size={28} />
-            </button>
-          </div>
-
-          {/* Mobile Nav Links */}
-          <nav className="space-y-4 flex-1 ">
-            {navItems.map((nav) => (
-              <Link
-                key={nav.title}
-                href={nav.path}
-                className="block text-lg border-t py-2 border-b vorder-white text-gray-200 hover:text-blue-500"
-                onClick={() => setMobileOpen(false)}
-              >
-                {nav.title}
-              </Link>
-            ))}
-          </nav>
-
-          {/* Mobile Contact */}
-          <div className="mt-auto">
-            <Link
-              href="/contact"
-              className="block bg-gray-100 text-black py-2 rounded-3xl text-center"
-              onClick={() => setMobileOpen(false)}
-            >
-              Contact s
-            </Link>
-          </div>
-        </div>
-      )}
+      <div className="border-t max-w-7xl mt-4 mx-auto bg-gray-400"></div>
     </header>
   );
 }

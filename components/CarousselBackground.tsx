@@ -85,7 +85,7 @@ const CarousselBackground = () => {
       </div>
 
       {/* Navigation desktop */}
-      <div className="absolute bottom-8 w-full hidden sm:flex justify-around items-end px-4 z-20">
+      <div className="absolute bottom-8 w-full hidden sm:flex justify-between items-end px-90 z-20">
         {Slides.map((slide, index) => (
           <div
             key={slide.id}
@@ -101,7 +101,7 @@ const CarousselBackground = () => {
             <button
               onClick={() => setActiveIndex(index)}
               className={`h-2 transition-all duration-300 rounded-full ${
-                activeIndex === index ? "w-100 bg-blue-500" : "w-50 bg-gray-300"
+                activeIndex === index ? "w-50 bg-blue-500" : "w-50 bg-gray-300"
               }`}
             />
           </div>

@@ -69,7 +69,7 @@ export default function DriversPage() {
           buttonLink="/about"
         />
       </div>
-      <div className="bg-yellow-300 mt-200">
+      <div className="bg-yellow-300 mt-220">
         <div className="sm:max-w-7xl max-w-md mx-auto  pt-18 pb-18 mt-18 ">
           <PickupLocations {...sections} />
         </div>
@@ -156,7 +156,7 @@ export default function DriversPage() {
           <PickupLocations {...sections} />
         </div>
       </div>
-      <section className="sm:max-w-7xl max-w-md sm:h-[70vh]  mx-auto  sm:mt-20">
+      <section className="sm:max-w-7xl max-w-md h-[70vh] mx-auto  sm:mt-20">
         <div className="flex flex-col md:flex-row items-center md:items-start pt-25 gap-8">
           <div className="w-full md:w-1/2 text-center md:text-left">
             <h1 className="text-3xl sm:text-5xl text-black font-bold mb-5">
