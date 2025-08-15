@@ -124,7 +124,7 @@ export default function CompanyPage() {
       </div>
       <div
         id="#section3"
-        className="sm:max-w-7xl max-w-md sm:h-[220vh] h-[320vh]  mt-220  mx-auto p-4"
+        className="sm:max-w-7xl max-w-md sm:h-[220vh] h-[330vh]  mt-220  mx-auto p-4"
       >
         {contentBlocks.map((block, idx) => {
           if (block.type === "stats") {
@@ -141,7 +141,7 @@ export default function CompanyPage() {
           }
         })}
       </div>
-      <div className="bg-blue-500 h-[300px] sm:h-[600px] sm:mt-15 mt-30 p-2 sm:p-20">
+      <div className="bg-blue-500 h-[300px] sm:h-[600px] sm:mt-15 mt-45 p-2 sm:p-20">
         <div className="sm:w-2xl mx-auto text-center">
           <h1 className="text-xl sm:text-5xl font-bold text-white">
             “I have closely worked with the Zum team over the last 3 years, and
