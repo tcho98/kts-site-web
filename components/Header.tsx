@@ -187,39 +187,54 @@ export default function Header() {
 
         {/* Mobile Menu */}
         {mobileOpen && (
-          <div className="fixed inset-15  w-full  left-0 right-0 bottom-0 z-20   bg-gray-900 overflow-y-auto pt-30 ">
+          <div className="fixed inset-15 w-full left-0 right-0 bottom-0 z-20 bg-gray-900 overflow-y-auto pt-30">
             <div className="border-t border-gray-400 mb-4 mt-4" />
-            <nav className=" ">
+            <nav>
               {navItems.map((nav) => (
                 <div
                   key={nav.title}
                   className="border-b font-normal text-2xl p-3 border-gray-500"
                 >
-                  <button
-                    className={`flex justify-between items-center w-full py-2 font-semibold transition-colors duration-200 ${
-                      openMobileMenu === nav.title
-                        ? "text-blue-500"
-                        : "text-white"
-                    }`}
-                    onClick={() =>
-                      setOpenMobileMenu(
-                        openMobileMenu === nav.title ? null : nav.title
-                      )
-                    }
-                  >
-                    {nav.title}
-                    <ChevronDown
-                      className={`w-4 h-4 transform transition-transform duration-300 ${
-                        openMobileMenu === nav.title ? "rotate-180" : "rotate-0"
+                  <div className="flex justify-between items-center w-full py-2 font-semibold transition-colors duration-200">
+                    {/* Le titre devient un lien */}
+                    <Link
+                      href={nav.path || "#"}
+                      onClick={() => setMobileOpen(false)}
+                      className={`transition-colors duration-200 ${
+                        openMobileMenu === nav.title
+                          ? "text-blue-500"
+                          : "text-white"
                       }`}
-                    />
-                  </button>
+                    >
+                      {nav.title}
+                    </Link>
+
+                    {/* Chevron pour ouvrir/fermer les sous-items */}
+                    <button
+                      onClick={() =>
+                        setOpenMobileMenu(
+                          openMobileMenu === nav.title ? null : nav.title
+                        )
+                      }
+                    >
+                      <ChevronDown
+                        className={`w-4 h-4 transform transition-transform duration-300 ${
+                          openMobileMenu === nav.title
+                            ? "rotate-180"
+                            : "rotate-0"
+                        }`}
+                      />
+                    </button>
+                  </div>
+
+                  {/* Sous-items */}
                   {openMobileMenu === nav.title && (
                     <div className="pl-4 pb-2">
                       {nav.items.map((item) => (
                         <Link
                           key={item.label}
                           href={item.path}
+                          onClick={() => setMobileOpen(false)}
                           className="block text-sm text-gray-300 py-1"
                         >
                           {item.label}
@@ -229,10 +244,12 @@ export default function Header() {
                   )}
                 </div>
               ))}
-              <div className=" flex justify-center items-center   mt-15">
+
+              {/* Bouton Contact */}
+              <div className="flex justify-center items-center mt-15">
                 <Link
                   href="/contact/"
-                  className="block bg-gray-100 text px-30  text-black py-3 rounded-3xl text-center"
+                  className="block bg-gray-100 text px-30 text-black py-3 rounded-3xl text-center"
                 >
                   Contact Us
                 </Link>
