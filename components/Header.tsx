@@ -42,8 +42,8 @@ const navItems = [
     title: "Company",
     path: "/company",
     items: [
-      { label: "Our Story", path: "#section4" },
-      { label: "Our Vision", path: "#section3" },
+      { label: "Our Story", path: "#section3" },
+      { label: "Our Vision", path: "#section4" },
       { label: "Our Mission", path: "#section2" },
       { label: "Our Team", path: "#section5" },
     ],

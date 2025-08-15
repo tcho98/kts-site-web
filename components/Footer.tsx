@@ -9,24 +9,13 @@ const navItems = [
     path: "/experience",
     items: [{ label: "Our Solution", path: "/experience/our-solution" }],
   },
-  {
-    title: "School",
-    path: "/school",
-    items: [
-      { label: "Service", path: "/school/service" },
-      { label: "Case Studies", path: "/school/case-studies" },
-      { label: "Trust & Safety", path: "/school/trust-safety" },
-      { label: "Service Areas", path: "/school/service-areas" },
-      { label: "Charter", path: "/school/charter" },
-    ],
-  },
+
   {
     title: "Parent",
     path: "/parent",
     items: [
       { label: "How It Work", path: "/parent/how-it-work" },
       { label: "Parent Reviews", path: "/parent/reviews" },
-      { label: "Parents FAQs", path: "/parent/faqs" },
     ],
   },
   {
@@ -37,24 +26,21 @@ const navItems = [
     ],
   },
   {
-    title: "Ressources",
-    path: "/ressources",
+    title: "Services",
+    path: "/#section1",
     items: [
       { label: "Community", path: "/ressources/community" },
       { label: "Our Blog", path: "/ressources/blog" },
-      { label: "Product Releases", path: "/ressources/product-releases" },
     ],
   },
   {
     title: "Company",
     path: "/company",
     items: [
-      { label: "Our Story", path: "/company/our-story" },
-      { label: "Our Vision", path: "/company/our-vision" },
-      { label: "Careers", path: "/company/careers" },
-      { label: "Press and Media Assets", path: "/company/media-assets" },
-      { label: "Zero Tolerance", path: "/company/zero-tolerance" },
-      { label: "KTS Mobility at Davos 2024", path: "/company/davos-2024" },
+      { label: "Our Story", path: "/section3" },
+      { label: "Our Vision", path: "/section4" },
+      { label: "Our Mission", path: "/#section2" },
+      { label: "Our Team", path: "/#section5" },
     ],
   },
 ];
@@ -120,7 +106,17 @@ export default function Footer() {
         <div className="flex-[2] grid grid-cols-2 sm:grid-cols-3 sm:mt-17 md:grid-cols-6 gap-6">
           {navItems.map((section) => (
             <div key={section.title}>
-              <h4 className="font-semibold text-lg mb-3">{section.title}</h4>
+              {/* Title devient un lien */}
+              <h4 className="font-semibold text-lg mb-3">
+                <Link
+                  href={section.path || "#"}
+                  className="hover:text-blue-400 transition-colors"
+                >
+                  {section.title}
+                </Link>
+              </h4>
+
+              {/* Items */}
               <ul className="space-y-2 text-gray-300 text-sm">
                 {section.items.map((item) => (
                   <li key={item.label}>

@@ -122,7 +122,10 @@ export default function CompanyPage() {
           buttonLink="/about"
         />
       </div>
-      <div className="sm:max-w-7xl max-w-md sm:h-[220vh] h-[290vh]  mt-220  mx-auto p-4">
+      <div
+        id="#section3"
+        className="sm:max-w-7xl max-w-md sm:h-[220vh] h-[320vh]  mt-220  mx-auto p-4"
+      >
         {contentBlocks.map((block, idx) => {
           if (block.type === "stats") {
             return <ContentOptimise key={idx} items={block.items} />;
