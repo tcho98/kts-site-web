@@ -36,7 +36,7 @@ export default function Home() {
           buttonLink="/about"
         />
       </div>
-      <div className="sm:max-w-7xl max-w-md mt-210 sm:mt-230  sm:h-[300vh] h-[420vh] mx-auto p-4">
+      <div className="sm:max-w-7xl max-w-md mt-210 sm:mt-230  sm:h-[300vh] h-[440vh] mx-auto p-4">
         <ContentSectionF items={sections} reverse />
         <div className="bg-gray-500 h-[400px] mt-15 ">
           <h1 className="text-xl sm:text-4xl text-center mt-10 p-10 sm:p-15">
