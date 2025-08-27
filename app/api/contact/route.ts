@@ -5,12 +5,15 @@ export async function POST(req: NextRequest) {
   const data = await req.json();
 
   const transporter = nodemailer.createTransport({
-    host: "smtp.gmail.com",
-    port: 465,
-    secure: true,
+    host: process.env.EMAIL_HOST,
+    port: Number(process.env.EMAIL_PORT),
+    secure: process.env.EMAIL_SECURE === "true", // false pour 587
     auth: {
       user: process.env.EMAIL_USER,
       pass: process.env.EMAIL_PASS,
+    },
+    tls: {
+      rejectUnauthorized: false, // utile si certificat non signé
     },
   });
 
@@ -97,7 +100,7 @@ export async function POST(req: NextRequest) {
     // Envoi au destinataire admin
     await transporter.sendMail({
       from: `"KTS Mobility Contact" <${process.env.EMAIL_USER}>`,
-      to: "jscinnamon7483@gmai.com",
+      to: process.env.EMAIL_USER,
       subject: `Contact Form: ${data.firstName} ${data.lastName}`,
       html: htmlContentAdmin,
     });
