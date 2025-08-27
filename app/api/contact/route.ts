@@ -1,9 +1,23 @@
 import nodemailer from "nodemailer";
 import { NextRequest, NextResponse } from "next/server";
 
+// Fonction utilitaire pour vérifier que l'email du client est correct
+function isValidEmail(email: string) {
+  const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  return regex.test(email);
+}
+
 export async function POST(req: NextRequest) {
   const data = await req.json();
 
+  if (!isValidEmail(data.email)) {
+    return NextResponse.json(
+      { message: "Invalid client email" },
+      { status: 400 }
+    );
+  }
+
+  // Configuration SMTP
   const transporter = nodemailer.createTransport({
     host: process.env.EMAIL_HOST,
     port: Number(process.env.EMAIL_PORT),
@@ -13,7 +27,7 @@ export async function POST(req: NextRequest) {
       pass: process.env.EMAIL_PASS,
     },
     tls: {
-      rejectUnauthorized: false, // utile si certificat non signé
+      rejectUnauthorized: false, // utile si certificat auto-signé
     },
   });
 
@@ -100,12 +114,13 @@ export async function POST(req: NextRequest) {
     // Envoi au destinataire admin
     await transporter.sendMail({
       from: `"KTS Mobility Contact" <${process.env.EMAIL_USER}>`,
-      to: process.env.EMAIL_USER,
+      to: process.env.EMAIL_USER, // ton email admin
+      replyTo: data.email, // pour répondre directement au client
       subject: `Contact Form: ${data.firstName} ${data.lastName}`,
       html: htmlContentAdmin,
     });
 
-    // Envoi au submitter
+    // Envoi au client
     await transporter.sendMail({
       from: `"KTS Mobility" <${process.env.EMAIL_USER}>`,
       to: data.email,
@@ -113,11 +128,15 @@ export async function POST(req: NextRequest) {
       html: htmlContentUser,
     });
 
-    return NextResponse.json({ message: "Emails sent successfully" });
-  } catch (error) {
-    console.error(error);
+    return NextResponse.json({ message: "✅ Emails sent successfully" });
+  } catch (error: unknown) {
+    console.error("❌ SMTP Error:", error);
+    const errorMessage =
+      typeof error === "object" && error !== null && "message" in error
+        ? (error as { message?: string }).message
+        : String(error);
     return NextResponse.json(
-      { message: "Failed to send emails" },
+      { message: "Failed to send emails", error: errorMessage },
       { status: 500 }
     );
   }
