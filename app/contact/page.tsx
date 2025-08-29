@@ -1,5 +1,11 @@
 import ContactForm from "@/components/ContactForm";
 
+export const metadata = {
+  title: "Contactez-Nous | KTS Mobility",
+  description:
+    "Contactez l'équipe KTS Mobility pour toute demande d'information ou pour souscrire à nos services de transport scolaire.",
+};
+
 export default function Contact() {
   return (
     <>

@@ -8,6 +8,12 @@ import { useEffect } from "react";
 import ContentOptimise from "@/components/contentOptimise";
 import HeroSection from "@/components/HeroSectionF";
 
+export const metadata = {
+  title: "À Propos | KTS Mobility - Experts en Transport Scolaire",
+  description:
+    "En savoir plus sur KTS Mobility, notre mission et nos valeurs pour un transport scolaire sécurisé et fiable.",
+};
+
 export default function CompanyPage() {
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -21,8 +27,8 @@ export default function CompanyPage() {
           smallText: "About Us",
           title: "We Move Kids Forward",
           description:
-            "Safe, reliable, and efficient transportation solutions.",
-          imageUrl: "/imagesc/p1.jpg",
+            "Our story started in 2017 when we, like many new parents, navigated the demands of our careers while trying to ensure our son had a safe and reliable journey to school. Balancing our busy schedules made this challenge even more daunting, but it wasn't just our struggle; it resonated with countless colleagues and fellow parents who shared the same concerns.In 2020, our vision transformed into reality as Kids Transportation Service was born. Driven by our instincts as parents and a deep commitment to safety and meticulous care, we set out to create more than just a transportation service. Our goal was to provide peace of mind for parents while delivering delightful and secure travel experiences for children, ensuring that every ride was safe and enjoyable.",
+          imageUrl: "/images/founded.png",
           stats: [
             { value: 85, suffix: "%", description: "Satisfaction clients" },
             { value: 3, suffix: "M+", description: "Enfants transportés" },
@@ -38,7 +44,7 @@ export default function CompanyPage() {
           smallText: "For Parents & Students",
           title: "A Completely New Experience Built Around Families' Needs",
           description:
-            "Zum delivers the peace of mind that comes from knowing where your kids are, and that they’re getting the safest, most reliable rides possible. A convenient app lets you see when the bus is coming, know your drivers, send feedback, and get your kids to school on-time and stress-free.",
+            "KTS Mobility delivers the peace of mind that comes from knowing where your kids are, and that they’re getting the safest, most reliable rides possible. A convenient app lets you see when the bus is coming, know your drivers, send feedback, and get your kids to school on-time and stress-free.",
           imageUrl: "/logos/logo3.jpg",
         },
       ],
@@ -142,23 +148,25 @@ export default function CompanyPage() {
         })}
       </div>
       <div className="bg-blue-500 h-[300px] sm:h-[600px] sm:mt-15 mt-45 p-2 sm:p-20">
-        <div className="sm:w-2xl mx-auto text-center">
+        <div className="sm:w-3xl mx-auto text-center">
           <h1 className="text-xl sm:text-5xl font-bold text-white">
-            “I have closely worked with the Zum team over the last 3 years, and
-            have observed first-hand the benefit of applying their technology to
-            solve our complex day-to-day operations needs.”
+            “I have closely worked with the KTS Mobility team over the last 3
+            years, and have observed first-hand the benefit of applying their
+            technology to solve our complex day-to-day operations needs.”
           </h1>
         </div>
         <div className="flex items-center justify-center gap-5 mt-10">
-          <Image
-            src="/logos/logo3.jpg"
-            alt="Logo"
-            width={100}
-            height={100}
-            className="rounded-3xl"
-          />
-          <div className="hidden sm:block border-r-2 border-black mx-4 h-auto" />
-          <p>John Doe, CEO of Zum</p>
+          <div className="rounded-full">
+            <Image
+              src="/images/Etah.png"
+              alt="Logo"
+              width={80}
+              height={80}
+              className="rounded-full object-covers"
+            />
+          </div>
+          <div className="hidden sm:block border border-b-2 h-15 border-black " />
+          <p>Etah Eno, CEO of KTS Mobility</p>
         </div>
       </div>
 
@@ -188,7 +196,7 @@ export default function CompanyPage() {
         <div className="flex flex-col md:flex-row items-center md:items-start gap-8">
           <div className="w-full md:w-1/2 flex justify-center">
             <Image
-              src="/pho.jpg"
+              src="/images/team.png"
               alt="Team"
               width={500}
               height={500}

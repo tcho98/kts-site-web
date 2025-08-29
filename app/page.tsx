@@ -12,6 +12,12 @@ import ImageTextCard from "@/components/ImageTextCard";
 import ReadyToStart from "@/components/ReadyToStart";
 import Award from "@/components/Award";
 
+export const metadata = {
+  title: "KTS Mobility | Transport Scolaire Fiable et Sécurisé",
+  description:
+    "KTS Mobility propose des solutions de transport scolaire fiables, sûres et efficaces pour les élèves. Offrez à vos enfants un trajet sécurisé chaque jour.",
+};
+
 export default function Home() {
   return (
     <>
@@ -32,10 +38,10 @@ export default function Home() {
             </p>
             <div className="px-8 mt-5 sm:px-8">
               <Link
-                href="#contact"
+                href="/experience"
                 className="bg-blue-400 text-black font-semibold px-8 sm:px-8 mt-5 py-2 rounded-3xl inline-block text-sm sm:text-base"
               >
-                What we offer
+                Experience KTS Mobility
               </Link>
             </div>
           </div>
@@ -91,15 +97,35 @@ export default function Home() {
 
           {/* Section avec les ValueSection */}
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mt-10">
-            {[...Array(4)].map((_, i) => (
-              <div
-                key={i}
-                className={`border-black ${i < 2 ? "" : ""} border-t py-6`}
-              >
+            {[
+              {
+                imageSRC: "/services/safety.webp",
+                altText: "Electric Service",
+                description: "An Integrated Platform for Safety & Transparency",
+              },
+              {
+                imageSRC: "/services/electric.webp",
+                altText: "Solar Service",
+                description:
+                  "Multi-Size Vehicle Fleets,Including Electric Vehicle",
+              },
+              {
+                imageSRC: "/services/stat.webp",
+                altText: "Plumbing Service",
+                description:
+                  "Peace of Mind With Real-Time Visibility and Transparency",
+              },
+              {
+                imageSRC: "/services/sustant.webp",
+                altText: "Heating Service",
+                description: "Efficient Heating Systems",
+              },
+            ].map((item, i) => (
+              <div key={i} className="border-black border-t py-6">
                 <ValueSection
-                  imageSRC="/val/value.png"
-                  altText="description image"
-                  description="An Integrated Platform for Safety & Transparency"
+                  imageSRC={item.imageSRC}
+                  altText={item.altText}
+                  description={item.description}
                 />
               </div>
             ))}
@@ -156,12 +182,12 @@ export default function Home() {
             </div>
 
             {/* Colonne image */}
-            <div className="w-full lg:w-[600px] p-1 flex justify-center items-center rounded-lg max-w-3xl mx-auto  lg:mx-0">
+            <div className="w-full lg:w-[500px]  p-1 flex justify-center items-center rounded-lg max-w-3xl mx-auto  lg:mx-0">
               <Image
-                src="/val/woman.jpg"
-                className="w-full max-w-full sm:max-w-full h-[400px] object-cover rounded-lg"
+                src="/images/peoplecard.png"
+                className="w-full max-w-full sm:max-w-full  object-cover rounded-lg"
                 width={400}
-                height={400}
+                height={100}
                 alt="Next.js logo"
                 loading="lazy" // Lazy load activé
                 placeholder="blur" // Placeholder flou activé
@@ -170,7 +196,7 @@ export default function Home() {
             </div>
           </div>
           {/* StatSession */}
-          <div className="py-10">
+          <div className="">
             <StatSession />
           </div>
         </div>
@@ -184,7 +210,7 @@ export default function Home() {
             {/* Image de fond avec overlay sombre */}
             <div
               className="absolute inset-0 bg-center bg-cover bg-no-repeat"
-              style={{ backgroundImage: "url('/val/child.png')" }}
+              style={{ backgroundImage: "url('/images/driver.png')" }}
             />
             <div className="absolute inset-0 bg-black/30" />{" "}
             {/* overlay sombre */}

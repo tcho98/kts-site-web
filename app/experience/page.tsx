@@ -4,6 +4,12 @@ import HeroSection from "@/components/HeroSectionF";
 import ReadyToStart from "@/components/ReadyToStart";
 import Image from "next/image";
 
+export const metadata = {
+  title: "Expérience | KTS Mobility - Transport Scolaire Fiable",
+  description:
+    "Découvrez l'expérience unique de KTS Mobility dans le transport scolaire sécurisé et fiable.",
+};
+
 export default function Home() {
   const sections = [
     {
@@ -40,20 +46,20 @@ export default function Home() {
         <ContentSectionF items={sections} reverse />
         <div className="bg-gray-500 h-[400px] mt-15 ">
           <h1 className="text-xl sm:text-4xl text-center mt-10 p-10 sm:p-15">
-            “I have closely worked with the Zum team over the last 3 years, and
-            have observed first-hand the benefit of applying their technology to
-            solve our complex day-to-day operations needs.”
+            “I have closely worked with the KTS Mobility team over the last 3
+            years, and have observed first-hand the benefit of applying their
+            technology to solve our complex day-to-day operations needs.”
           </h1>
           <div className="flex items-center justify-center gap-5 ">
             <Image
-              src="/logos/logo3.jpg"
+              src="/images/Etah.png"
               alt="Logo"
-              width={50}
-              height={50}
+              width={80}
+              height={80}
               className="rounded-3xl"
             />
-            <div className="hidden sm:block border-r-2 border-black mx-4 h-auto" />
-            <p> John Doe, CEO of Zum</p>
+            <div className="hidden sm:block border border-b-2 h-15 border-black " />
+            <p> Etah Eno, CEO of KTS Mobility</p>
           </div>
           <div className="md:mt-30 mt-10 ">
             <ContentSectionF items={sections} reverse />
@@ -66,13 +72,13 @@ export default function Home() {
             </h1>
             <div className=" flex items-center justify-center gap-5 ">
               <Image
-                src="/logos/logo3.jpg"
+                src="/images/Etah.png"
                 alt="Logo"
-                width={50}
-                height={50}
+                width={80}
+                height={80}
                 className="rounded-3xl"
               />
-              <div className="hidden sm:block border-r-2 border-black mx-4 h-auto" />
+              <div className="hidden sm:block border border-b-2 h-15 border-black " />
               <p className="text-black"> John Doe, CEO of Zum</p>
             </div>
           </div>

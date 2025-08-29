@@ -6,19 +6,19 @@ const Slides = [
     id: 1,
     image: "/imagesc/p1.jpg",
     title: "Welcome to KTS Mobility",
-    description: "Safe, reliable, and efficient transportation solutions.",
+    description: "For Parents & Students",
   },
   {
     id: 2,
     image: "/imagesc/p2.jpg",
     title: "Our Commitment",
-    description: "Ensuring student safety during daily commutes.",
+    description: "For Drivers & Operators",
   },
   {
     id: 3,
     image: "/imagesc/p3.jpg",
     title: "Join Us",
-    description: "Be part of a community that values safety and innovation.",
+    description: "For Schools & Districts",
   },
 ];
 
@@ -92,7 +92,7 @@ const CarousselBackground = () => {
             className="flex flex-col items-center text-center max-w-[150px]"
           >
             <p
-              className={`text-sm text-white mb-1 transition-opacity duration-300 ${
+              className={`text-xl text-white mb-1 transition-opacity duration-300 ${
                 activeIndex === index ? "opacity-100" : "opacity-60"
               }`}
             >

@@ -6,6 +6,12 @@ import NewPartnerSchool from "@/components/NewPartnerSchool";
 import InfoGridSection from "@/components/InfoGridSection";
 import HeroSection from "@/components/HeroSectionF";
 
+export const metadata = {
+  title: "Conducteurs | KTS Mobility - Transport Scolaire Professionnel",
+  description:
+    "Rejoignez notre équipe de conducteurs professionnels et contribuez à offrir un transport scolaire sécurisé et de qualité avec KTS Mobility.",
+};
+
 const sections = {
   title: "Hiring Now in Multiple Locations",
   description:
@@ -171,7 +177,7 @@ export default function DriversPage() {
           {/* Image */}
           <div className="w-md md:w-1/2 flex justify-center">
             <Image
-              src="/pho.jpg"
+              src="/images/team.png"
               alt="Logo"
               width={500}
               height={500}

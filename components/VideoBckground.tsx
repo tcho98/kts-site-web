@@ -13,7 +13,7 @@ export default function VideoBackground() {
     >
       {/* Image placeholder */}
       <Image
-        src="/pho.jpg"
+        src="/images/people.jpg"
         alt=""
         fill
         className={`object-cover absolute inset-0 transition-opacity duration-1000 ${

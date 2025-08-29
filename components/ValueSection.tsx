@@ -16,8 +16,8 @@ const ValueSection: React.FC<ValueSectionProps> = ({
         <Image
           src={imageSRC}
           alt={altText}
-          width={5}
-          height={5}
+          width={100}
+          height={100}
           className="object-cover w-full h-auto"
         />
       </div>

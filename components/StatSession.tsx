@@ -27,10 +27,7 @@ export default function StatsSection() {
   const { ref, inView } = useInView({ triggerOnce: true });
 
   return (
-    <div
-      ref={ref}
-      className=" text-black py-16 px-4 sm:px-8 max-w-[900px] mx-auto"
-    >
+    <div ref={ref} className=" text-black pb-25 py-5 px-4 sm:px-8  mx-auto">
       <div className="grid grid-cols-1 sm:grid-cols-3 gap-10 text-center">
         {stats.map((stat, i) => (
           <div key={i} className="flex flex-col items-center gap-2">
