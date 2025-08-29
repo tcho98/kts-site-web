@@ -7,12 +7,6 @@ import { useEffect } from "react";
 import ContentOptimise from "@/components/contentOptimise";
 import HeroSection from "@/components/HeroSectionF";
 
-export const metadata = {
-  title: "À Propos | KTS Mobility - Experts en Transport Scolaire",
-  description:
-    "En savoir plus sur KTS Mobility, notre mission et nos valeurs pour un transport scolaire sécurisé et fiable.",
-};
-
 export default function CompanyPage() {
   useEffect(() => {
     window.scrollTo(0, 0);
