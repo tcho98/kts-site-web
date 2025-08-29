@@ -1,4 +1,3 @@
-//"use client";
 import Image from "next/image";
 import ContentSection from "@/components/ContentSection";
 import ReadyToStart from "@/components/ReadyToStart";
