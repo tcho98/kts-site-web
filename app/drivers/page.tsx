@@ -68,7 +68,7 @@ export default function DriversPage() {
     <main className="bg-white overflow-x-hidden">
       <div className=" absolute left-0 right-0 top-16 z-0 ">
         <HeroSection
-          backgroundImage="/pho.jpg"
+          backgroundImage="/images/backdriver.png"
           title="Safe & Reliable School Transport"
           description="Providing safe, comfortable, and reliable transportation for children every day."
           buttonText="Learn More"

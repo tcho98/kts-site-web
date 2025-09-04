@@ -74,9 +74,9 @@ const ContentSection: React.FC<ContentSectionProps> = ({ items, reverse }) => {
               <Image
                 src={item.imageUrl}
                 alt={item.imageAlt || item.title}
-                width={500}
-                height={300}
-                className="rounded-lg object-cover shadow-lg"
+                width={600}
+                height={500}
+                className="rounded-lg object-cover "
               />
             </motion.div>
           </div>

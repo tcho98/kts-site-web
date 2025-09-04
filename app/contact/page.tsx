@@ -15,7 +15,8 @@ export default function Contact() {
             Contact Us
           </h1>
           <p className="text-white text-sm sm:text-lg  font-normal mt-6">
-            124.KTS Mobility, 1234 Street Douala, City, State, Zip Code
+            Office : 3rd Floor, AZICCUL Building,Feu Rouge Bessengue, Douala -
+            Cameroon
           </p>
         </div>
       </div>
@@ -26,9 +27,7 @@ export default function Contact() {
             <h1 className="text-4xl sm:text-5xl font-bold mt-6">
               We had Love To Hear From You
             </h1>
-            <p className="text-xl sm:text-2xl mt-10">
-              &quot;*&quot; indicates required fields
-            </p>
+            <p className="text-xl sm:text-2xl mt-10"></p>
           </div>
           <ContactForm />
         </div>

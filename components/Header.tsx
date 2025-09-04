@@ -33,9 +33,9 @@ const navItems = [
     title: "Services",
     path: "/#section1",
     items: [
-      { label: "Community", path: "/ressources/community" },
-      { label: "Our Blog", path: "/ressources/blog" },
-      { label: "Product Releases", path: "/ressources/product-releases" },
+      { label: "Community", path: "/#section1" },
+      { label: "Our Blog", path: "#section1" },
+      { label: "Product Releases", path: "#section1" },
     ],
   },
   {

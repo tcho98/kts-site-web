@@ -39,7 +39,7 @@ export default function CompanyPage() {
           title: "A Completely New Experience Built Around Families' Needs",
           description:
             "KTS Mobility delivers the peace of mind that comes from knowing where your kids are, and that they’re getting the safest, most reliable rides possible. A convenient app lets you see when the bus is coming, know your drivers, send feedback, and get your kids to school on-time and stress-free.",
-          imageUrl: "/logos/logo3.jpg",
+          imageUrl: "/images/parents.png",
         },
       ],
       reverse: true,
@@ -53,7 +53,7 @@ export default function CompanyPage() {
           title: "We Move Kids Forward",
           description:
             "Safe, reliable, and efficient transportation solutions.",
-          imageUrl: "/imagesc/p1.jpg",
+          imageUrl: "/images/drivers.png",
           stats: [
             { value: 4000, suffix: "", description: "Satisfaction clients" },
             { value: 3, suffix: "M+", description: "Enfants transportés" },
@@ -69,8 +69,8 @@ export default function CompanyPage() {
           smallText: "For Parents & Students",
           title: "A Completely New Experience Built Around Families' Needs",
           description:
-            "Zum delivers the peace of mind that comes from knowing where your kids are, and that they’re getting the safest, most reliable rides possible. A convenient app lets you see when the bus is coming, know your drivers, send feedback, and get your kids to school on-time and stress-free.",
-          imageUrl: "/logos/logo3.jpg",
+            "KTS Mobility delivers the peace of mind that comes from knowing where your kids are, and that they’re getting the safest, most reliable rides possible. A convenient app lets you see when the bus is coming, know your drivers, send feedback, and get your kids to school on-time and stress-free.",
+          imageUrl: "/images/works.png",
         },
       ],
       reverse: true,
@@ -115,7 +115,7 @@ export default function CompanyPage() {
     <main className="bg-gray-300  overflow-x-hidden">
       <div className=" absolute inset-0  z-0  top-18">
         <HeroSection
-          backgroundImage="/pho.jpg"
+          backgroundImage="/images/backcompany.png"
           title="Safe & Reliable School Transport"
           description="Providing safe, comfortable, and reliable transportation for children every day."
           buttonText="Learn More"
@@ -141,7 +141,7 @@ export default function CompanyPage() {
           }
         })}
       </div>
-      <div className="bg-blue-500 h-[300px] sm:h-[600px] sm:mt-15 mt-45 p-2 sm:p-20">
+      <div className="bg-blue-500 h-[300px] sm:h-[600px] sm:mt-15 mt-60 p-2 sm:p-20">
         <div className="sm:w-3xl mx-auto text-center">
           <h1 className="text-xl sm:text-5xl font-bold text-white">
             “I have closely worked with the KTS Mobility team over the last 3

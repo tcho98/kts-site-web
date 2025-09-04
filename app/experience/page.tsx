@@ -17,8 +17,8 @@ export default function Home() {
       smallText: "For Parents & Students",
       title: "A Completely New Experience Built Around Families' Needs",
       description:
-        "Zum delivers the peace of mind that comes from knowing where your kids are, and that they’re getting the safest, most reliable rides possible. A convenient app lets you see when the bus is coming, know your drivers, send feedback, and get your kids to school on-time and stress-free.",
-      imageUrl: "/logos/logo3.jpg",
+        "KTS Mobility delivers the peace of mind that comes from knowing where your kids are, and that they’re getting the safest, most reliable rides possible. A convenient app lets you see when the bus is coming, know your drivers, send feedback, and get your kids to school on-time and stress-free.",
+      imageUrl: "/images/parentex.jpg",
     },
     {
       id: 2,
@@ -26,13 +26,13 @@ export default function Home() {
       title:
         "An Integrated Platform Unites All Operations to Deliver the Best Possible Service ",
       description:
-        "Zum helps manage all aspects of operations to make it easy for drivers and operators to focus on what matters most: safe, efficient, and sustainable transportation. Deploying fleets of multi-size vehicles, we monitor vehicle health and driver performance, offer tools to manage staffing, and optimize routes for less miles on the road.",
-      imageUrl: "/logos/logo3.jpg",
+        "KTS Mobility helps manage all aspects of operations to make it easy for drivers and operators to focus on what matters most: safe, efficient, and sustainable transportation. Deploying fleets of multi-size vehicles, we monitor vehicle health and driver performance, offer tools to manage staffing, and optimize routes for less miles on the road.",
+      imageUrl: "/images/drivelo.jpg",
     },
   ];
 
   return (
-    <main className="  bg-gray-300 overflow-x-hidden ">
+    <main className="  bg-white overflow-x-hidden ">
       <div className=" absolute inset-0 z-0 top-18">
         <HeroSection
           backgroundImage="/pho.jpg"
@@ -42,7 +42,7 @@ export default function Home() {
           buttonLink="/about"
         />
       </div>
-      <div className="sm:max-w-7xl max-w-md mt-210 sm:mt-230  sm:h-[290vh] h-[500vh] mx-auto p-4">
+      <div className="sm:max-w-7xl max-w-md mt-210 sm:mt-230  sm:h-[340vh] h-[500vh] mx-auto p-4">
         <ContentSectionF items={sections} reverse />
         <div className="bg-gray-500 h-[400px] mt-15 ">
           <h1 className="text-xl sm:text-4xl text-center mt-10 p-10 sm:p-15">
@@ -65,7 +65,7 @@ export default function Home() {
             <ContentSectionF items={sections} reverse />
           </div>
 
-          <div className="bg-gray-300 sm:h-[200px]  mt-15 ">
+          <div className="bg-gray-300 sm:h-[400px]  mt-15 ">
             <h1 className="text-3xl text-black font-bold sm:text-5xl text-center mt-10 p-15">
               &quot;Let &apos;s act now to reinvent student transportation for
               the future that we want to live, learn and travel in.&quot;
