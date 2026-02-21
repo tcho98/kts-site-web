@@ -4,28 +4,26 @@ import ContentSection from "@/components/ContentSection";
 import ReadyToStart from "@/components/ReadyToStart";
 import ValuesGrid from "@/components/ValuesGrid";
 import Link from "next/link";
-import { useEffect } from "react";
 import ContentOptimise from "@/components/contentOptimise";
 import HeroSection from "@/components/HeroSectionF";
+import PickupLocations from "@/components/PickUpLocation";
 
 export default function CompanyPage() {
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, []);
+  
   const contentBlocks = [
     {
       type: "stats",
       items: [
         {
           id: 1,
-          smallText: "About Us",
+          smallText: "Story",
           title: "We Move Kids Forward",
           description:
-            "Our story started in 2017 when we, like many new parents, navigated the demands of our careers while trying to ensure our son had a safe and reliable journey to school. Balancing our busy schedules made this challenge even more daunting, but it wasn't just our struggle; it resonated with countless colleagues and fellow parents who shared the same concerns.In 2020, our vision transformed into reality as Kids Transportation Service was born. Driven by our instincts as parents and a deep commitment to safety and meticulous care, we set out to create more than just a transportation service. Our goal was to provide peace of mind for parents while delivering delightful and secure travel experiences for children, ensuring that every ride was safe and enjoyable.",
-          imageUrl: "/images/founded.png",
+            "KTS Mobility was Founded with Parents in Mind. Back in 2017, the seed for KTS Mobility was planted. As new parents juggling demanding careers, we faced a common dilemma – ensuring our son's safe, reliable, and comfortable journey to school amidst our busy schedules. This challenge wasn t ours alone; it also resonated with many colleagues and fellow parents. In 2020, KTS Mobility came to life, fueled by our parental instincts and a commitment to safety and meticulousness. Our aim was not just to create a transportation service but to offer peace of mind to parents while offering delightful, secure travel experiences for children. Today, we are privileged to connect with hundreds of parents, kids and schools every day. (Use my single picture)",
+          imageUrl: "/images/foundator.JPEG",
           stats: [
-            { value: 85, suffix: "%", description: "Satisfaction clients" },
-            { value: 3, suffix: "M+", description: "Enfants transportés" },
+            { value: 95, suffix: "%", description: "Client Satisfaction" },
+            { value: 80, suffix: "%", description: "Retention Rate" },
           ],
         },
       ],
@@ -55,8 +53,8 @@ export default function CompanyPage() {
             "Safe, reliable, and efficient transportation solutions.",
           imageUrl: "/images/drivers.png",
           stats: [
-            { value: 4000, suffix: "", description: "Satisfaction clients" },
-            { value: 3, suffix: "M+", description: "Enfants transportés" },
+            { value: 97, suffix: "%", description: " Client Satisfaction" },
+            { value: 25, suffix: "%", description: "Reduction in Transit Time" },
           ],
         },
       ],
@@ -67,10 +65,10 @@ export default function CompanyPage() {
         {
           id: 1,
           smallText: "For Parents & Students",
-          title: "A Completely New Experience Built Around Families' Needs",
+          title: "Dedicated Experts Behind Every Journey",
           description:
-            "KTS Mobility delivers the peace of mind that comes from knowing where your kids are, and that they’re getting the safest, most reliable rides possible. A convenient app lets you see when the bus is coming, know your drivers, send feedback, and get your kids to school on-time and stress-free.",
-          imageUrl: "/images/works.png",
+            "At KTS Mobility, every ride is carefully monitored by a team of passionate professionals committed to excellence. From our operations center, our experts track routes in real time, coordinate drivers, and ensure that every child’s journey is smooth and secure.With advanced technology and a deep sense of responsibility, our team works tirelessly behind the scenes to deliver precision, responsiveness, and peace of mind to families every day.",
+          imageUrl: "/images/expert.JPG",
         },
       ],
       reverse: true,
@@ -111,20 +109,35 @@ export default function CompanyPage() {
     },
   ];
 
+ const sections = {
+  title: "Why work with us ",
+  description:
+    "",
+  locations: [
+    " We deliver the peace of mind that comes from knowing where your kids are at any given time, and that hey are getting the safest and most reliable rides possible. Our technology lets you see when the bus is coming, know your drivers, send feedback, and gets kids to school on time and stress free",
+    "We manage all aspects of operations so the parents and school can focus on their core business, monitor vehicle health and driver performance, and optimize routes so that kids spend less time on the road.",
+    "Our technology and multi-sized vehicle approach helps reduce costs and increase efficiency by optimizing routes resulting in reduced transit time. Thereby saving parents and schools money so they can invest more in education.",
+    "Sustainable transportation reduces traffic congestion, noise pollution and the kids enjoy cleaner and healthier air, securing a better and healthier future for them.",
+    "The safety and security of every child is at the core of our business. All drivers are subject to comprehensive background checks and First-aid training. The vehicles are thoroughly Verified and insured.",
+
+  ],
+  };
+
   return (
     <main className="bg-gray-300  overflow-x-hidden">
       <div className=" absolute inset-0  z-0  top-18">
         <HeroSection
-          backgroundImage="/images/backcompany.png"
-          title="Safe & Reliable School Transport"
-          description="Providing safe, comfortable, and reliable transportation for children every day."
-          buttonText="Learn More"
-          buttonLink="/about"
+          backgroundImage="/images/company.webp"
+          title=" School bus and Passenger van rentals."
+             
+          description="Book a rental and plan your next trip. Email us at : info@ktsmobility.com or Call us at (+237) 640204282"
+         
+          
         />
       </div>
       <div
-        id="#section3"
-        className="sm:max-w-7xl max-w-md sm:h-[220vh] h-[330vh]  mt-220  mx-auto p-4"
+        id="#story"
+        className="sm:max-w-7xl max-w-md sm:mt-200 mt-170  mx-auto "
       >
         {contentBlocks.map((block, idx) => {
           if (block.type === "stats") {
@@ -141,52 +154,62 @@ export default function CompanyPage() {
           }
         })}
       </div>
-      <div className="bg-blue-500 h-[300px] sm:h-[600px] sm:mt-15 mt-60 p-2 sm:p-20">
-        <div className="sm:w-3xl mx-auto text-center">
-          <h1 className="text-xl sm:text-5xl font-bold text-white">
-            “I have closely worked with the KTS Mobility team over the last 3
-            years, and have observed first-hand the benefit of applying their
-            technology to solve our complex day-to-day operations needs.”
-          </h1>
-        </div>
-        <div className="flex items-center justify-center gap-5 mt-10">
-          <div className="rounded-full">
-            <Image
-              src="/images/Etah.png"
-              alt="Logo"
-              width={80}
-              height={80}
-              className="rounded-full object-covers"
-            />
-          </div>
-          <div className="hidden sm:block border border-b-2 h-15 border-black " />
-          <p>Etah Eno, CEO of KTS Mobility</p>
-        </div>
+      <div className="bg-blue-500 flex flex-col justify-center items-center text-white text-center p-15  mt-25 ">
+            <h1 className="w-sm sm:w-5xl text-3xl sm:text-4xl">
+              ”C’est nous qui vous remercions pour le grand soulagement que votre service nous a apporter tout au long de cette 
+                      année scolaire. Ma femme est moi n’avions jamais été en paix comme cette année car votre équipe est super 
+              professionnel et ponctuel Nous vous remercions une fois de plus. ”
+            </h1>
+            <h4 className="mt-7 text-xl ">Mr. Moustapha</h4>
+            <p> Douala</p>
+            <br />
+              <h1 className="w-sm sm:w-xl text-3xl sm:text-4xl">
+              ”Thanks, KTS team for taking good care of the kids.  ”
+            </h1>
+            <h4 className="mt-7 text-xl ">Mrs. Nji</h4>
+            <p> Douala</p>
+            <br />
+            <h1 className="w-sm sm:w-xl text-3xl sm:text-4xl">
+              ”The kids expressed their Gratitude for the excellent service, and they are looking forward to next academic year ”
+            </h1>
+            <h4 className="mt-7 text-xl ">Mrs. Laura M</h4>
+            <p> Douala</p>
+            <br />
+            <h1 className="w-sm sm:w-xl text-3xl sm:text-4xl">
+              ”We are so blessed by the quality of your services and your staff. The kids enjoyed every ride to school, and we are 
+                looking forward to working with them again. ”
+            </h1>
+            <h4 className="mt-7 text-xl ">Mrs. Mrs. Jamba D</h4>
+            <p> Douala</p>
+
+      </div>
+      <div className="bg-yellow-300">
+        <PickupLocations {...sections}/>
       </div>
 
-      <div id="section2" className="sm:max-w-5xl max-w-lg mx-auto p-4">
-        <h1 className="text-2xl font-bold text-center mt-10 mb-5">
+      <section className="sm:max-w-5xl max-w-lg mx-auto p-4">
+        <h1 className="text-3xl text-gray-700 font-bold text-center mt-10 mb-5" id="mission">
           Our Mission
         </h1>
         <p className="text-center text-gray-700 text-4xl font-bold">
-          Our mission is to provide safe, comfortable and reliable
-          transportation services for children in Cameroon, while contributing
-          to road safety and the quality of life of Cameroonian families.
+         Partnering with parents to provide safe, reliable, 
+         and high-quality mobility and education services together 
+         with customized concierge solutions that give them freedom and flexibility in the management of their kids.
         </p>
-      </div>
+      </section>
 
-      <div
-        id="section4"
-        className="sm:max-w-7xl max-w-lg mx-auto p-4 bg-white mt-30"
+      <section
+        
+        className="sm:max-w-7xl max-w-lg mx-auto p-4 bg-white mt-10"
       >
-        <p className="text-center text-black">Our Values</p>
+        <p className="text-center text-black font-bold lg:text-3xl" id="values">Our Values</p>
         <h1 className="text-3xl sm:text-5xl text-black font-bold text-center mt-10 mb-5">
           We Are Driven to Serve
         </h1>
         <ValuesGrid items={values} />
-      </div>
+      </section>
 
-      <div className="max-w-7xl mx-auto pt-18 pb-18 mt-18">
+      <div className="max-w-7xl mx-auto sm:p-18 p-5 mt-18">
         <div className="flex flex-col md:flex-row items-center md:items-start gap-8">
           <div className="w-full md:w-1/2 flex justify-center">
             <Image
@@ -197,14 +220,16 @@ export default function CompanyPage() {
               className="rounded-3xl object-cover w-full h-auto"
             />
           </div>
-          <div
-            id="section5"
-            className="w-full md:w-1/2 text-center md:text-left"
+          <section
+            className="w-full md:w-1/2 text-center md:text-left" id="team"
           >
             <h1 className="text-3xl sm:text-5xl font-bold mb-5">Our Team</h1>
             <p className="text-gray-700 text-lg sm:text-xl">
-              Meet the dedicated team behind KTS Mobility, committed to ensuring
-              safe and reliable transportation for children.
+             Our employees, who we call partners, are at the heart of the business. 
+             Every person in our organization is dedicated to helping kids get to their full potential.
+              We’re seasoned professionals, caring parents, 
+              and committed advocates that believe we can make a difference by eliminating transportation challenges as a barrier to opportunity.
+              (use KTS Group Picture with drivers)
             </p>
             <Link
               href="#contact"
@@ -212,7 +237,7 @@ export default function CompanyPage() {
             >
               Join Us
             </Link>
-          </div>
+          </section>
         </div>
       </div>
 

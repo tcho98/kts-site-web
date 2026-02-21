@@ -19,25 +19,25 @@ export default function ImageTextCard({
   return (
     <div className="flex flex-col bg-gray-200 items-center justify-start shadow-lg overflow-hidden">
       {/* Bloc image */}
-      <div className="w-full bg-blue-400 p-10">
+      <div className="w-full  ">
         <Image
           src={imageSrc}
           alt={imageAlt}
-          width={300}
+          width={600}
           height={300}
           className="w-full h-auto object-contain"
         />
       </div>
 
       {/* Séparateur */}
-      <hr className="w-full border-gray-700" />
+      <hr className="w-full border-white py-1" />
 
       {/* Bloc texte entièrement cliquable */}
       <Link
         href={linkHref}
         className="w-full bg-blue-400 p-4 hover:bg-blue-500 transition-colors"
       >
-        <p className="text-gray-800 text-center text-sm">{description}</p>
+        <p className="text-gray-800 font-bold text-center text-md">{description}</p>
       </Link>
     </div>
   );

@@ -11,41 +11,39 @@ const navItems = [
   {
     title: "Experience",
     path: "/experience",
-    items: [{ label: "Our Solution", path: "/experience/our-solution" }],
+    items: [{ label: "Our Solution", path: "#" }],
   },
 
   {
     title: "Parent",
-    path: "/parent",
+    path: "/#section2",
     items: [
-      { label: "How It Work", path: "/parent/how-it-work" },
-      { label: "Parent Reviews", path: "/parent/reviews" },
+      
     ],
   },
   {
     title: "Drivers",
     path: "/drivers",
     items: [
-      { label: "Bus Driver and Bus Depot Careers", path: "/drivers/careers" },
+      
     ],
   },
   {
     title: "Services",
     path: "/#section1",
     items: [
-      { label: "Community", path: "/#section1" },
-      { label: "Our Blog", path: "#section1" },
-      { label: "Product Releases", path: "#section1" },
+  
     ],
   },
   {
     title: "Company",
     path: "/company",
     items: [
-      { label: "Our Story", path: "#section3" },
-      { label: "Our Vision", path: "#section4" },
-      { label: "Our Mission", path: "#section2" },
-      { label: "Our Team", path: "#section5" },
+      { label: "Our Story", path: "/company#story" },
+      { label: "Our Values", path: "/company#values" },
+      { label: "Our Mission", path: "/company#mission" },
+      { label: "Our Team", path: "/company#team" },
+
     ],
   },
 ];

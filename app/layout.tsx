@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Geist, Geist_Mono } from 'next/font/google'
 import "./globals.css";
-
+import "react-international-phone/style.css";
 import Footer from "@/components/Footer";
 import Header from "@/components/Header";
 import Branding from "@/components/Branding";
@@ -40,7 +40,7 @@ export const metadata: Metadata = {
     siteName: "KTS Mobility",
     images: [
       {
-        url: "https://www.ktsmobility.com/images/og-image.jpg", // à créer et héberger
+        url: "https://www.ktsmobility.com/logo1.PNG", // à créer et héberger
         width: 1200,
         height: 630,
         alt: "Bus scolaire sécurisé avec des élèves heureux",
@@ -54,8 +54,9 @@ export const metadata: Metadata = {
     title: "KTS Mobility | Transport Scolaire Fiable et Sécurisé",
     description:
       "Transport scolaire sécurisé et fiable pour les élèves, assuré par KTS Mobility.",
-    images: ["https://www.ktsmobility.com/images/og-image.jpg"],
+    images: ["https://x.com/rideKTS?s=20"],
   },
+  
 };
 
 export default function RootLayout({
@@ -64,7 +65,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="fr">
+    <html lang="fr" className="scroll-smooth">
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased `}
       >

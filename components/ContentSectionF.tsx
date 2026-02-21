@@ -8,6 +8,7 @@ type ContentItem = {
   smallText: string;
   title: string;
   description: string;
+  services?: string[];
   imageUrl: string;
   imageAlt?: string;
 };
@@ -61,6 +62,17 @@ const ContentSection: React.FC<ContentSectionProps> = ({ items, reverse }) => {
                 {item.title}
               </h1>
               <p className="text-black mt-4">{item.description}</p>
+
+              {/* Services (optionnels) */}
+              {item.services && item.services.length > 0 && (
+                <ul className="mt-4 list-disc pl-6 space-y-2 text-black/80 sm:text-lg">
+                  {item.services.map((service, i) => (
+                    <li key={i}>{service}</li>
+                  ))}
+                </ul>
+              )}
+          
+
             </motion.div>
 
             {/* Image */}

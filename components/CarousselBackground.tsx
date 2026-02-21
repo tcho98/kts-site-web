@@ -4,21 +4,24 @@ import { useEffect, useState } from "react";
 const Slides = [
   {
     id: 1,
-    image: "/imagesc/p1.jpg",
-    title: "Welcome to KTS Mobility",
+    image: "/images/parent.PNG",
+    title: "Safe and Connected School  Transportation Your Children ",
     description: "For Parents & Students",
+    text: "Easy registration, real-time tracking, and secure payements. stay in control and enjoy peace of mind every trip."
   },
   {
     id: 2,
-    image: "/imagesc/p2.jpg",
-    title: "Our Commitment",
+    image: "/images/EX.PNG",
+    title: "A Smart Dashboard for Efficient Management",
     description: "For Drivers & Operators",
+    text: "Manage routes, students, and schedules from one centralized platform designed for safety and efficiency."
   },
   {
     id: 3,
-    image: "/imagesc/p3.jpg",
-    title: "Join Us",
+    image: "/images/school.png",
+    title: "A Smart School Transport Solution for Your City",
     description: "For Schools & Districts",
+    text: "Optimized route planning and school mapping to ensure reliable and well-structured transportation."
   },
 ];
 
@@ -58,34 +61,36 @@ const CarousselBackground = () => {
       <div
         className="
           absolute 
-          z-20 
+          z-10 
           max-w-7xl 
-          sm:px-10 
+          sm:px-0 
           text-2xl 
-          lg:px-10 
+          lg:px-4 
           flex 
           items-center 
           text-white 
           w-full
-          sm:top-[25%] 
-          top-[65%]
-          sm:left-[8%] 
+          sm:top-[50%] 
+     
+          top-[45%]
+          sm:left-[0%] 
           left-[5%]
         "
       >
-        <div className="sm:max-w-3xl max-w-sm sm:mx-auto mx-2">
-          <h1 className="text-[2rem] sm:text-[4.5rem] font-bold">
-            We Move Kids Forward
+        <div className="sm:max-w-3xl max-w-sm  sm:mx-auto mx-2">
+          <h1 className="text-[2rem] color-blue-300 sm:text-[2.5rem] font-bold">
+          
+             {Slides[activeIndex]?.title}
           </h1>
-          <p className="mt-4 text-sm sm:text-lg">
-            This is a simple Next.js application. This is a simple Next.js
-            application.
+          <p className="mt-4 text-sm sm:text-xl">
+            
+            {Slides[activeIndex]?.text}
           </p>
         </div>
       </div>
 
       {/* Navigation desktop */}
-      <div className="absolute bottom-8 w-full hidden sm:flex justify-between items-end px-90 z-20">
+      <div className="absolute bottom-8 w-full hidden sm:flex justify-between items-end px-70 z-20">
         {Slides.map((slide, index) => (
           <div
             key={slide.id}

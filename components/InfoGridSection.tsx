@@ -24,7 +24,7 @@ const InfoGridSection: React.FC<InfoGridSectionProps> = ({
   return (
     <section className="max-w-7xl mx-auto px-6 py-12">
       {/* Texte d'introduction */}
-      <p className="text-sm text-gray-500 text-center">{introText}</p>
+      <p className="text-sm lg:text-2xl text-gray-500 text-center">{introText}</p>
 
       {/* Titre */}
       <h1 className="text-3xl md:text-4xl text-black font-bold text-center mt-12">
@@ -32,7 +32,7 @@ const InfoGridSection: React.FC<InfoGridSectionProps> = ({
       </h1>
 
       {/* Description */}
-      <p className="text-gray-600 text-center max-w-2xl mx-auto mt-8">
+      <p className="text-gray-600 text-xl text-center max-w-2xl mx-auto mt-8">
         {description}
       </p>
 

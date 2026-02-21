@@ -7,40 +7,40 @@ const navItems = [
   {
     title: "Experience",
     path: "/experience",
-    items: [{ label: "Our Solution", path: "/experience/our-solution" }],
+    items: [{ label: "Our Solution", path: "#" }],
   },
 
   {
     title: "Parent",
-    path: "/parent",
+    path: "/#section2",
     items: [
-      { label: "How It Work", path: "/parent/how-it-work" },
-      { label: "Parent Reviews", path: "/parent/reviews" },
+      { label: "How It Work", path: "#" },
+      { label: "Parent Reviews", path: "#" },
     ],
   },
   {
     title: "Drivers",
     path: "/drivers",
     items: [
-      { label: "Bus Driver and Bus Depot Careers", path: "/drivers/careers" },
+      { label: "Bus Driver and Bus Depot Careers", path: "#" },
     ],
   },
   {
     title: "Services",
     path: "/#section1",
     items: [
-      { label: "Community", path: "/ressources/community" },
-      { label: "Our Blog", path: "/ressources/blog" },
+      { label: "Community", path: "#" },
+      { label: "Our Blog", path: "#" },
     ],
   },
   {
     title: "Company",
     path: "/company",
     items: [
-      { label: "Our Story", path: "/section3" },
-      { label: "Our Vision", path: "/section4" },
-      { label: "Our Mission", path: "/#section2" },
-      { label: "Our Team", path: "/#section5" },
+      { label: "Our Story", path: "/comapny#story" },
+      { label: "Our Vision", path: "/company#value" },
+      { label: "Our Mission", path: "/company#mission" },
+      { label: "Our Team", path: "/comapany#team" },
     ],
   },
 ];
@@ -66,28 +66,28 @@ export default function Footer() {
           </p>
           <div className="flex space-x-10 mt-7 sm:mt-15">
             <Link
-              href="#"
+              href="https://web.facebook.com/KidsTransportationService"
               aria-label="Facebook"
               className="hover:text-blue-500 transition-colors"
             >
               <Facebook size={28} />
             </Link>
             <Link
-              href="#"
+              href="https://x.com/rideKTS?s=20"
               aria-label="Twitter"
               className="hover:text-sky-400 transition-colors"
             >
               <Twitter size={28} />
             </Link>
             <Link
-              href="#"
+              href="https://www.linkedin.com/company/ktsmobility/"
               aria-label="LinkedIn"
               className="hover:text-blue-400 transition-colors"
             >
               <Linkedin size={28} />
             </Link>
             <Link
-              href="#"
+              href="https://www.instagram.com/kts_mobility?igsh=NXFnejlvYTFqYzFo%0A"
               aria-label="Instagram"
               className="hover:text-pink-400 transition-colors"
             >
@@ -96,7 +96,7 @@ export default function Footer() {
           </div>
           <Link
             href="/contact"
-            className="inline-block mt-10 bg-gray-300 text-black font-semibold px-15 py-2 rounded-3xl hover:bg-white transition-colors"
+            className="inline-block mt-10 bg-white text-black font-semibold px-15 py-2 rounded-3xl hover:bg-blue-400 transition-colors"
           >
             Contact Us
           </Link>
@@ -138,16 +138,16 @@ export default function Footer() {
       <div className="max-w-7xl mx-auto mt-10 pt-6 border-t border-gray-700 flex flex-col sm:flex-row justify-between items-center text-gray-400 text-sm">
         <div className="flex space-x-6 mb-4 sm:mb-0">
           <Link
-            href="/privacy-policy"
+            href="#"
             className="hover:text-white transition-colors"
           >
             Privacy Policy
           </Link>
-          <Link href="/terms" className="hover:text-white transition-colors">
+          <Link href="#" className="hover:text-white transition-colors">
             Terms & Conditions
           </Link>
         </div>
-        <p>© 2025 Zum Services, Inc. All rights reserved.</p>
+        <p>© 2025 KTS Mobility Services, Inc. All rights reserved.</p>
       </div>
     </footer>
   );

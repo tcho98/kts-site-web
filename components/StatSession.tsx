@@ -5,19 +5,19 @@ import { useInView } from "react-intersection-observer";
 const stats = [
   {
     label: "Enrolled Students",
-    value: 300000,
+    value: 3,
     suffix: "k+",
     barPercent: 100,
   },
   {
     label: "Cost Savings",
-    value: 10,
+    value: 20,
     suffix: "%",
     barPercent: 33,
   },
   {
-    label: "Fewer Buses",
-    value: 25,
+    label: "Reduction in CO2 Emissions",
+    value: 10,
     suffix: "%",
     barPercent: 80,
   },
@@ -43,10 +43,10 @@ export default function StatsSection() {
                 "0" + stat.suffix
               )}
             </div>
-            <div className="text-sm text-gray-600">{stat.label}</div>
+            <div className="text-sm text-black">{stat.label}</div>
 
             {/* Barre visuelle */}
-            <div className="w-full h-2 bg-gray-200 rounded-full mt-2">
+            <div className="w-full h-2 bg-gray-400 rounded-full mt-2">
               <div
                 className="h-full bg-blue-500 rounded-full transition-all duration-1000"
                 style={{

@@ -1,11 +1,12 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useMemo, useState } from "react";
+import { PhoneInput } from "react-international-phone";
+
+const E164_REGEX = /^\+[1-9]\d{7,14}$/; // format international strict
 
 const ContactForm = () => {
   const [formData, setFormData] = useState({
-    department: "",
-    interest: "",
     firstName: "",
     lastName: "",
     organization: "",
@@ -16,6 +17,12 @@ const ContactForm = () => {
   });
 
   const [showSuccess, setShowSuccess] = useState(false);
+  const [loading, setLoading] = useState(false);
+
+  const phoneIsValid = useMemo(() => {
+    if (!formData.phone) return true; // si phone optionnel
+    return E164_REGEX.test(formData.phone);
+  }, [formData.phone]);
 
   const handleChange = (
     e: React.ChangeEvent<
@@ -26,21 +33,32 @@ const ContactForm = () => {
     setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
+    // bloque l'envoi si numéro invalide
+    if (!phoneIsValid) {
+      alert("❌ Please enter a valid international phone number (e.g. +14155552671).");
+      return;
+    }
+
+    setLoading(true);
+
     try {
+      const form = e.currentTarget;
+      const payload = Object.fromEntries(new FormData(form));
+
       const res = await fetch("/api/contact", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(formData),
+        body: JSON.stringify(payload),
       });
 
       if (res.ok) {
         setShowSuccess(true);
+        form.reset();
+
         setFormData({
-          department: "",
-          interest: "",
           firstName: "",
           lastName: "",
           organization: "",
@@ -49,19 +67,21 @@ const ContactForm = () => {
           phone: "",
           note: "",
         });
-        setTimeout(() => setShowSuccess(false), 3000); // disparaît après 3s
+
+        setTimeout(() => setShowSuccess(false), 3000);
       } else {
         alert("❌ Failed to send message.");
       }
-    } catch (err) {
-      console.error(err);
+    } catch (error) {
+      console.error(error);
       alert("❌ An error occurred.");
+    } finally {
+      setLoading(false);
     }
   };
 
   return (
     <div className="relative">
-      {/* Notification succès */}
       {showSuccess && (
         <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-40 z-50">
           <div className="bg-white rounded-xl shadow-lg p-8 text-center animate-fade-in-up">
@@ -74,62 +94,11 @@ const ContactForm = () => {
         </div>
       )}
 
-      {/* Formulaire */}
       <form
         onSubmit={handleSubmit}
         className="sm:max-w-5xl max-w-md mx-auto p-4 text-start space-y-4"
       >
         <div className="grid grid-cols-1 md:grid-cols-1 gap-4">
-          {/* Select Department */}
-          <div>
-            <label className="block text-xl font-medium mb-1">Department</label>
-            <select
-              name="department"
-              onChange={handleChange}
-              value={formData.department}
-              className="w-full border-2 rounded p-5 hover:border-blue-500 focus:border-blue-500 outline-none transition"
-              required
-            >
-              <option value="">Select department</option>
-              <option value="sales">Sales</option>
-              <option value="recruiting">Recruiting</option>
-              <option value="pr">PR</option>
-              <option value="vendor relations">Vendor Relations</option>
-              <option value="marketing">Marketing</option>
-              <option value="support">Support</option>
-            </select>
-          </div>
-
-          {/* Select Interest */}
-          <div>
-            <label className="block text-xl font-medium mb-1">Interest</label>
-            <select
-              name="interest"
-              onChange={handleChange}
-              value={formData.interest}
-              className="w-full border-2 rounded p-5 hover:border-blue-500 focus:border-blue-500 outline-none transition"
-              required
-            >
-              <option value="">Select interest</option>
-              <option value="home to school">Home to School</option>
-              <option value="special education transportation">
-                Special Education Transportation
-              </option>
-              <option value="transportation technology">
-                Transportation Technology
-              </option>
-              <option value="charter">Charter</option>
-              <option value="athletic">Athletic</option>
-              <option value="field trip transportation">
-                Field Trip Transportation
-              </option>
-              <option value="vendor partnership">
-                I&quote;m a vendor interested in partnering with KTS Mobility
-              </option>
-            </select>
-          </div>
-
-          {/* First Name */}
           <div>
             <label className="block text-xl font-medium mb-1">First Name</label>
             <input
@@ -142,7 +111,6 @@ const ContactForm = () => {
             />
           </div>
 
-          {/* Last Name */}
           <div>
             <label className="block text-xl font-medium mb-1">Last Name</label>
             <input
@@ -155,11 +123,8 @@ const ContactForm = () => {
             />
           </div>
 
-          {/* Organization */}
           <div>
-            <label className="block text-xl font-medium mb-1">
-              Organization
-            </label>
+            <label className="block text-xl font-medium mb-1">Organization</label>
             <input
               type="text"
               name="organization"
@@ -169,7 +134,6 @@ const ContactForm = () => {
             />
           </div>
 
-          {/* Email */}
           <div>
             <label className="block text-xl font-medium mb-1">Email</label>
             <input
@@ -182,11 +146,8 @@ const ContactForm = () => {
             />
           </div>
 
-          {/* Title/Role */}
           <div>
-            <label className="block text-xl font-medium mb-1">
-              Title / Role
-            </label>
+            <label className="block text-xl font-medium mb-1">Title / Role</label>
             <input
               type="text"
               name="title"
@@ -198,20 +159,31 @@ const ContactForm = () => {
 
           {/* Phone */}
           <div>
-            <label className="block text-xl font-medium mb-1">
-              Phone Number
-            </label>
-            <input
-              type="tel"
-              name="phone"
+            <label className="block text-xl font-medium mb-1">Phone Number</label>
+
+            <PhoneInput
+              defaultCountry="cm"
               value={formData.phone}
-              onChange={handleChange}
-              className="w-full border-2 rounded p-4 hover:border-blue-500 focus:border-blue-500 outline-none transition"
+              onChange={(phone) => setFormData((p) => ({ ...p, phone }))}
+              className="w-full"
+              inputClassName="w-full border-2 rounded p-4 hover:border-blue-500 focus:border-blue-500 outline-none transition"
             />
+
+            {/* IMPORTANT: garantit que FormData envoie "phone" */}
+            <input type="hidden" name="phone" value={formData.phone} />
+
+            {!phoneIsValid && (
+              <p className="text-sm text-red-600 mt-2">
+                Please enter a valid international number (example: +14155552671).
+              </p>
+            )}
+
+            <p className="text-sm text-gray-500 mt-2">
+              Use international format (country code included).
+            </p>
           </div>
         </div>
 
-        {/* Note */}
         <div>
           <label className="block text-xl font-medium mb-1">Note</label>
           <textarea
@@ -220,16 +192,16 @@ const ContactForm = () => {
             onChange={handleChange}
             className="w-full border-2 rounded p-8 hover:border-blue-500 focus:border-blue-500 outline-none transition"
             rows={8}
-          ></textarea>
+          />
         </div>
 
-        {/* Submit Button */}
         <div className="border-t pt-4 mt-20 border-gray-500 h-[200px]">
           <button
             type="submit"
-            className="bg-blue-600 hover:bg-blue-700 text-white font-semibold px-15 py-3 mt-2 rounded-full"
+            disabled={loading || !phoneIsValid}
+            className="bg-blue-600 hover:bg-blue-700 disabled:opacity-60 disabled:cursor-not-allowed text-white font-semibold px-15 py-3 mt-2 rounded-full"
           >
-            Submit
+            {loading ? "Sending..." : "Submit"}
           </button>
 
           <p className="text-xl mt-8">
@@ -239,7 +211,6 @@ const ContactForm = () => {
         </div>
       </form>
 
-      {/* Animation Tailwind (à ajouter dans global.css ou styles.css) */}
       <style jsx>{`
         @keyframes fadeInUp {
           from {

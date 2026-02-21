@@ -6,7 +6,7 @@ import Image from "next/image";
 import CarousselBackground from "@/components/CarousselBackground";
 import StatSession from "@/components/StatSession";
 import ScrollingCarousel from "@/components/ScrollingCarousselle";
-
+import ImageMosaic from "@/components/ImageMosaic";
 import ImageTextCard from "@/components/ImageTextCard";
 
 import ReadyToStart from "@/components/ReadyToStart";
@@ -32,9 +32,8 @@ export default function Home() {
             <h1 className="text-[2rem] px-8 sm:text-[4.5rem] font-bold">
               We Move Kids Forward
             </h1>
-            <p className="mt-4 px-8 w-[500px] text-sm sm:text-lg ">
-              This is a simple Next.js application.This is a simple Next.js
-              application.This is a simple Next.js application.
+            <p className="mt-4 px-8 w-[600px] text-sm sm:text-xl ">
+              Safe, Reliable and Efficient student transportation solution..
             </p>
             <div className="px-8 mt-5 sm:px-8">
               <Link
@@ -52,31 +51,34 @@ export default function Home() {
           <Award
             name="Central Africa Startup Awards"
             pdfUrl="/awards/cert.pdf"
-            logoUrl="/Clm.webp"
+            logoUrl="/awards/Clm.webp"
             count={1}
           />
         </div>
       </div>
-      <div id="section1" className="h-full bg-blue-500 py-10">
-        <div className="z-50 max-w-7xl mx-auto w-full px-4 sm:px-6 lg:px-8">
+      <div id="section1" className="h-full w-full bg-white py-10 p-5">
+        <div className="z-50 max-w-7xl lg:mt-10 mx-auto w-full px-4 sm:px-16 lg:px-8">
           {/* Titre de section */}
-          <p className="pt-10 text-white text-xl sm:text-2xl">Our service</p>
+          <p className="pt-10 text-black text-xl sm:text-[3rem]">Our service</p>
 
           {/* Partie texte + image */}
           <div className="flex flex-col lg:flex-row gap-10 mt-10">
             {/* Bloc Texte */}
             <div className="flex flex-col gap-y-7 lg:w-[600px] w-full">
-              <h1 className="text-4xl sm:text-5xl lg:text-7xl text-white font-bold">
-                As Brilliant as the Students We Serve
+              <h1 className="text-4xl sm:text-2xl lg:text-3xl text-black font-bold">
+                <br/>Redefining School Transportation Services 
+                
+                <br/>include pictures of kids in outdoor activities (music lessons, sport, field trip etc.)
+
               </h1>
-              <p className="text-white text-sm sm:text-base">
-                We provide an end-to-end, future-ready transportation solution
-                powered by leading-edge platform technology...
+              <p className="text-black lg:mt-5 text-sm lg:text-xl">
+                We work with both public, private schools and individual parents to help them fulfill 
+                alternative transportation needs so that they can focus on their core business and achieve their full potential.
               </p>
               <div>
                 <Link
                   href="/contact/"
-                  className="bg-white text-black px-8 py-2 rounded-3xl inline-block text-sm sm:text-base"
+                  className="bg-blue-500 lg:mt-15 text-black px-8 py-2 rounded-3xl inline-block text-sm sm:text-base"
                 >
                   What we offer
                 </Link>
@@ -84,14 +86,8 @@ export default function Home() {
             </div>
 
             {/* Bloc Image */}
-            <div className="flex justify-center items-center w-full lg:w-[600px] bg-amber-400">
-              <Image
-                src="/next.svg"
-                className="w-full max-w-xs sm:max-w-md"
-                width={400}
-                height={200}
-                alt=""
-              />
+            <div className="w-[900px] ">
+              <ImageMosaic />
             </div>
           </div>
 
@@ -99,32 +95,45 @@ export default function Home() {
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mt-10">
             {[
               {
-                imageSRC: "/services/safety.webp",
+                imageSRC: "/services/rent.png",
                 altText: "Electric Service",
+                title: "•	Bus and car rentals.",
                 description: "An Integrated Platform for Safety & Transparency",
+                
               },
               {
-                imageSRC: "/services/electric.webp",
+                imageSRC: "/services/electric.png",
                 altText: "Solar Service",
+                title: "•	Group transportation solution",
                 description:
-                  "Multi-Size Vehicle Fleets,Including Electric Vehicle",
+                  "We offer transportation for In-school and after school activities field trips, after school trips like music, dance, Ballet lessons, sports, Extra and STEM classes, summer camps etc.",
               },
               {
-                imageSRC: "/services/stat.webp",
+                imageSRC: "/services/stat.png",
                 altText: "Plumbing Service",
+                  title: "•	Personalized transportation solution: ",
                 description:
-                  "Peace of Mind With Real-Time Visibility and Transparency",
+                  "Some of our kids need special education transportation needs and personalized rides, so we take care of kids with health challenges and disabilities.",
               },
               {
-                imageSRC: "/services/sustant.webp",
-                altText: "Heating Service",
-                description: "Efficient Heating Systems",
+                imageSRC: "/services/sustant.png",
+                altText: "•	Transportation Plan optimization: ",
+                title: "•	Transportation Plan optimization",
+                description: "Our combination of smart technology and the team’s expertise will help optimize your transportation plans, save money, alleviate driver shortages, and get students safely and timely to school.",
+              },
+                 {
+                imageSRC: "/services/rate.png",
+                altText: "Plumbing Service",
+                  title: "•	Care driver solution:  ",
+                description:
+                  "We don’t just transport, we care.",
               },
             ].map((item, i) => (
               <div key={i} className="border-black border-t py-6">
                 <ValueSection
                   imageSRC={item.imageSRC}
                   altText={item.altText}
+                  title={item.title}
                   description={item.description}
                 />
               </div>
@@ -132,25 +141,26 @@ export default function Home() {
           </div>
         </div>
       </div>
-      <div className="bg-cover bg-center bg-no-repeat  relative">
+      <div id="section2" className="bg-cover bg-center bg-no-repeat  relative">
         <CarousselBackground />
       </div>
       <div
         className="h-full bg-fixed bg-center bg-cover bg-no-repeat"
-        style={{ backgroundImage: "url('/backg/turner.svg')" }}
+        style={{ backgroundImage: "url('/backg/page-turner5.svg')" }}
       >
         <div className="z-10 max-w-7xl  relative mx-auto w-full  px-4 md:px-6 lg:px-8">
           {/* Titre de section */}
-          <p className="pt-10 text-white text-xl sm:text-2xl">Our student</p>
+         {/**/} 
+         <p className="pt-10 text-white text-xl sm:text-2xl"></p>
 
           {/* Partie texte + image */}
           <div className="flex flex-col lg:flex-row gap-10 mt-10">
             {/* Bloc Texte */}
             <div className="flex flex-col gap-y-7 w-full">
-              <h1 className="text-3xl sm:text-4xl lg:text-6xl text-white font-bold">
-                Zum Already Serves Over 4,000 Schools and Districts
+              <h1 className="text-3xl sm:text-4xl lg:text-6xl text-black font-bold">
+                KTS Mobility Already Serves Over 25 Schools in Douala 
               </h1>
-              <p className="text-white text-base sm:text-lg max-w-xl">
+              <p className="text-black text-base sm:text-2xl max-w-xl">
                 We provide an end-to-end, future-ready transportation solution
                 powered by leading-edge platform technology...
               </p>
@@ -163,28 +173,25 @@ export default function Home() {
           {/* Texte + Image (responsive) */}
           <div className="flex flex-col lg:flex-row  w-full mt-8 gap-8">
             {/* Colonne texte */}
-            <div className="w-full lg:w-[50%] p-1 flex flex-col items-start">
+            <div className="w-full lg:w-[50%] mt-20 flex flex-col items-start">
               <h3 className="text-gray-900 text-xl sm:text-2xl md:text-3xl font-semibold max-w-3xl">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Quidem
-                quis inventore, facilis nostrum non sapiente ullam blanditiis...
+                We love riding with KTS Mobility! The bus is comfortable, the driver is kind, 
+                and we always feel safe. We enjoy going to school together every day.
               </h3>
               <div className="flex flex-col sm:flex-row justify-center mt-15 gap-6 sm:gap-4 max-w-3xl mx-auto sm:mx-0">
-                <p className="text-sm sm:text-base text-gray-900 text-center sm:text-left max-w-xs">
-                  Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-                  Sapiente, sunt illo ducimus quisquam omnis ex.
+                <p className="text-xl sm:text-base text-gray-900 text-center sm:text-left max-w-xs">
+                Kevin M., 10 years
                 </p>
                 <div className="hidden sm:block border-r-2 border-black mx-4 h-auto" />
-                <p className="text-sm sm:text-base text-gray-900 text-center sm:text-left max-w-xs">
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                  Quidem quis inventore, facil
-                </p>
+
+              
               </div>
             </div>
 
             {/* Colonne image */}
             <div className="w-full lg:w-[500px]  p-1 flex justify-center items-center rounded-lg max-w-3xl mx-auto  lg:mx-0">
               <Image
-                src="/images/peoplecard.png"
+                src="/images/pexels.jpg"
                 className="w-full max-w-full sm:max-w-full  object-cover rounded-lg"
                 width={400}
                 height={100}
@@ -210,25 +217,25 @@ export default function Home() {
             {/* Image de fond avec overlay sombre */}
             <div
               className="absolute inset-0 bg-center bg-cover bg-no-repeat"
-              style={{ backgroundImage: "url('/images/driver.png')" }}
+              style={{ backgroundImage: "url('/images/peter.JPG')" }}
             />
             <div className="absolute inset-0 bg-black/30" />{" "}
             {/* overlay sombre */}
             {/* Contenu au-dessus de l'image */}
             <div className="relative z-20 max-w-[500px] ">
-              <p className="text-white mb-4">People who Zum</p>
+              <p className="text-white mb-4"></p>
 
               <h1 className="text-3xl sm:text-4xl lg:text-6xl text-white font-bold mt-50">
                 Meet Peter
               </h1>
 
               <h2 className="text-2xl sm:text-2xl lg:text-2xl text-white font-bold mt-8">
-                Im interested in who you are as a person. I dont just see you as
+                I am interested in who you are as a person. I dont just see you as
                 another student. I know your name. I care about you as a person.
               </h2>
 
               <p className="mt-8 text-white">
-                School Bus Driver | Former Youngest Bus Driver in Arkansas
+                School Bus Driver |
               </p>
 
               <div className="mt-10">
@@ -244,22 +251,22 @@ export default function Home() {
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 mt-4 gap-4">
             <ImageTextCard
-              imageSrc="/val/value.png"
-              imageAlt="Valeur Zum"
-              description="Découvrez comment notre plateforme améliore la sécurité des trajets scolaires."
-              linkHref="/services"
+              imageSrc="/images/vision.PNG"
+              imageAlt="Valeur kts"
+              description="Our Mission"
+              linkHref="/company#mission"
             />
             <ImageTextCard
-              imageSrc="/val/value.png"
-              imageAlt="Valeur Zum"
-              description="Découvrez comment notre plateforme améliore la sécurité des trajets scolaires."
-              linkHref="/services"
+              imageSrc="/images/story.PNG"
+              imageAlt="Valeur kts"
+              description="Our Story"
+              linkHref="/company/"
             />
             <ImageTextCard
-              imageSrc="/val/value.png"
-              imageAlt="Valeur Zum"
-              description="Découvrez comment notre plateforme améliore la sécurité des trajets scolaires."
-              linkHref="/services"
+              imageSrc="/images/compan.webp"
+              imageAlt="Valeur kts"
+              description="Join Us"
+              linkHref="/contact/"
             />
           </div>
         </div>

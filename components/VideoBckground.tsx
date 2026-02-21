@@ -13,18 +13,19 @@ export default function VideoBackground() {
     >
       {/* Image placeholder */}
       <Image
-        src="/images/people.jpg"
+        src="/images/back2.webp"
         alt=""
         fill
-        className={`object-cover absolute inset-0 transition-opacity duration-1000 ${
+        className={`object-cover absolute inset-0 transition-opacity duration-3000 ${
           videoLoaded ? "opacity-0" : "opacity-100"
         }`}
         priority
         aria-hidden="true"
       />
-
+  
       {/* Vidéo en fond */}
-      <video
+    
+            <video
         className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 ${
           videoLoaded ? "opacity-100" : "opacity-0"
         }`}
@@ -34,9 +35,12 @@ export default function VideoBackground() {
         playsInline
         onCanPlay={() => setVideoLoaded(true)}
         preload="auto"
-        src="/noi.mp4"
+        src="/video/noi.webm"
       />
+     
+
       <div className="absolute inset-0 bg-black opacity-50  z-0"></div>
     </div>
+    
   );
 }
