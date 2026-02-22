@@ -86,7 +86,7 @@ export default function Home() {
             </div>
 
             {/* Bloc Image */}
-            <div className="w-[900px] ">
+            <div className="lg:w-[900px] p-10 w-full ">
               <ImageMosaic />
             </div>
           </div>
