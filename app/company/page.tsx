@@ -20,7 +20,7 @@ export default function CompanyPage() {
           title: "We Move Kids Forward",
           description:
             "KTS Mobility was Founded with Parents in Mind. Back in 2017, the seed for KTS Mobility was planted. As new parents juggling demanding careers, we faced a common dilemma – ensuring our son's safe, reliable, and comfortable journey to school amidst our busy schedules. This challenge wasn t ours alone; it also resonated with many colleagues and fellow parents. In 2020, KTS Mobility came to life, fueled by our parental instincts and a commitment to safety and meticulousness. Our aim was not just to create a transportation service but to offer peace of mind to parents while offering delightful, secure travel experiences for children. Today, we are privileged to connect with hundreds of parents, kids and schools every day. (Use my single picture)",
-          imageUrl: "/images/foundator.JPEG",
+          imageUrl: "/images/foundator.webp",
           stats: [
             { value: 95, suffix: "%", description: "Client Satisfaction" },
             { value: 80, suffix: "%", description: "Retention Rate" },
@@ -51,7 +51,7 @@ export default function CompanyPage() {
           title: "We Move Kids Forward",
           description:
             "Safe, reliable, and efficient transportation solutions.",
-          imageUrl: "/images/drivers.png",
+          imageUrl: "/images/drivers.webp",
           stats: [
             { value: 97, suffix: "%", description: " Client Satisfaction" },
             { value: 25, suffix: "%", description: "Reduction in Transit Time" },
@@ -68,7 +68,7 @@ export default function CompanyPage() {
           title: "Dedicated Experts Behind Every Journey",
           description:
             "At KTS Mobility, every ride is carefully monitored by a team of passionate professionals committed to excellence. From our operations center, our experts track routes in real time, coordinate drivers, and ensure that every child’s journey is smooth and secure.With advanced technology and a deep sense of responsibility, our team works tirelessly behind the scenes to deliver precision, responsiveness, and peace of mind to families every day.",
-          imageUrl: "/images/expert.JPG",
+          imageUrl: "/images/expert.webp",
         },
       ],
       reverse: true,
@@ -80,32 +80,32 @@ export default function CompanyPage() {
       id: 1,
       label: "Safety",
       description: "The safety of children is our top priority.",
-      iconUrl: "/icons/securite.png",
+      iconUrl: "/icons/securite.webp",
     },
     {
       id: 2,
       label: "Comfort",
       description:
         "We provide comfortable transportation services for children.",
-      iconUrl: "/icons/commodite.png",
+      iconUrl: "/icons/commodite.webp",
     },
     {
       id: 3,
       label: "Reliability",
       description: "We ensure the reliability of transportation services.",
-      iconUrl: "/icons/fiabilite.png",
+      iconUrl: "/icons/fiabilite.webp",
     },
     {
       id: 4,
       label: "Quality of Service",
       description: "We offer high quality transportation services.",
-      iconUrl: "/icons/la-revue.png",
+      iconUrl: "/icons/la-revue.webp",
     },
     {
       id: 5,
       label: "Sustainable Development",
       description: "We contribute to the sustainable development of Cameroon.",
-      iconUrl: "/icons/le-progres.png",
+      iconUrl: "/icons/le-progres.webp",
     },
   ];
 

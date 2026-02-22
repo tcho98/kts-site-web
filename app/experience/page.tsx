@@ -26,7 +26,7 @@ export default function Home() {
         "Track the bus while in transit.",
 
       ],  
-      imageUrl: "/images/parentex.jpg",
+      imageUrl: "/images/parentex.webp",
     },
     {
       id: 2,
@@ -43,7 +43,7 @@ export default function Home() {
         
         
       ],  
-      imageUrl: "/images/drivelo.jpg",
+      imageUrl: "/images/drivelo.webp",
     },
   ];
 const sectionsfr = [
@@ -59,7 +59,7 @@ const sectionsfr = [
       "Optimized routes ensuring efficiency",
       "Operational support involving continuous customer service and operational teams to meet your changing needs",
     ],
-    imageUrl: "/images/drivelo.jpg",
+    imageUrl: "/images/seam.webp",
   },
   {
     id: 2,
@@ -73,7 +73,7 @@ const sectionsfr = [
       "Replacing school buses dramatically reduces fuel and maintenance costs and provides long tern savings to schools and communities.",
       "Reducing traffic and carbon footprints.",
     ],  
-    imageUrl: "/images/parentex.jpg",
+    imageUrl: "/images/org.webp",
   },
 ];
 
@@ -82,7 +82,7 @@ const sectionsfr = [
     <main className="  bg-white overflow-x-hidden ">
       <div className=" bg-cover absolute inset-0 z-0 top-17">
         <HeroSection
-          backgroundImage="/images/login.PNG"
+          backgroundImage="/images/login.webp"
           title="Safe & Reliable School Transportation Solution"
           description=""
 
@@ -101,7 +101,7 @@ const sectionsfr = [
           </h1>
           <div className="flex items-center justify-center gap-5 ">
             <Image
-              src="/images/Etah.png"
+              src="/images/Etah.webp"
               alt="Logo"
               width={80}
               height={80}

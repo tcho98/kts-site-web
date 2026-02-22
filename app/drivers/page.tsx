@@ -171,7 +171,7 @@ export default function DriversPage() {
           {/* Image */}
           <div className="w-md md:w-1/2 flex justify-center">
             <Image
-              src="/images/team.png"
+              src="/images/team.webp"
               alt="Logo"
               width={500}
               height={500}

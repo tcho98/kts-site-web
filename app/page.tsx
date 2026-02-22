@@ -51,7 +51,7 @@ export default function Home() {
           <Award
             name="Central Africa Startup Awards"
             pdfUrl="/awards/cert.pdf"
-            logoUrl="/awards/Clm.webp"
+            logoUrl="/awards/clm.webp"
             count={1}
           />
         </div>
@@ -95,34 +95,34 @@ export default function Home() {
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mt-10">
             {[
               {
-                imageSRC: "/services/rent.png",
+                imageSRC: "/services/rent.webp",
                 altText: "Electric Service",
                 title: "•	Bus and car rentals.",
                 description: "An Integrated Platform for Safety & Transparency",
                 
               },
               {
-                imageSRC: "/services/electric.png",
+                imageSRC: "/services/electric.webp",
                 altText: "Solar Service",
                 title: "•	Group transportation solution",
                 description:
                   "We offer transportation for In-school and after school activities field trips, after school trips like music, dance, Ballet lessons, sports, Extra and STEM classes, summer camps etc.",
               },
               {
-                imageSRC: "/services/stat.png",
+                imageSRC: "/services/stat.webp",
                 altText: "Plumbing Service",
                   title: "•	Personalized transportation solution: ",
                 description:
                   "Some of our kids need special education transportation needs and personalized rides, so we take care of kids with health challenges and disabilities.",
               },
               {
-                imageSRC: "/services/sustant.png",
+                imageSRC: "/services/sustant.webp",
                 altText: "•	Transportation Plan optimization: ",
                 title: "•	Transportation Plan optimization",
                 description: "Our combination of smart technology and the team’s expertise will help optimize your transportation plans, save money, alleviate driver shortages, and get students safely and timely to school.",
               },
                  {
-                imageSRC: "/services/rate.png",
+                imageSRC: "/services/rate.webp",
                 altText: "Plumbing Service",
                   title: "•	Care driver solution:  ",
                 description:
@@ -191,7 +191,7 @@ export default function Home() {
             {/* Colonne image */}
             <div className="w-full lg:w-[500px]  p-1 flex justify-center items-center rounded-lg max-w-3xl mx-auto  lg:mx-0">
               <Image
-                src="/images/pexels.jpg"
+                src="/images/pexels.webp"
                 className="w-full max-w-full sm:max-w-full  object-cover rounded-lg"
                 width={400}
                 height={100}
@@ -217,7 +217,7 @@ export default function Home() {
             {/* Image de fond avec overlay sombre */}
             <div
               className="absolute inset-0 bg-center bg-cover bg-no-repeat"
-              style={{ backgroundImage: "url('/images/peter.JPG')" }}
+              style={{ backgroundImage: "url('/images/peter.webp')" }}
             />
             <div className="absolute inset-0 bg-black/30" />{" "}
             {/* overlay sombre */}
@@ -251,13 +251,13 @@ export default function Home() {
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 mt-4 gap-4">
             <ImageTextCard
-              imageSrc="/images/vision.PNG"
+              imageSrc="/images/vision.webp"
               imageAlt="Valeur kts"
               description="Our Mission"
               linkHref="/company#mission"
             />
             <ImageTextCard
-              imageSrc="/images/story.PNG"
+              imageSrc="/images/story.webp"
               imageAlt="Valeur kts"
               description="Our Story"
               linkHref="/company/"

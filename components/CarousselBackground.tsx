@@ -4,21 +4,21 @@ import { useEffect, useState } from "react";
 const Slides = [
   {
     id: 1,
-    image: "/images/parent.PNG",
+    image: "/images/parent.webp",
     title: "Safe and Connected School  Transportation Your Children ",
     description: "For Parents & Students",
     text: "Easy registration, real-time tracking, and secure payements. stay in control and enjoy peace of mind every trip."
   },
   {
     id: 2,
-    image: "/images/EX.PNG",
+    image: "/images/EX.webp",
     title: "A Smart Dashboard for Efficient Management",
     description: "For Drivers & Operators",
     text: "Manage routes, students, and schedules from one centralized platform designed for safety and efficiency."
   },
   {
     id: 3,
-    image: "/images/school.png",
+    image: "/images/school.webp",
     title: "A Smart School Transport Solution for Your City",
     description: "For Schools & Districts",
     text: "Optimized route planning and school mapping to ensure reliable and well-structured transportation."
