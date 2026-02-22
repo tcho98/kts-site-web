@@ -194,6 +194,13 @@ const ContactForm = () => {
             rows={8}
           />
         </div>
+        <input
+          type="text"
+          name="company"
+          tabIndex={-1}
+          autoComplete="off"
+          className="hidden"
+        />
 
         <div className="border-t pt-4 mt-20 border-gray-500 h-[200px]">
           <button
