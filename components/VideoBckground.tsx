@@ -39,7 +39,7 @@ export default function VideoBackground() {
       />
      
 
-      <div className="absolute inset-0 bg-black opacity-50  z-0"></div>
+      <div className="absolute inset-0 bg-black/70 z-10" />
     </div>
     
   );

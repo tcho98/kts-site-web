@@ -23,11 +23,13 @@ export default function Home() {
     <>
       <div className="sm:h-[650px] h-[700px] overflow-x-hidden">
         {/* Video Background Component */}
+        
         <div className="absolute inset-0 z-0">
           <VideoBackground />
         </div>
 
         <div className="relative z-20 max-w-7xl mx-auto  sm:px-6 lg:px-6   items-start mt-50 text-white ">
+          
           <div className=" w-[600px]">
             <h1 className="text-[2rem] px-8 sm:text-[4.5rem] font-bold">
               We Move Kids Forward
@@ -86,7 +88,7 @@ export default function Home() {
             </div>
 
             {/* Bloc Image */}
-            <div className="lg:w-[900px] p-10 w-full ">
+            <div className="lg:w-[900px]   p-5 w-full ">
               <ImageMosaic />
             </div>
           </div>
