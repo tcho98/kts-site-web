@@ -232,7 +232,7 @@ export default function CompanyPage() {
               (use KTS Group Picture with drivers)
             </p>
             <Link
-              href="#contact"
+              href="/contact"
               className="bg-blue-500 text-white mt-15 px-15 py-2 rounded-3xl inline-block text-sm sm:text-base"
             >
               Join Us
