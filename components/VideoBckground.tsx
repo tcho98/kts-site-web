@@ -16,7 +16,7 @@ export default function VideoBackground() {
         src="/images/back2.webp"
         alt=""
         fill
-        className={`object-cover absolute inset-0 transition-opacity duration-3000 ${
+        className={`object-cover absolute inset-0 transition-opacity duration-1000 ${
           videoLoaded ? "opacity-0" : "opacity-100"
         }`}
         priority
@@ -35,7 +35,7 @@ export default function VideoBackground() {
         playsInline
         onCanPlay={() => setVideoLoaded(true)}
         preload="auto"
-        src="/video/noi.webm"
+        src="/video/noi.mp4"
       />
      
 

@@ -6,7 +6,7 @@ import Image from "next/image";
 import CarousselBackground from "@/components/CarousselBackground";
 import StatSession from "@/components/StatSession";
 import ScrollingCarousel from "@/components/ScrollingCarousselle";
-import ImageMosaic from "@/components/ImageMosaic";
+
 import ImageTextCard from "@/components/ImageTextCard";
 
 import ReadyToStart from "@/components/ReadyToStart";
@@ -21,7 +21,7 @@ export const metadata = {
 export default function Home() {
   return (
     <>
-      <div className="sm:h-[650px] h-[700px] overflow-x-hidden">
+      <div className="  overflow-x-hidden">
         {/* Video Background Component */}
         
         <div className="absolute inset-0 z-0">
@@ -61,17 +61,16 @@ export default function Home() {
       <div id="section1" className="h-full w-full bg-white py-10 p-5">
         <div className="z-50 max-w-7xl lg:mt-10 mx-auto w-full px-4 sm:px-16 lg:px-8">
           {/* Titre de section */}
-          <p className="pt-10 text-black text-xl sm:text-[3rem]">Our service</p>
+          <p className="pt-10 text-black text-2xl sm:text-[3rem]">Our service</p>
 
           {/* Partie texte + image */}
           <div className="flex flex-col lg:flex-row gap-10 mt-10">
             {/* Bloc Texte */}
             <div className="flex flex-col gap-y-7 lg:w-[600px] w-full">
-              <h1 className="text-4xl sm:text-2xl lg:text-3xl text-black font-bold">
-                <br/>Redefining School Transportation Services 
+              <h1 className="text-4xl sm:text-2xl lg:text-4xl text-black font-bold">
+                <br/>REDEFENING SCHOOL TRANSPORTATION SERVICES 
                 
-                <br/>include pictures of kids in outdoor activities (music lessons, sport, field trip etc.)
-
+                
               </h1>
               <p className="text-black lg:mt-5 text-sm lg:text-xl">
                 We work with both public, private schools and individual parents to help them fulfill 
@@ -89,7 +88,16 @@ export default function Home() {
 
             {/* Bloc Image */}
             <div className="lg:w-[900px]   p-5 w-full ">
-              <ImageMosaic />
+              <Image
+                src="/images/people.webp"
+                className="w-full max-w-full sm:max-w-full  object-cover rounded-lg"
+                width={400}
+                height={100}
+                alt="Next.js logo"
+                loading="lazy" // Lazy load activé
+                placeholder="blur" // Placeholder flou activé
+                blurDataURL="/next-blur.svg" // Petite image floue (à créer)
+              />
             </div>
           </div>
 
@@ -224,7 +232,7 @@ export default function Home() {
             <div className="absolute inset-0 bg-black/30" />{" "}
             {/* overlay sombre */}
             {/* Contenu au-dessus de l'image */}
-            <div className="relative z-20 max-w-[500px] ">
+            <div className="relative z-20  ">
               <p className="text-white mb-4"></p>
 
               <h1 className="text-3xl sm:text-4xl lg:text-6xl text-white font-bold mt-50">

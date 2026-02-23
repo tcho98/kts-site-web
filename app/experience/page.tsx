@@ -82,7 +82,7 @@ const sectionsfr = [
     <main className="  bg-white overflow-x-hidden ">
       <div className=" bg-cover absolute inset-0 z-0 top-17">
         <HeroSection
-          backgroundImage="/images/login.webp"
+          backgroundImage="/images/Login.webp"
           title="Safe & Reliable School Transportation Solution"
           description=""
 
@@ -90,7 +90,7 @@ const sectionsfr = [
       </div>
 
 
-      <div className="sm:max-w-7xl max-w-md sm:mt-200 mt-140   mx-auto p-4">
+      <div className="sm:max-w-7xl sm:mt-200 mt-140   mx-auto p-4">
         <ContentSectionF items={sections} reverse />
 
 

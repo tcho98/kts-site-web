@@ -37,7 +37,7 @@ export default function CompanyPage() {
           title: "A Completely New Experience Built Around Families' Needs",
           description:
             "KTS Mobility delivers the peace of mind that comes from knowing where your kids are, and that they’re getting the safest, most reliable rides possible. A convenient app lets you see when the bus is coming, know your drivers, send feedback, and get your kids to school on-time and stress-free.",
-          imageUrl: "/images/parents.png",
+          imageUrl: "/images/parents.webp",
         },
       ],
       reverse: true,
@@ -125,7 +125,7 @@ export default function CompanyPage() {
 
   return (
     <main className="bg-gray-300  overflow-x-hidden">
-      <div className=" absolute inset-0  z-0  top-18">
+      <div className=" absolute inset-0  z-0  top-17">
         <HeroSection
           backgroundImage="/images/company.webp"
           title=" School bus and Passenger van rentals."
@@ -137,7 +137,7 @@ export default function CompanyPage() {
       </div>
       <div
         id="#story"
-        className="sm:max-w-7xl max-w-md sm:mt-200 mt-170  mx-auto "
+        className="sm:max-w-7xl p-4  sm:mt-200 mt-170  mx-auto "
       >
         {contentBlocks.map((block, idx) => {
           if (block.type === "stats") {
