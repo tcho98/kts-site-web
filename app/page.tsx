@@ -87,7 +87,7 @@ export default function Home() {
             </div>
 
             {/* Bloc Image */}
-            <div className="lg:w-[900px]   p-5 w-full ">
+            <div className="   p-5 w-full ">
               <Image
                 src="/images/people.webp"
                 className="w-full max-w-full sm:max-w-full  object-cover rounded-lg"

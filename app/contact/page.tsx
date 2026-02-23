@@ -25,7 +25,7 @@ export default function Contact() {
           <div className="flex flex-col justify-center items-center mt-20 space-y-4">
             <p className="text-xl sm:text-3xl sm:mt-26 mt-10">Hello !</p>
             <h1 className="text-4xl sm:text-5xl font-bold mt-6">
-              We would Love to Hear from You
+              We'd Love to Hear from You
             </h1>
             <p className="text-xl sm:text-2xl mt-10"></p>
           </div>

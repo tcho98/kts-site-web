@@ -213,7 +213,7 @@ export default function CompanyPage() {
         <div className="flex flex-col md:flex-row items-center md:items-start gap-8">
           <div className="w-full md:w-1/2 flex justify-center">
             <Image
-              src="/images/team.png"
+              src="/images/team.webp"
               alt="Team"
               width={500}
               height={500}
