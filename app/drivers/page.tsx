@@ -60,13 +60,13 @@ export default function DriversPage() {
       <div className=" absolute left-0 right-0 top-17 z-0 ">
         <HeroSection
           backgroundImage="/images/driver.webp"
-          title="Modernising Student Transport to make it Safe, Reliable, Efficient, and Accessible for All."
+          title="Modernising Student Transportation to make it Safe, Reliable, Efficient, and Accessible for All."
           description="Providing safe, comfortable, and reliable transportation for children every day."
 
         />
       </div>
 
-      <div className="bg-gray-300 sm:mt-200 mt-167">
+      <div className="bg-gray-300 sm:mt-200 mt-180">
         <div className="sm:max-w-7xl max-w-md mx-auto pt-18 pb-18  ">
           <NewPartnerSchool title="Our Partner Schools" partners={partners} />
         </div>

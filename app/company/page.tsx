@@ -229,7 +229,7 @@ export default function CompanyPage() {
              Every person in our organization is dedicated to helping kids get to their full potential.
               We’re seasoned professionals, caring parents, 
               and committed advocates that believe we can make a difference by eliminating transportation challenges as a barrier to opportunity.
-              (use KTS Group Picture with drivers)
+              
             </p>
             <Link
               href="/contact"

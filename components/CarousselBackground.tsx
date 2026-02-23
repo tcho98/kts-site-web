@@ -5,7 +5,7 @@ const Slides = [
   {
     id: 1,
     image: "/images/parent.webp",
-    title: "Safe and Connected School  Transportation Your Children ",
+    title: "Safe and Connected School  Transportation For Your Children ",
     description: "For Parents & Students",
     text: "Easy registration, real-time tracking, and secure payements. stay in control and enjoy peace of mind every trip."
   },

@@ -21,17 +21,17 @@ export const metadata = {
 export default function Home() {
   return (
     <>
-      <div className="  overflow-x-hidden">
+      <div className=" h-[700px] overflow-x-hidden">
         {/* Video Background Component */}
         
         <div className="absolute inset-0 z-0">
           <VideoBackground />
         </div>
 
-        <div className="relative z-20 max-w-7xl mx-auto  sm:px-6 lg:px-6   items-start mt-50 text-white ">
+        <div className="relative  flex flex-cols z-50 max-w-7xl mx-auto  sm:px-6 lg:px-6   items-start mt-50 text-white ">
           
-          <div className=" w-[600px]">
-            <h1 className="text-[2rem] px-8 sm:text-[4.5rem] font-bold">
+          <div className="mt-60 w-[600px]">
+            <h1 className="text-[2rem]  px-8 sm:text-[4.5rem] font-bold">
               We Move Kids Forward
             </h1>
             <p className="mt-4 px-8 w-[600px] text-sm sm:text-xl ">

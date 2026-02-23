@@ -90,7 +90,7 @@ const sectionsfr = [
       </div>
 
 
-      <div className="sm:max-w-7xl sm:mt-220 mt-140   mx-auto p-4">
+      <div className="sm:max-w-7xl sm:mt-220 mt-180   mx-auto p-4">
         <ContentSectionF items={sections} reverse />
 
 
