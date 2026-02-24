@@ -246,7 +246,7 @@ export default function Header() {
               {/* Bouton Contact */}
               <div className="flex justify-center items-center mt-15">
                 <Link
-                  href="/contact/"
+                  href="/contact"
                   className="block bg-gray-100 text px-30 text-black py-3 rounded-3xl text-center"
                 >
                   Contact Us
