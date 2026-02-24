@@ -150,7 +150,7 @@ export default function DriversPage() {
             <h4 className="mt-7 text-xl text-black ">Hayati. B</h4>
             <p className="text-xl text-black"> Douala</p>
         </div>
-      <section className="sm:max-w-7xl max-w-md lg:h-[80vh] h-[120vh] mx-auto ">
+      <section className="sm:max-w-7xl max-w-md lg:h-[80vh] h-[90vh] mx-auto ">
         <div className="flex flex-col md:flex-row items-center md:items-start pt-25 gap-8">
           <div className="w-full md:w-1/2 text-center md:text-left">
             <h1 className="text-3xl sm:text-5xl text-black font-bold mb-5">
