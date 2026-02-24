@@ -13,6 +13,15 @@ function clean(value: unknown, max = 5000) {
     .slice(0, max);
 }
 
+// Important: éviter injection HTML dans l’email
+function escapeHtml(v: unknown) {
+  return String(v ?? "")
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;");
+}
+
 export async function POST(req: Request) {
   try {
     const body = await req.json();
@@ -32,7 +41,6 @@ export async function POST(req: Request) {
 
     // Validation
     const errors: Record<string, string> = {};
-
     if (!firstName) errors.firstName = "First name required.";
     if (!lastName) errors.lastName = "Last name required.";
     if (!email || !isEmail(email)) errors.email = "Invalid email.";
@@ -49,46 +57,110 @@ export async function POST(req: Request) {
       port: Number(process.env.EMAIL_PORT || 587),
       secure: false, // 587 => false
       auth: {
-        user: process.env.EMAIL_USER, // a32415001@smtp-brevo.com
-        pass: process.env.EMAIL_PASS, // clé SMTP Brevo
+        user: process.env.EMAIL_USER,
+        pass: process.env.EMAIL_PASS,
       },
       requireTLS: true,
     });
 
-    // EMAIL VERS TOI (info@ktsmobility.com)
+    const fullName = `${firstName} ${lastName}`.trim();
+    const org = organization ? organization : "N/A";
+    const role = title ? title : "N/A";
+    const phoneVal = phone ? phone : "N/A";
+    const noteVal = note ? note : "—";
+
+    const subjectLine = `New Contact — ${fullName}`;
+    const preheader = `New message from ${fullName} (${email})`;
+
+    // Version texte (fallback)
+    const text = [
+      "New contact submission",
+      "",
+      `Name: ${fullName}`,
+      `Organization: ${org}`,
+      `Title: ${role}`,
+      `Email: ${email}`,
+      `Phone: ${phoneVal}`,
+      "",
+      "Message:",
+      noteVal,
+    ].join("\n");
+
+    // Version HTML stylée
+    const html = `
+<!doctype html>
+<html>
+  <body style="margin:0;padding:0;background:#f5f6f8;">
+    <div style="display:none;max-height:0;overflow:hidden;opacity:0;color:transparent;">
+      New message from ${escapeHtml(fullName)} (${escapeHtml(email)})
+    </div>
+
+    <table role="presentation" width="100%" cellspacing="0" cellpadding="0" style="background:#f5f6f8;padding:24px 0;">
+      <tr>
+        <td align="center">
+          <table role="presentation" width="640" cellspacing="0" cellpadding="0"
+                 style="width:640px;max-width:94vw;background:#ffffff;border-radius:12px;overflow:hidden;border:1px solid #e5e7eb;">
+            <tr>
+              <td style="padding:18px 22px;background:blue;color:#ffffff;font-family:Arial,Helvetica,sans-serif;">
+                <div style="font-size:14px;opacity:0.9;">KTS Mobility</div>
+                <div style="font-size:20px;font-weight:700;margin-top:6px;">New Message from website KTS Mobility</div>
+              </td>
+            </tr>
+
+            <tr>
+              <td style="padding:18px 22px;font-family:Arial,Helvetica,sans-serif;color:#111827;">
+                <table role="presentation" width="100%" cellspacing="0" cellpadding="0" style="font-size:14px;">
+                  <tr><td style="padding:6px 0;color:#6b7280;width:130px;">Name</td><td style="padding:6px 0;">${escapeHtml(fullName)}</td></tr>
+                  <tr><td style="padding:6px 0;color:#6b7280;">Organization</td><td style="padding:6px 0;">${escapeHtml(org)}</td></tr>
+                  <tr><td style="padding:6px 0;color:#6b7280;">Title</td><td style="padding:6px 0;">${escapeHtml(role)}</td></tr>
+                  <tr><td style="padding:6px 0;color:#6b7280;">Email</td><td style="padding:6px 0;">${escapeHtml(email)}</td></tr>
+                  <tr><td style="padding:6px 0;color:#6b7280;">Phone</td><td style="padding:6px 0;">${escapeHtml(phoneVal)}</td></tr>
+                </table>
+
+                <div style="margin-top:14px;font-size:14px;font-weight:700;">Message</div>
+                <div style="margin-top:8px;border:1px solid #e5e7eb;border-radius:10px;background:#fafafa;padding:12px;white-space:pre-wrap;line-height:1.55;">
+                  ${escapeHtml(noteVal)}
+                </div>
+
+                <div style="margin-top:14px;font-size:12px;color:#6b7280;">
+                  Reply to this email to answer the sender (Reply-To is set).
+                </div>
+              </td>
+            </tr>
+          </table>
+
+          <div style="font-family:Arial,Helvetica,sans-serif;font-size:11px;color:#9ca3af;margin-top:10px;">
+            © ${new Date().getFullYear()} KTS Mobility
+          </div>
+        </td>
+      </tr>
+    </table>
+  </body>
+</html>`;
+
+    // EMAIL VERS TOI
     const info = await transporter.sendMail({
-      from: `"KTS Mobility" <info@ktsmobility.com>`,
+      from: `"KTS Mobility Website" <no-reply@ktsmobility.com>`,
       to: "info@ktsmobility.com",
       replyTo: email,
-      subject: `New Contact — ${firstName} ${lastName}`,
-      text: `
-New contact submission
-
-Name: ${firstName} ${lastName}
-Organization: ${organization || "N/A"}
-Title: ${title || "N/A"}
-Email: ${email}
-Phone: ${phone || "N/A"}
-
-Message:
-${note}
-      `,
-      html: `
-        <h2>New Contact Submission</h2>
-        <p><strong>Name:</strong> ${firstName} ${lastName}</p>
-        <p><strong>Organization:</strong> ${organization || "N/A"}</p>
-        <p><strong>Title:</strong> ${title || "N/A"}</p>
-        <p><strong>Email:</strong> ${email}</p>
-        <p><strong>Phone:</strong> ${phone || "N/A"}</p>
-        <h3>Message</h3>
-        <p style="white-space:pre-wrap">${note}</p>
-      `,
+      subject: `[Website] Message from — ${fullName}`,
+      text,
+      html,
+      headers: {
+        "X-Entity-Ref-ID": `${Date.now()}`,
+        "X-Application": "KTS-Mobility-Contact",
+        "X-Contact-Form": "true",
+      },
     });
 
-    console.log("✅ Email sent:", info.messageId);
+    console.log("✅ Email sent:", {
+      messageId: info.messageId,
+      accepted: info.accepted,
+      rejected: info.rejected,
+      response: info.response,
+    });
 
     return Response.json({ ok: true });
-
   } catch (error: any) {
     console.error("❌ Contact API error:", error);
     return Response.json(
