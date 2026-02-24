@@ -101,7 +101,7 @@ export async function POST(req: Request) {
           <table role="presentation" width="640" cellspacing="0" cellpadding="0"
                  style="width:640px;max-width:94vw;background:#ffffff;border-radius:12px;overflow:hidden;border:1px solid #e5e7eb;">
             <tr>
-              <td style="padding:18px 22px;background:blue;color:#ffffff;font-family:Arial,Helvetica,sans-serif;">
+              <td style="padding:18px 22px;background:#0b5cff;color:#ffffff;font-family:Arial,Helvetica,sans-serif;">
                 <div style="font-size:14px;opacity:0.9;">KTS Mobility</div>
                 <div style="font-size:20px;font-weight:700;margin-top:6px;">New Message from website KTS Mobility</div>
               </td>
@@ -139,17 +139,26 @@ export async function POST(req: Request) {
 </html>`;
 
     // EMAIL VERS TOI
+    const ticket = `KTS-${Date.now().toString(36).toUpperCase()}`;
+    const subject = `[KTS Contact] ${fullName} (${ticket})`;
+
     const info = await transporter.sendMail({
       from: `"KTS Mobility Website" <no-reply@ktsmobility.com>`,
       to: "info@ktsmobility.com",
       replyTo: email,
-      subject: `[Website] Message from — ${fullName}`,
+      subject,
       text,
       html,
+      envelope: {
+        from: "no-reply@ktsmobility.com",
+        to: ["info@ktsmobility.com"],
+      },
       headers: {
-        "X-Entity-Ref-ID": `${Date.now()}`,
-        "X-Application": "KTS-Mobility-Contact",
-        "X-Contact-Form": "true",
+        "X-Application": "KTS-Website",
+        "X-Message-Type": "ContactForm",
+        "X-Ticket": ticket,
+        "Auto-Submitted": "auto-generated",
+        "X-Auto-Response-Suppress": "All",
       },
     });
 
