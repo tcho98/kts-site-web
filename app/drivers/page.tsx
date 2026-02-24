@@ -169,7 +169,7 @@ export default function DriversPage() {
           </div>
 
           {/* Image */}
-          <div className="w-md md:w-1/2 flex justify-center">
+          <div className="w-md md:w-1/2 p-4 flex justify-center">
             <Image
               src="/images/team.webp"
               alt="Logo"
