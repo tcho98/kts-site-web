@@ -76,7 +76,7 @@ export default function Home() {
   ];
 
   return (
-    <main className="  h-screen overflow-x-hidden ">
+    <main className="  bg-white overflow-x-hidden ">
       <div className=" bg-cover min-h-[100svh] inset-0 z-0 ">
         <HeroSection
           backgroundImage="/images/Login.webp"
@@ -85,7 +85,7 @@ export default function Home() {
         />
       </div>
 
-      <div className="sm:max-w-7xl lg:mt-150 mt-180   mx-auto p-4">
+      <div className="sm:max-w-7xl    mx-auto p-4">
         <ContentSectionF items={sections} reverse />
 
         <div className="bg-gray-500  mt-15 ">

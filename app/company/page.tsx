@@ -126,14 +126,14 @@ export default function CompanyPage() {
 
   return (
     <main className="bg-gray-300  overflow-x-hidden">
-      <div className=" absolute inset-0  z-0  top-10">
+      <div className=" bg-cover min-h-[100svh] inset-0  z-0  top-10">
         <HeroSection
           backgroundImage="/images/company.webp"
           title=" School bus and Passenger van rentals."
           description="Book a rental and plan your next trip. Email us at : info@ktsmobility.com or Call us at (+237) 640204282"
         />
       </div>
-      <div id="#story" className="sm:max-w-7xl p-4  sm:mt-200 mt-170  mx-auto ">
+      <div id="#story" className="sm:max-w-7xl p-4  mx-auto ">
         {contentBlocks.map((block, idx) => {
           if (block.type === "stats") {
             return <ContentOptimise key={idx} items={block.items} />;

@@ -54,7 +54,7 @@ const partners = [
 export default function DriversPage() {
   return (
     <main className="bg-white overflow-x-hidden">
-      <div className=" absolute left-0 right-0 top-10 z-0 ">
+      <div className=" bg-cover min-h-[100svh] left-0 right-0 top-10 z-0 ">
         <HeroSection
           backgroundImage="/images/driver.webp"
           title="Modernising Student Transportation to make it Safe, Reliable, Efficient, and Accessible for All."
@@ -62,7 +62,7 @@ export default function DriversPage() {
         />
       </div>
 
-      <div className="bg-gray-300 sm:mt-200 mt-180">
+      <div className="bg-gray-300">
         <div className="sm:max-w-7xl max-w-md mx-auto pt-18 pb-18  ">
           <NewPartnerSchool title="Our Partner Schools" partners={partners} />
         </div>
