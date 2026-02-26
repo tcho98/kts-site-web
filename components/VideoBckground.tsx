@@ -44,7 +44,7 @@ export default function VideoBackground() {
       {/* Texte (au-dessus de tout) */}
       <div className="relative z-20 flex  max-w-full items-start text-white">
         <div className="mt-70 w-[400px] pl-1 lg:mt-70 lg:ml-25 lg:w-[600px]">
-          <h1 className="px-8 text-[3rem] font-bold sm:text-[4.5rem]">
+          <h1 className="px-4 text-[3rem] font-bold sm:text-[4.5rem]">
             We Move Kids Forward
           </h1>
           <p className="mt-4 w-[600px] px-8 text-lg sm:text-xl">
