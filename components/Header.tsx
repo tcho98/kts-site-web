@@ -75,7 +75,7 @@ export default function Header() {
     <header className="fixed justify-between top-11 z-50 w-full  transition-all duration-300 ">
       <div className="relative flex  inset-0 z-0">
         {activeDropdown && (
-          <div className="fixed  left-0 w-full h-[350px] bg-gray-900/90 z-40 pointer-events-none" />
+          <div className="fixed  left-0 w-full h-[350px] bg-gray-900/90 z-50 pointer-events-none" />
         )}
         {/* Top Bar (Logo + Nav + Contact) */}
         <div
@@ -178,7 +178,7 @@ export default function Header() {
 
         {/* Mobile Menu */}
         {mobileOpen && (
-          <div className="fixed inset-10 w-full left-0 right-0 bottom-0 z-20 bg-gray-900 overflow-y-auto pt-30">
+          <div className="fixed inset-10 w-full left-0 right-0 bottom-0 z-20 bg-gray-900  pt-30">
             <div className="border-t border-gray-400 mb-4 mt-4" />
             <nav>
               {navItems.map((nav) => (
