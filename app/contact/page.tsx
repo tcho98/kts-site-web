@@ -9,9 +9,9 @@ export const metadata = {
 export default function Contact() {
   return (
     <>
-      <div className="w-full  bg-blue-900 absolute min-h-[360px] top-10 left-0 z-0">
-        <div className="sm:max-w-7xl max-w-sm  mx-auto text-start pt-30 pb-10">
-          <h1 className="text-white mt-14 text-3xl sm:text-5xl font-bold">
+      <div className="w-full  bg-gray-900 absolute top-10 left-0 z-0">
+        <div className="sm:max-w-7xl px-4   mx-auto text-start pt-3  min-h-[500px]">
+          <h1 className="text-white mt-50 text-3xl sm:text-5xl font-bold">
             Contact Us
           </h1>
           <p className="text-white text-sm sm:text-lg  font-normal mt-6">
@@ -20,7 +20,7 @@ export default function Contact() {
           </p>
         </div>
       </div>
-      <div className=" bg-blue-100  text-black text-center relative mt-57">
+      <div className=" bg-blue-100  text-black text-center relative mt-90">
         <div className=" sm:max-w-5xl max-w-md  mx-auto">
           <div className="flex flex-col justify-center items-center mt-20 space-y-4">
             <p className="text-xl sm:text-3xl sm:mt-26 mt-10">Hello !</p>
