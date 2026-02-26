@@ -53,7 +53,7 @@ export default function VideoBackground() {
           <div className="mt-5 px-4 sm:px-8">
             <Link
               href="/experience"
-              className="inline-block rounded-3xl bg-blue-400 px-8 py-2 text-sm font-semibold text-black sm:text-base"
+              className="inline-block rounded-3xl bg-blue-400 px-4 py-2 text-sm font-semibold text-black sm:text-base"
             >
               Experience KTS Mobility
             </Link>
