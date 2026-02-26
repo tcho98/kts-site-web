@@ -47,7 +47,7 @@ export default function VideoBackground() {
           <h1 className="px-4 text-[3rem] font-bold sm:text-[4.5rem]">
             We Move Kids Forward
           </h1>
-          <p className="mt-4 w-[600px] px-8 text-lg sm:text-xl">
+          <p className="mt-4 w-[600px] px-4 text-lg sm:text-xl">
             Safe, Reliable and Efficient student transportation solution..
           </p>
           <div className="mt-5 px-8 sm:px-8">
