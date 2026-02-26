@@ -21,35 +21,13 @@ export const metadata = {
 export default function Home() {
   return (
     <>
-      <div className=" h-[700px] overflow-x-hidden">
-        {/* Video Background Component */}
-        
-        <div className="absolute inset-0 z-0">
+      <div className=" h-screen overflow-x-hidden">
+        <div className="bg-cover min-h-[100svh]  inset-0 z-0">
           <VideoBackground />
         </div>
-
-        <div className="relative  flex flex-cols z-50 max-w-7xl mx-auto  sm:px-6 lg:px-6   items-start mt-50 text-white ">
-          
-          <div className="mt-60 w-[600px]">
-            <h1 className="text-[2rem]  px-8 sm:text-[4.5rem] font-bold">
-              We Move Kids Forward
-            </h1>
-            <p className="mt-4 px-8 w-[600px] text-sm sm:text-xl ">
-              Safe, Reliable and Efficient student transportation solution..
-            </p>
-            <div className="px-8 mt-5 sm:px-8">
-              <Link
-                href="/experience"
-                className="bg-blue-400 text-black font-semibold px-8 sm:px-8 mt-5 py-2 rounded-3xl inline-block text-sm sm:text-base"
-              >
-                Experience KTS Mobility
-              </Link>
-            </div>
-          </div>
-        </div>
       </div>
-      <div className="relative h-[400px] text-center items-center justify-center sm:mt-50 p-20 mt-37 flex bg-gray-300 ">
-        <div className="flex justify-center py-10">
+      <div className="relative h-[300px] text-center items-center justify-center   flex bg-gray-300 ">
+        <div className="flex justify-center ">
           <Award
             name="Central Africa Startup Awards"
             pdfUrl="/awards/cert.pdf"
@@ -61,20 +39,23 @@ export default function Home() {
       <div id="section1" className="h-full w-full bg-white py-10 p-5">
         <div className="z-50 max-w-7xl lg:mt-10 mx-auto w-full px-4 sm:px-16 lg:px-8">
           {/* Titre de section */}
-          <p className="pt-10 text-black text-2xl sm:text-[3rem]">Our service</p>
+          <p className="pt-10 text-black text-2xl sm:text-[3rem]">
+            Our service
+          </p>
 
           {/* Partie texte + image */}
           <div className="flex flex-col lg:flex-row gap-10 mt-10">
             {/* Bloc Texte */}
             <div className="flex flex-col gap-y-7 lg:w-[600px] w-full">
               <h1 className="text-4xl sm:text-2xl lg:text-4xl text-black font-bold">
-                <br/>REDEFENING SCHOOL TRANSPORTATION SERVICES 
-                
-                
+                <br />
+                REDEFENING SCHOOL TRANSPORTATION SERVICES
               </h1>
               <p className="text-black lg:mt-5 text-sm lg:text-xl">
-                We work with both public, private schools and individual parents to help them fulfill 
-                alternative transportation needs so that they can focus on their core business and achieve their full potential.
+                We work with both public, private schools and individual parents
+                to help them fulfill alternative transportation needs so that
+                they can focus on their core business and achieve their full
+                potential.
               </p>
               <div>
                 <Link
@@ -109,7 +90,6 @@ export default function Home() {
                 altText: "Electric Service",
                 title: "•	Bus and car rentals.",
                 description: "An Integrated Platform for Safety & Transparency",
-                
               },
               {
                 imageSRC: "/services/electric.webp",
@@ -121,7 +101,7 @@ export default function Home() {
               {
                 imageSRC: "/services/stat.webp",
                 altText: "Plumbing Service",
-                  title: "•	Personalized transportation solution: ",
+                title: "•	Personalized transportation solution: ",
                 description:
                   "Some of our kids need special education transportation needs and personalized rides, so we take care of kids with health challenges and disabilities.",
               },
@@ -129,14 +109,14 @@ export default function Home() {
                 imageSRC: "/services/sustant.webp",
                 altText: "•	Transportation Plan optimization: ",
                 title: "•	Transportation Plan optimization",
-                description: "Our combination of smart technology and the team’s expertise will help optimize your transportation plans, save money, alleviate driver shortages, and get students safely and timely to school.",
+                description:
+                  "Our combination of smart technology and the team’s expertise will help optimize your transportation plans, save money, alleviate driver shortages, and get students safely and timely to school.",
               },
-                 {
+              {
                 imageSRC: "/services/rate.webp",
                 altText: "Plumbing Service",
-                  title: "•	Care driver solution:  ",
-                description:
-                  "We don’t just transport, we care.",
+                title: "•	Care driver solution:  ",
+                description: "We don’t just transport, we care.",
               },
             ].map((item, i) => (
               <div key={i} className="border-black border-t py-6">
@@ -160,15 +140,15 @@ export default function Home() {
       >
         <div className="z-10 max-w-7xl  relative mx-auto w-full  px-4 md:px-6 lg:px-8">
           {/* Titre de section */}
-         {/**/} 
-         <p className="pt-10 text-white text-xl sm:text-2xl"></p>
+          {/**/}
+          <p className="pt-10 text-white text-xl sm:text-2xl"></p>
 
           {/* Partie texte + image */}
           <div className="flex flex-col lg:flex-row gap-10 mt-10">
             {/* Bloc Texte */}
             <div className="flex flex-col gap-y-7 w-full">
               <h1 className="text-3xl sm:text-4xl lg:text-6xl text-black font-bold">
-                KTS Mobility Already Serves Over 25 Schools in Douala 
+                KTS Mobility Already Serves Over 25 Schools in Douala
               </h1>
               <p className="text-black text-base sm:text-2xl max-w-xl">
                 We provide an end-to-end, future-ready transportation solution
@@ -185,16 +165,15 @@ export default function Home() {
             {/* Colonne texte */}
             <div className="w-full lg:w-[50%] mt-20 flex flex-col items-start">
               <h3 className="text-gray-900 text-xl sm:text-2xl md:text-3xl font-semibold max-w-3xl">
-                We love riding with KTS Mobility! The bus is comfortable, the driver is kind, 
-                and we always feel safe. We enjoy going to school together every day.
+                We love riding with KTS Mobility! The bus is comfortable, the
+                driver is kind, and we always feel safe. We enjoy going to
+                school together every day.
               </h3>
               <div className="flex flex-col sm:flex-row justify-center mt-15 gap-6 sm:gap-4 max-w-3xl mx-auto sm:mx-0">
                 <p className="text-xl sm:text-base text-gray-900 text-center sm:text-left max-w-xs">
-                Kevin M., 10 years
+                  Kevin M., 10 years
                 </p>
                 <div className="hidden sm:block border-r-2 border-black mx-4 h-auto" />
-
-              
               </div>
             </div>
 
@@ -240,13 +219,12 @@ export default function Home() {
               </h1>
 
               <h2 className="text-2xl sm:text-2xl lg:text-2xl text-white font-bold mt-8">
-                I am interested in who you are as a person. I dont just see you as
-                another student. I know your name. I care about you as a person.
+                I am interested in who you are as a person. I dont just see you
+                as another student. I know your name. I care about you as a
+                person.
               </h2>
 
-              <p className="mt-8 text-white">
-                School Bus Driver |
-              </p>
+              <p className="mt-8 text-white">School Bus Driver |</p>
 
               <div className="mt-10">
                 <Link

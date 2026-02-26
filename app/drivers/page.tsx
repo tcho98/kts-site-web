@@ -12,10 +12,6 @@ export const metadata = {
     "Rejoignez notre équipe de conducteurs professionnels et contribuez à offrir un transport scolaire sécurisé et de qualité avec KTS Mobility.",
 };
 
-
-
-
-
 const sectionData = {
   introText: "Our Services",
   title: "What We Offer",
@@ -43,26 +39,26 @@ const sectionData = {
 };
 
 const partners = [
-  { name: "Dewey International School Applied for Science", logoSrc: "/schools/6.png" },
+  {
+    name: "Dewey International School Applied for Science",
+    logoSrc: "/schools/6.png",
+  },
   { name: "SMART College of Technology", logoSrc: "/schools/12.png" },
   { name: "SMART Complex", logoSrc: "/schools/11.png" },
-  {name: "New Vision International Kindergarten Nursery and Primary School", logoSrc: "/schools/9.png" },
-
-
-
+  {
+    name: "New Vision International Kindergarten Nursery and Primary School",
+    logoSrc: "/schools/9.png",
+  },
 ];
-
-
 
 export default function DriversPage() {
   return (
     <main className="bg-white overflow-x-hidden">
-      <div className=" absolute left-0 right-0 top-17 z-0 ">
+      <div className=" absolute left-0 right-0 top-10 z-0 ">
         <HeroSection
           backgroundImage="/images/driver.webp"
           title="Modernising Student Transportation to make it Safe, Reliable, Efficient, and Accessible for All."
           description="Providing safe, comfortable, and reliable transportation for children every day."
-
         />
       </div>
 
@@ -83,13 +79,13 @@ export default function DriversPage() {
                 Attentive Care at Every Step
               </h1>
               <p className="text-gray-700 text-lg px-4 sm:px-0 sm:text-xl">
-                Our drivers go beyond transportation — they provide personalized care. 
-                From safely seating each child to carefully handling their belongings, every detail matters. 
-                With a strong sense of responsibility and professionalism, they ensure that every student is comfortably settled before departure. 
-                At KTS Mobility, attention and care are part of the journey.
+                Our drivers go beyond transportation — they provide personalized
+                care. From safely seating each child to carefully handling their
+                belongings, every detail matters. With a strong sense of
+                responsibility and professionalism, they ensure that every
+                student is comfortably settled before departure. At KTS
+                Mobility, attention and care are part of the journey.
               </p>
-
-              
             </div>
 
             {/* Image */}
@@ -105,9 +101,9 @@ export default function DriversPage() {
           </div>
           <div className="bg-blue-500 flex flex-col justify-center items-center text-white text-center  mt-25 h-[500px]">
             <h1 className="w-sm sm:w-xl text-3xl sm:text-4xl">
-              ”Wow !!, many thanks to the KTS team for their professionalism and care. 
-              Your service is quite commendable,
-               and we look forward to reaching out to you next academic year. ”
+              ”Wow !!, many thanks to the KTS team for their professionalism and
+              care. Your service is quite commendable, and we look forward to
+              reaching out to you next academic year. ”
             </h1>
             <h4 className="mt-7 text-xl ">Mr. Julius C</h4>
             <p> Douala</p>
@@ -133,23 +129,26 @@ export default function DriversPage() {
               Professional & Dedicated Drivers
             </h1>
             <p className="text-gray-700 text-lg px-4 sm:px-0 sm:text-xl">
-              At KTS Mobility, our drivers are more than just transport operators — 
-              they are trained professionals committed to the safety, comfort, and well-being of every child.
-               Courteous, punctual, and highly experienced, they assist each student with care, ensuring smooth boarding and secure journeys every day.
-                With strict adherence to safety protocols and a 
-              child-first mindset, our drivers deliver not just transportation, but peace of mind.
+              At KTS Mobility, our drivers are more than just transport
+              operators — they are trained professionals committed to the
+              safety, comfort, and well-being of every child. Courteous,
+              punctual, and highly experienced, they assist each student with
+              care, ensuring smooth boarding and secure journeys every day. With
+              strict adherence to safety protocols and a child-first mindset,
+              our drivers deliver not just transportation, but peace of mind.
             </p>
           </div>
         </div>
       </section>
       <div className="bg-yellow-300 flex flex-col justify-center items-center text-white text-center  mt-25 h-[500px]">
-            <h1 className="w-sm sm:w-xl text-3xl sm:text-4xl text-black">
-              ”Merci a vous pour la qualité du service. Michael est vraiment content et amis avec son chauffeur.
-               RDV l’année prochaine par la Grace de Dieu. Mme.  ”
-            </h1>
-            <h4 className="mt-7 text-xl text-black ">Hayati. B</h4>
-            <p className="text-xl text-black"> Douala</p>
-        </div>
+        <h1 className="w-sm sm:w-xl text-3xl sm:text-4xl text-black">
+          ”Merci a vous pour la qualité du service. Michael est vraiment content
+          et amis avec son chauffeur. RDV l’année prochaine par la Grace de
+          Dieu. Mme. ”
+        </h1>
+        <h4 className="mt-7 text-xl text-black ">Hayati. B</h4>
+        <p className="text-xl text-black"> Douala</p>
+      </div>
       <section className="sm:max-w-7xl max-w-md lg:h-[80vh] h-[90vh] mx-auto ">
         <div className="flex flex-col md:flex-row items-center md:items-start pt-25 gap-8">
           <div className="w-full md:w-1/2 text-center md:text-left">
@@ -161,11 +160,11 @@ export default function DriversPage() {
               safe and reliable transportation for children.
             </p>
             <Link
-                href="/contact"
-                className="bg-blue-500 text-white mt-15 px-15 py-2 rounded-3xl inline-block text-sm sm:text-base"
-              >
-                Join Us
-              </Link>
+              href="/contact"
+              className="bg-blue-500 text-white mt-15 px-15 py-2 rounded-3xl inline-block text-sm sm:text-base"
+            >
+              Join Us
+            </Link>
           </div>
 
           {/* Image */}

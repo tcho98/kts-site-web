@@ -24,8 +24,7 @@ export default function Home() {
         "Support for students with special needs.",
         "Useful alerts notify you about things like bus arrival time.",
         "Track the bus while in transit.",
-
-      ],  
+      ],
       imageUrl: "/images/parentex.webp",
     },
     {
@@ -39,65 +38,61 @@ export default function Home() {
         "Parents feedback and rate drivers via the app.",
         "Drivers are vetted above and beyond national standards",
         "Safe driving performance tracking.",
-        "Onboard monitoring reduces potential incidents"
-        
-        
-      ],  
+        "Onboard monitoring reduces potential incidents",
+      ],
       imageUrl: "/images/drivelo.webp",
     },
   ];
-const sectionsfr = [
-  {
-    id: 1,
-    smallText: "For Schools",
-    title: "Seamless Communication & Transparency",
-    description:
-      "We optimize your transportation so that you can optimize your education. KTS Mobility technology can be implemented in hours, reducing costs and increasing efficiency by optimizing each route resulting in a 30% reduction in transit time. A system dashboard gives administrators access to real time data for smarter decision making.",
-    services: [
-      "A platform for safety, efficiency and transparency",
-      "Flexible fleet of vehicles to accommodate any use case",
-      "Optimized routes ensuring efficiency",
-      "Operational support involving continuous customer service and operational teams to meet your changing needs",
-    ],
-    imageUrl: "/images/seam.webp",
-  },
-  {
-    id: 2,
-    smallText: "For Communities",
-    title: "Better schools, better roads and a better environment for everyone.",
-    description:
-      "By saving schools money, KTS Mobility empowers communities to invest more in education, reduce traffic congestion and noise pollution, and enjoy cleaner and healthier air quality. Sustainable school transportation creates green jobs, contributes less to climate change, securing a better future for kids everywhere.Positive impact for everyone means:",
-    services: [
-      "Reducing students’ exposure to diesel exhaust and harmful pollution significantly reduces students’ risk of asthma and other respiratory illnesses",
-      "Eliminating noise and air pollution to ensure clean rides for students.",
-      "Replacing school buses dramatically reduces fuel and maintenance costs and provides long tern savings to schools and communities.",
-      "Reducing traffic and carbon footprints.",
-    ],  
-    imageUrl: "/images/org.webp",
-  },
-];
-
+  const sectionsfr = [
+    {
+      id: 1,
+      smallText: "For Schools",
+      title: "Seamless Communication & Transparency",
+      description:
+        "We optimize your transportation so that you can optimize your education. KTS Mobility technology can be implemented in hours, reducing costs and increasing efficiency by optimizing each route resulting in a 30% reduction in transit time. A system dashboard gives administrators access to real time data for smarter decision making.",
+      services: [
+        "A platform for safety, efficiency and transparency",
+        "Flexible fleet of vehicles to accommodate any use case",
+        "Optimized routes ensuring efficiency",
+        "Operational support involving continuous customer service and operational teams to meet your changing needs",
+      ],
+      imageUrl: "/images/seam.webp",
+    },
+    {
+      id: 2,
+      smallText: "For Communities",
+      title:
+        "Better schools, better roads and a better environment for everyone.",
+      description:
+        "By saving schools money, KTS Mobility empowers communities to invest more in education, reduce traffic congestion and noise pollution, and enjoy cleaner and healthier air quality. Sustainable school transportation creates green jobs, contributes less to climate change, securing a better future for kids everywhere.Positive impact for everyone means:",
+      services: [
+        "Reducing students’ exposure to diesel exhaust and harmful pollution significantly reduces students’ risk of asthma and other respiratory illnesses",
+        "Eliminating noise and air pollution to ensure clean rides for students.",
+        "Replacing school buses dramatically reduces fuel and maintenance costs and provides long tern savings to schools and communities.",
+        "Reducing traffic and carbon footprints.",
+      ],
+      imageUrl: "/images/org.webp",
+    },
+  ];
 
   return (
     <main className="  bg-white overflow-x-hidden ">
-      <div className=" bg-cover absolute inset-0 z-0 top-17">
+      <div className=" bg-cover absolute inset-0 z-0 top-10">
         <HeroSection
           backgroundImage="/images/Login.webp"
           title="Safe & Reliable School Transportation Solution"
           description=""
-
         />
       </div>
-
 
       <div className="sm:max-w-7xl lg:mt-150 mt-180   mx-auto p-4">
         <ContentSectionF items={sections} reverse />
 
-
         <div className="bg-gray-500  mt-15 ">
           <h1 className="text-xl sm:text-4xl text-center mt-10 p-10 sm:p-15">
-            “ I have worked closely with the KTS Mobility team over the last 6 years and have observed firsthand the benefits 
-            of applying technology to solve our complex day-to-day operation needs.”
+            “ I have worked closely with the KTS Mobility team over the last 6
+            years and have observed firsthand the benefits of applying
+            technology to solve our complex day-to-day operation needs.”
           </h1>
           <div className="flex items-center justify-center gap-5 ">
             <Image
@@ -110,16 +105,10 @@ const sectionsfr = [
             <div className="hidden sm:block border border-b-2 h-15 border-black " />
             <p> Etah Eno, CEO of KTS Mobility</p>
           </div>
-
-
-          
-          
         </div>
         <div className="md:mt-10 mt-5 ">
-            <ContentSectionfr items={sectionsfr} reverse />
-          </div>
-
-        
+          <ContentSectionfr items={sectionsfr} reverse />
+        </div>
       </div>
       <ReadyToStart />
     </main>

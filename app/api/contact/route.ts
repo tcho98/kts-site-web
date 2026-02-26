@@ -44,7 +44,8 @@ export async function POST(req: Request) {
     if (!firstName) errors.firstName = "First name required.";
     if (!lastName) errors.lastName = "Last name required.";
     if (!email || !isEmail(email)) errors.email = "Invalid email.";
-    if (phone && !E164_REGEX.test(phone)) errors.phone = "Invalid phone format.";
+    if (phone && !E164_REGEX.test(phone))
+      errors.phone = "Invalid phone format.";
     if (!note) errors.note = "Message required.";
 
     if (Object.keys(errors).length) {
@@ -170,11 +171,12 @@ export async function POST(req: Request) {
     });
 
     return Response.json({ ok: true });
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
   } catch (error: any) {
     console.error("❌ Contact API error:", error);
     return Response.json(
       { ok: false, error: error?.message || "Server error" },
-      { status: 500 }
+      { status: 500 },
     );
   }
 }

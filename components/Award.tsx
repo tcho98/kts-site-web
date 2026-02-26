@@ -22,7 +22,7 @@ export default function Award({ name, pdfUrl, logoUrl, count }: AwardProps) {
     <>
       {/* Carte Award */}
       <div
-        className=" rounded-xl shadow-md p-6 w-74 text-center cursor-pointer transform transition hover:scale-105 hover:shadow-lg"
+        className=" bg-white rounded-xl shadow-md p-1 w-50 text-center cursor-pointer transform transition hover:scale-105 hover:shadow-lg"
         onClick={() => setIsOpen(true)}
         role="button"
         tabIndex={0}
@@ -32,21 +32,21 @@ export default function Award({ name, pdfUrl, logoUrl, count }: AwardProps) {
           <Image
             src={logoUrl}
             alt={name + " logo"}
-            width={180}
-            height={40}
+            width={90}
+            height={90}
             className="object-contain"
           />
           <div className="flex flex-col items-center">
-            <span className="text-6xl text-blue-400  font-bold">{count}x</span>
+            <span className="text-3xl text-blue-400  font-bold">{count}x</span>
             <span className="text-2xl text-blue-400 font-semibold">Winner</span>
           </div>
         </div>
 
         {/* Trait horizontal */}
-        <hr className="border-gray-700 my-2" />
+        <hr className="border-gray-700 mt-2" />
 
         {/* Nom de l'award */}
-        <h3 className="text-xl text-black font-bold mt-2">{name}</h3>
+        <p className="text-lg text-black font-bold mt-2">{name}</p>
       </div>
 
       {/* Modale PDF */}
@@ -69,7 +69,7 @@ export default function Award({ name, pdfUrl, logoUrl, count }: AwardProps) {
               src={pdfUrl}
               type="application/pdf"
               width="100%"
-              height="600px"
+              height="400px"
               className="rounded"
             />
           </div>

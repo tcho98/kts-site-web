@@ -17,23 +17,17 @@ const navItems = [
   {
     title: "Parent",
     path: "/#section2",
-    items: [
-      
-    ],
+    items: [],
   },
   {
     title: "Drivers",
     path: "/drivers",
-    items: [
-      
-    ],
+    items: [],
   },
   {
     title: "Services",
     path: "/#section1",
-    items: [
-  
-    ],
+    items: [],
   },
   {
     title: "Company",
@@ -43,7 +37,6 @@ const navItems = [
       { label: "Our Values", path: "/company#values" },
       { label: "Our Mission", path: "/company#mission" },
       { label: "Our Team", path: "/company#team" },
-
     ],
   },
 ];
@@ -79,10 +72,10 @@ export default function Header() {
   }, [mobileOpen]);
 
   return (
-    <header className="sticky top-0 z-50 w-full  transition-all duration-300 ">
+    <header className="fixed justify-between top-11 z-50 w-full  transition-all duration-300 ">
       <div className="relative flex  inset-0 z-0">
         {activeDropdown && (
-          <div className="fixed top-[64px] left-0 w-full h-[350px] bg-gray-900/90 z-40 pointer-events-none" />
+          <div className="fixed  left-0 w-full h-[350px] bg-gray-900/90 z-40 pointer-events-none" />
         )}
         {/* Top Bar (Logo + Nav + Contact) */}
         <div
@@ -90,17 +83,17 @@ export default function Header() {
             scrolled
               ? "fixed top-0 w-full  left-0 right-0 bg-gray-900/90  shadow-md"
               : "relative  "
-          } z-[50] w-full  transition-all duration-300 flex justify-between  items-center h-24 px-4 md:px-55`}
+          } z-[50] w-full  transition-all duration-300 flex justify-between  items-center h-24 px-3 md:px-30`}
         >
           {/* Logo à gauche */}
-          <Link href="/" className="relative pt-2 mx-[-50px] sm:mx-0  ">
+          <Link href="/" className="relative pt-2">
             <Image
-              width={0}
-              height={0}
-              src="/logos/logo2.png"
+              width={150}
+              height={60}
+              src="/logos/logo1.png"
               alt="Logo"
-              sizes="(min-width: 1024px) 150px, (min-width: 768px) 200px, 144px"
-              className="w-50  md:w-70 lg:w-80 h-auto object-contain"
+              sizes=""
+              className="object-contain"
             />
           </Link>
 
@@ -162,7 +155,7 @@ export default function Header() {
           <div className="hidden md:flex mx-[-0px] sm:px-0">
             <Link
               href="/contact"
-              className="bg-gray-300 text-black font-semibold mx-15 px-14 relative py-2 rounded-3xl text-center"
+              className="bg-gray-300 text-black font-semibold  px-14 relative py-2 rounded-3xl text-center"
             >
               Contact Us
             </Link>
@@ -185,7 +178,7 @@ export default function Header() {
 
         {/* Mobile Menu */}
         {mobileOpen && (
-          <div className="fixed inset-15 w-full left-0 right-0 bottom-0 z-20 bg-gray-900 overflow-y-auto pt-30">
+          <div className="fixed inset-10 w-full left-0 right-0 bottom-0 z-20 bg-gray-900 overflow-y-auto pt-30">
             <div className="border-t border-gray-400 mb-4 mt-4" />
             <nav>
               {navItems.map((nav) => (
@@ -211,7 +204,7 @@ export default function Header() {
                     <button
                       onClick={() =>
                         setOpenMobileMenu(
-                          openMobileMenu === nav.title ? null : nav.title
+                          openMobileMenu === nav.title ? null : nav.title,
                         )
                       }
                     >
@@ -256,7 +249,7 @@ export default function Header() {
           </div>
         )}
       </div>
-      <div className="border-t max-w-7xl mt-4 mx-auto bg-gray-400"></div>
+      <div className="border-t  mt-4 max-w-7xl mx-auto bg-gray-400"></div>
     </header>
   );
 }
