@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from 'next/font/google'
+import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import "react-international-phone/style.css";
 import Footer from "@/components/Footer";
@@ -17,9 +17,12 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://www.ktsmobility.com"),
+
   title: "KTS Mobility | Transport Scolaire Fiable et Sécurisé",
   description:
     "KTS Mobility propose des solutions de transport scolaire fiables, sûres et efficaces pour les élèves. Offrez à vos enfants un trajet sécurisé chaque jour.",
+
   keywords: [
     "transport scolaire",
     "sécurité élèves",
@@ -28,35 +31,48 @@ export const metadata: Metadata = {
     "solution de transport scolaire",
     "KTS Mobility",
   ],
+
   authors: [{ name: "KTS Mobility" }],
   generator: "Next.js",
   applicationName: "KTS Mobility",
-  metadataBase: new URL("https://www.ktsmobility.com"),
+
+  icons: {
+    icon: "/favicon.ico",
+    apple: "/apple-icon.png",
+  },
+
+  alternates: {
+    canonical: "/",
+  },
+
   openGraph: {
     title: "KTS Mobility | Transport Scolaire Fiable et Sécurisé",
     description:
       "KTS Mobility offre des services de transport scolaire sécurisés et efficaces pour assurer la tranquillité des parents et la sécurité des élèves.",
-    url: "https://www.ktsmobility.com",
+    url: "/",
     siteName: "KTS Mobility",
-    images: [
-      {
-        url: "https://www.ktsmobility.com/logo1.PNG", // à créer et héberger
-        width: 1200,
-        height: 630,
-        alt: "Bus scolaire sécurisé avec des élèves heureux",
-      },
-    ],
     locale: "fr_FR",
     type: "website",
+    images: [
+      {
+        url: "/og.png",
+        width: 1200,
+        height: 630,
+        alt: "KTS Mobility - Transport scolaire sécurisé",
+      },
+    ],
   },
+
   twitter: {
     card: "summary_large_image",
     title: "KTS Mobility | Transport Scolaire Fiable et Sécurisé",
     description:
       "Transport scolaire sécurisé et fiable pour les élèves, assuré par KTS Mobility.",
-    images: ["https://x.com/rideKTS?s=20"],
+    images: ["/og.png"],
+    // optionnel :
+    // creator: "@rideKTS",
+    // site: "@rideKTS",
   },
-  
 };
 
 export default function RootLayout({
