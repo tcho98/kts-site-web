@@ -43,14 +43,14 @@ export default function VideoBackground() {
 
       {/* Texte (au-dessus de tout) */}
       <div className="relative z-20 flex  max-w-full items-start text-white">
-        <div className="mt-70 w-[400px] pl-1 lg:mt-70 lg:ml-25 lg:w-[600px]">
+        <div className="mt-100 w-[400px] pl-1 lg:mt-70 lg:ml-25 lg:w-[600px]">
           <h1 className="px-4 text-[3rem] font-bold sm:text-[4.5rem]">
             We Move Kids Forward
           </h1>
-          <p className="mt-4 w-[600px] px-4 text-lg sm:text-xl">
+          <p className="mt-4  px-4 text-lg sm:text-xl">
             Safe, Reliable and Efficient student transportation solution..
           </p>
-          <div className="mt-5 px-8 sm:px-8">
+          <div className="mt-5 px-4 sm:px-8">
             <Link
               href="/experience"
               className="inline-block rounded-3xl bg-blue-400 px-8 py-2 text-sm font-semibold text-black sm:text-base"
