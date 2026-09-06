@@ -27,25 +27,19 @@ const Slides = [
 
 const CarousselBackground = () => {
   const [activeIndex, setActiveIndex] = useState(0);
-  const [isMobile, setIsMobile] = useState(false);
+  const [isPaused, setIsPaused] = useState(false);
 
+  // Fix: l'auto-rotation ne se déclenchait qu'en mobile (if isMobile).
+  // Sur desktop, le carrousel restait figé sur le premier slide en
+  // permanence, sauf clic manuel sur les points de navigation.
+  // Elle tourne maintenant partout, avec une pause au survol sur desktop.
   useEffect(() => {
-    const handleResize = () => {
-      setIsMobile(window.innerWidth < 640);
-    };
-    handleResize();
-    window.addEventListener("resize", handleResize);
-    return () => window.removeEventListener("resize", handleResize);
-  }, []);
-
-  useEffect(() => {
-    if (isMobile) {
-      const interval = setInterval(() => {
-        setActiveIndex((prev) => (prev + 1) % Slides.length);
-      }, 4000);
-      return () => clearInterval(interval);
-    }
-  }, [isMobile]);
+    if (isPaused) return;
+    const interval = setInterval(() => {
+      setActiveIndex((prev) => (prev + 1) % Slides.length);
+    }, 4000);
+    return () => clearInterval(interval);
+  }, [isPaused]);
 
   return (
     <div
@@ -53,6 +47,8 @@ const CarousselBackground = () => {
       style={{
         backgroundImage: `url(${Slides[activeIndex].image})`,
       }}
+      onMouseEnter={() => setIsPaused(true)}
+      onMouseLeave={() => setIsPaused(false)}
     >
       {/* Overlay */}
       <div className="absolute inset-0 bg-black/60 z-10" />
@@ -78,12 +74,12 @@ const CarousselBackground = () => {
         "
       >
         <div className="sm:max-w-3xl max-w-sm  sm:mx-auto mx-2">
-          <h1 className="text-[2rem] color-blue-300 sm:text-[2.5rem] font-bold">
-          
-             {Slides[activeIndex]?.title}
+          {/* Fix: "color-blue-300" n'existe pas en Tailwind (la classe pour la
+              couleur du texte est "text-*", pas "color-*") -> ne faisait rien */}
+          <h1 className="text-[2rem] sm:text-[2.5rem] font-bold">
+            {Slides[activeIndex]?.title}
           </h1>
           <p className="mt-4 text-sm sm:text-xl">
-            
             {Slides[activeIndex]?.text}
           </p>
         </div>
@@ -105,6 +101,8 @@ const CarousselBackground = () => {
             </p>
             <button
               onClick={() => setActiveIndex(index)}
+              aria-label={`Voir le slide : ${slide.description}`}
+              aria-current={activeIndex === index}
               className={`h-2 transition-all duration-300 rounded-full ${
                 activeIndex === index ? "w-50 bg-blue-500" : "w-50 bg-gray-300"
               }`}

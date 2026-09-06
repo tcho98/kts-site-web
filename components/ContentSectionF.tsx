@@ -58,9 +58,12 @@ const ContentSection: React.FC<ContentSectionProps> = ({ items, reverse }) => {
               variants={isReversed ? imageVariant : textVariant} // inversé si besoin
             >
               <p className="text-lg sm:text-sm text-black">{item.smallText}</p>
-              <h1 className="text-4xl text-black font-bold mt-3">
+              {/* Fix: chaque item générait son propre <h1>, soit 4-5 <h1> sur
+                  une seule page (mauvais pour le SEO, qui attend un seul <h1>
+                  par page). Le vrai titre de page reste celui du HeroSection. */}
+              <h2 className="text-4xl text-black font-bold mt-3">
                 {item.title}
-              </h1>
+              </h2>
               <p className="text-black mt-4">{item.description}</p>
 
               {/* Services (optionnels) */}
@@ -71,8 +74,6 @@ const ContentSection: React.FC<ContentSectionProps> = ({ items, reverse }) => {
                   ))}
                 </ul>
               )}
-          
-
             </motion.div>
 
             {/* Image */}

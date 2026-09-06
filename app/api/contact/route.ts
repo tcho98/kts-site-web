@@ -1,27 +1,8 @@
 import nodemailer from "nodemailer";
+import  {contactSchema } from "@/lib/contact.schema";
 
-const E164_REGEX = /^\+[1-9]\d{7,14}$/;
-
-function isEmail(str: string) {
-  // email simple + sûr
-  return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(str);
-}
-
-function clean(value: unknown, max = 5000) {
-  // anti injection headers (CRLF) + trimming + limite
-  return String(value ?? "")
-    .replace(/[\r\n]+/g, " ")
-    .trim()
-    .slice(0, max);
-}
-
-function cleanMessage(value: unknown, max = 8000) {
-  // pour le message: on garde les sauts de lignes, mais on enlève \r
-  return String(value ?? "")
-    .replace(/\r/g, "")
-    .trim()
-    .slice(0, max);
-}
+// nodemailer nécessite le runtime Node.js (pas Edge)
+export const runtime = "nodejs";
 
 function escapeHtml(v: unknown) {
   return String(v ?? "")
@@ -39,49 +20,52 @@ export async function POST(req: Request) {
   try {
     const body = await req.json();
 
-    // Honeypot anti-bot (champ caché "company")
+    // Honeypot anti-bot (champ caché "company") : on répond OK sans rien envoyer
     if (body?.company) {
       return Response.json({ ok: true }, { status: 200 });
     }
 
-    const firstName = clean(body?.firstName, 100);
-    const lastName = clean(body?.lastName, 100);
-    const organization = clean(body?.organization, 150);
-    const title = clean(body?.title, 150);
-    const email = clean(body?.email, 200).toLowerCase();
-    const phone = clean(body?.phone, 30);
-    const note = cleanMessage(body?.note, 8000);
-
-    const errors: Record<string, string> = {};
-    if (!firstName) errors.firstName = "First name required.";
-    if (!lastName) errors.lastName = "Last name required.";
-    if (!email || !isEmail(email)) errors.email = "Invalid email.";
-    if (phone && !E164_REGEX.test(phone))
-      errors.phone = "Invalid phone format.";
-    if (!note) errors.note = "Message required.";
-
-    if (Object.keys(errors).length) {
-      return Response.json({ ok: false, errors }, { status: 400 });
+    // Validation unique via Zod (même schéma que le client)
+    const parsed = contactSchema.safeParse(body);
+    if (!parsed.success) {
+      return Response.json(
+        { ok: false, errors: parsed.error.flatten().fieldErrors },
+        { status: 400 },
+      );
     }
+
+    const { firstName, lastName, organization, title, email, phone, note } =
+      parsed.data;
 
     // IMPORTANT: From doit être une adresse que tu contrôles/validée chez Brevo
     const FROM_NAME = "KTS Mobility Website";
-    const FROM_EMAIL = "no-reply@ktsmobility.com";
-    const TO_EMAIL = "jscinnamon7483@gmail.com";
+    const FROM_EMAIL = process.env.EMAIL_FROM || "no-reply@ktsmobility.com";
+    const TO_EMAIL = process.env.CONTACT_TO_EMAIL;
 
-    // Transport Brevo (SMTP)
+    if (!TO_EMAIL) {
+      console.error("❌ CONTACT_TO_EMAIL manquant dans les variables d'environnement");
+      return Response.json(
+        { ok: false, error: "Server misconfiguration" },
+        { status: 500 },
+      );
+    }
+
+    // Transport SMTP (compatible cPanel, Brevo, ou tout autre fournisseur SMTP standard)
+    const emailPort = Number(process.env.EMAIL_PORT || 465);
+    // Port 465 = SSL direct (secure: true). Port 587 = STARTTLS (secure: false + requireTLS).
+    const isSecurePort = emailPort === 465;
+
     const transporter = nodemailer.createTransport({
-      host: process.env.EMAIL_HOST || "smtp-relay.brevo.com",
-      port: Number(process.env.EMAIL_PORT || 587),
-      secure: false, // 587
+      host: process.env.EMAIL_HOST,
+      port: emailPort,
+      secure: isSecurePort,
       auth: {
         user: process.env.EMAIL_USER!,
         pass: process.env.EMAIL_PASS!,
       },
-      requireTLS: true,
+      requireTLS: !isSecurePort,
       tls: {
-        // aide certains environnements
-        servername: process.env.EMAIL_HOST || "smtp-relay.brevo.com",
+        servername: process.env.EMAIL_HOST,
       },
     });
 
@@ -145,7 +129,7 @@ export async function POST(req: Request) {
                 </div>
 
                 <div style="margin-top:14px;font-size:12px;color:#6b7280;">
-                  Réponds à cet email : le Reply-To pointe vers l’expéditeur du formulaire.
+                  Réponds à cet email : le Reply-To pointe vers l'expéditeur du formulaire.
                 </div>
               </td>
             </tr>
@@ -162,20 +146,13 @@ export async function POST(req: Request) {
 
     const info = await transporter.sendMail({
       from: { name: FROM_NAME, address: FROM_EMAIL },
-      sender: { name: FROM_NAME, address: FROM_EMAIL }, // utile pour certains filtres
+      sender: { name: FROM_NAME, address: FROM_EMAIL },
       to: TO_EMAIL,
-
-      // Réponse vers le client (validé)
       replyTo: { name: fullName, address: email },
-
       subject,
       text,
       html,
-
-      // messageId propre (certaines gateways aiment)
       messageId: `<${ticket.toLowerCase()}@ktsmobility.com>`,
-
-      // Headers minimalistes (évite les faux positifs spam)
       headers: {
         "X-Application": "KTS-Website",
         "X-Message-Type": "ContactForm",

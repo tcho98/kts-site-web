@@ -89,10 +89,12 @@ export default function DriversPage() {
             </div>
 
             {/* Image */}
-            <div className="w-md md:w-1/2 flex justify-center">
+            {/* Fix: "w-md" n'existe pas dans Tailwind (échelle w-* n'a pas de
+                tailles nommées) -> remplacé par "w-full" pour un vrai layout responsive */}
+            <div className="w-full md:w-1/2 flex justify-center">
               <Image
                 src="/images/serv.webp"
-                alt="Logo"
+                alt="Chauffeur KTS Mobility aidant un enfant à monter dans le bus"
                 width={500}
                 height={500}
                 className="rounded-3xl object-cover w-full h-auto"
@@ -100,11 +102,11 @@ export default function DriversPage() {
             </div>
           </div>
           <div className="bg-blue-500 flex flex-col justify-center items-center text-white text-center  mt-25 h-[500px]">
-            <h1 className="w-sm sm:w-xl text-3xl sm:text-4xl">
-              ”Wow !!, many thanks to the KTS team for their professionalism and
+            <h2 className="max-w-sm sm:max-w-xl text-3xl sm:text-4xl">
+              "Wow!! Many thanks to the KTS team for their professionalism and
               care. Your service is quite commendable, and we look forward to
-              reaching out to you next academic year. ”
-            </h1>
+              reaching out to you next academic year."
+            </h2>
             <h4 className="mt-7 text-xl ">Mr. Julius C</h4>
             <p> Douala</p>
           </div>
@@ -113,10 +115,10 @@ export default function DriversPage() {
       <section className="sm:max-w-7xl max-w-md sm:h-[70vh]  mx-auto mt-20">
         <div className="flex flex-col md:flex-row items-center md:items-start sm:pt-25 gap-8">
           {/* Image */}
-          <div className="w-md md:w-1/2 flex justify-center">
+          <div className="w-full md:w-1/2 flex justify-center">
             <Image
               src="/images/dri.webp"
-              alt="Logo"
+              alt="Chauffeur professionnel KTS Mobility"
               width={500}
               height={500}
               className="rounded-3xl border-2 object-cover w-full h-auto"
@@ -125,9 +127,9 @@ export default function DriversPage() {
 
           {/* Texte */}
           <div className="w-full md:w-1/2 text-center md:text-left">
-            <h1 className="text-3xl sm:text-5xl text-black font-bold mb-5">
+            <h2 className="text-3xl sm:text-5xl text-black font-bold mb-5">
               Professional & Dedicated Drivers
-            </h1>
+            </h2>
             <p className="text-gray-700 text-lg px-4 sm:px-0 sm:text-xl">
               At KTS Mobility, our drivers are more than just transport
               operators — they are trained professionals committed to the
@@ -141,20 +143,20 @@ export default function DriversPage() {
         </div>
       </section>
       <div className="bg-yellow-300 flex flex-col justify-center items-center text-white text-center  mt-25 h-[500px]">
-        <h1 className="w-sm sm:w-xl text-3xl sm:text-4xl text-black">
-          ”Merci a vous pour la qualité du service. Michael est vraiment content
-          et amis avec son chauffeur. RDV l’année prochaine par la Grace de
-          Dieu. Mme. ”
-        </h1>
-        <h4 className="mt-7 text-xl text-black ">Hayati. B</h4>
+        <h2 className="max-w-sm sm:max-w-xl text-3xl sm:text-4xl text-black">
+          "Merci à vous pour la qualité du service. Michael est vraiment content
+          et ami avec son chauffeur. Rendez-vous l'année prochaine par la grâce de
+          Dieu."
+        </h2>
+        <h4 className="mt-7 text-xl text-black ">Mme. Hayati. B</h4>
         <p className="text-xl text-black"> Douala</p>
       </div>
       <section className="sm:max-w-7xl max-w-md lg:h-[80vh] h-[90vh] mx-auto ">
         <div className="flex flex-col md:flex-row items-center md:items-start pt-25 gap-8">
           <div className="w-full md:w-1/2 text-center md:text-left">
-            <h1 className="text-3xl sm:text-5xl text-black font-bold mb-5">
+            <h2 className="text-3xl sm:text-5xl text-black font-bold mb-5">
               Our Team
-            </h1>
+            </h2>
             <p className="text-gray-700 text-lg px-4 sm:px-0 sm:text-xl">
               Meet the dedicated team behind KTS Mobility, committed to ensuring
               safe and reliable transportation for children.
@@ -168,17 +170,15 @@ export default function DriversPage() {
           </div>
 
           {/* Image */}
-          <div className="w-md md:w-1/2 p-4 flex justify-center">
+          <div className="w-full md:w-1/2 p-4 flex justify-center">
             <Image
               src="/images/team.webp"
-              alt="Logo"
+              alt="L'équipe KTS Mobility"
               width={500}
               height={500}
               className="rounded-3xl object-cover w-full h-auto"
             />
           </div>
-
-          {/* Texte */}
         </div>
       </section>
       <ReadyToOpportunities />

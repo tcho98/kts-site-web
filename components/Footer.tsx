@@ -35,10 +35,13 @@ const navItems = [
     title: "Company",
     path: "/company",
     items: [
-      { label: "Our Story", path: "/comapny#story" },
-      { label: "Our Vision", path: "/company#value" },
+      // Fix: "/comapny" -> "/company" (faute de frappe qui cassait le lien)
+      { label: "Our Story", path: "/company#story" },
+      // Fix: "#value" -> "#values" pour correspondre à l'id réel dans company/page.tsx
+      { label: "Our Vision", path: "/company#values" },
       { label: "Our Mission", path: "/company#mission" },
-      { label: "Our Team", path: "/comapany#team" },
+      // Fix: "/comapany" -> "/company" (faute de frappe qui cassait le lien)
+      { label: "Our Team", path: "/company#team" },
     ],
   },
 ];
@@ -52,7 +55,7 @@ export default function Footer() {
       <Link href="/" className="inline-block mt-4">
         <Image
           src="/logos/logo1.png"
-          alt="Logo"
+          alt="KTS Mobility"
           width={150}
           height={60}
           className="h-auto"
@@ -122,7 +125,7 @@ export default function Footer() {
           <Linkedin size={28} />
         </Link>
         <Link
-          href="https://www.instagram.com/kts_mobility?igsh=NXFnejlvYTFqYzFo%0A"
+          href="https://www.instagram.com/kts_mobility?igsh=NXFnejlvYTFqYzFo"
           aria-label="Instagram"
           className="hover:text-pink-400 transition-colors"
         >

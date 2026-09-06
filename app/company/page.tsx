@@ -1,4 +1,3 @@
-"use client";
 import Image from "next/image";
 import ContentSection from "@/components/ContentSection";
 import ReadyToStart from "@/components/ReadyToStart";
@@ -18,7 +17,7 @@ export default function CompanyPage() {
           smallText: "Story",
           title: "We Move Kids Forward",
           description:
-            "KTS Mobility was Founded with Parents in Mind. Back in 2017, the seed for KTS Mobility was planted. As new parents juggling demanding careers, we faced a common dilemma – ensuring our son's safe, reliable, and comfortable journey to school amidst our busy schedules. This challenge wasn t ours alone; it also resonated with many colleagues and fellow parents. In 2020, KTS Mobility came to life, fueled by our parental instincts and a commitment to safety and meticulousness. Our aim was not just to create a transportation service but to offer peace of mind to parents while offering delightful, secure travel experiences for children. Today, we are privileged to connect with hundreds of parents, kids and schools every day. (Use my single picture)",
+            "KTS Mobility was Founded with Parents in Mind. Back in 2017, the seed for KTS Mobility was planted. As new parents juggling demanding careers, we faced a common dilemma – ensuring our son's safe, reliable, and comfortable journey to school amidst our busy schedules. This challenge wasn't ours alone; it also resonated with many colleagues and fellow parents. In 2020, KTS Mobility came to life, fueled by our parental instincts and a commitment to safety and meticulousness. Our aim was not just to create a transportation service but to offer peace of mind to parents while offering delightful, secure travel experiences for children. Today, we are privileged to connect with hundreds of parents, kids and schools every day.",
           imageUrl: "/images/foundator.webp",
           stats: [
             { value: 95, suffix: "%", description: "Client Satisfaction" },
@@ -35,7 +34,7 @@ export default function CompanyPage() {
           smallText: "For Parents & Students",
           title: "A Completely New Experience Built Around Families' Needs",
           description:
-            "KTS Mobility delivers the peace of mind that comes from knowing where your kids are, and that they’re getting the safest, most reliable rides possible. A convenient app lets you see when the bus is coming, know your drivers, send feedback, and get your kids to school on-time and stress-free.",
+            "KTS Mobility delivers the peace of mind that comes from knowing where your kids are, and that they're getting the safest, most reliable rides possible. A convenient app lets you see when the bus is coming, know your drivers, send feedback, and get your kids to school on-time and stress-free.",
           imageUrl: "/images/parents.webp",
         },
       ],
@@ -70,7 +69,7 @@ export default function CompanyPage() {
           smallText: "For Parents & Students",
           title: "Dedicated Experts Behind Every Journey",
           description:
-            "At KTS Mobility, every ride is carefully monitored by a team of passionate professionals committed to excellence. From our operations center, our experts track routes in real time, coordinate drivers, and ensure that every child’s journey is smooth and secure.With advanced technology and a deep sense of responsibility, our team works tirelessly behind the scenes to deliver precision, responsiveness, and peace of mind to families every day.",
+            "At KTS Mobility, every ride is carefully monitored by a team of passionate professionals committed to excellence. From our operations center, our experts track routes in real time, coordinate drivers, and ensure that every child's journey is smooth and secure. With advanced technology and a deep sense of responsibility, our team works tirelessly behind the scenes to deliver precision, responsiveness, and peace of mind to families every day.",
           imageUrl: "/images/expert.webp",
         },
       ],
@@ -116,7 +115,7 @@ export default function CompanyPage() {
     title: "Why work with us ",
     description: "",
     locations: [
-      " We deliver the peace of mind that comes from knowing where your kids are at any given time, and that hey are getting the safest and most reliable rides possible. Our technology lets you see when the bus is coming, know your drivers, send feedback, and gets kids to school on time and stress free",
+      "We deliver the peace of mind that comes from knowing where your kids are at any given time, and that they are getting the safest and most reliable rides possible. Our technology lets you see when the bus is coming, know your drivers, send feedback, and gets kids to school on time and stress free",
       "We manage all aspects of operations so the parents and school can focus on their core business, monitor vehicle health and driver performance, and optimize routes so that kids spend less time on the road.",
       "Our technology and multi-sized vehicle approach helps reduce costs and increase efficiency by optimizing routes resulting in reduced transit time. Thereby saving parents and schools money so they can invest more in education.",
       "Sustainable transportation reduces traffic congestion, noise pollution and the kids enjoy cleaner and healthier air, securing a better and healthier future for them.",
@@ -133,7 +132,9 @@ export default function CompanyPage() {
           description="Book a rental and plan your next trip. Email us at : info@ktsmobility.com or Call us at (+237) 640204282"
         />
       </div>
-      <div id="#story" className="sm:max-w-7xl p-4  mx-auto ">
+      {/* Fix: id ne doit jamais contenir de "#" — le lien /company#story cherchait
+          id="story", pas id="#story", donc le scroll-to-anchor ne marchait jamais */}
+      <div id="story" className="sm:max-w-7xl p-4  mx-auto ">
         {contentBlocks.map((block, idx) => {
           if (block.type === "stats") {
             return <ContentOptimise key={idx} items={block.items} />;
@@ -150,35 +151,39 @@ export default function CompanyPage() {
         })}
       </div>
       <div className="bg-blue-500 flex flex-col justify-center items-center text-white text-center p-15  mt-25 ">
-        <h1 className="w-sm sm:w-5xl text-3xl sm:text-4xl">
-          ”C’est nous qui vous remercions pour le grand soulagement que votre
-          service nous a apporter tout au long de cette année scolaire. Ma femme
-          est moi n’avions jamais été en paix comme cette année car votre équipe
-          est super professionnel et ponctuel Nous vous remercions une fois de
-          plus. ”
+        {/* Fix: "w-sm sm:w-5xl" n'existe pas dans Tailwind (w-* n'a pas de tailles
+            nommées comme sm/xl/5xl, seul max-w-* les a) -> ces classes ne
+            faisaient rien, remplacées par max-w-* */}
+        <h1 className="max-w-sm sm:max-w-5xl text-3xl sm:text-4xl">
+          "C'est nous qui vous remercions pour le grand soulagement que votre
+          service nous a apporté tout au long de cette année scolaire. Ma femme
+          et moi n'avions jamais été en paix comme cette année car votre équipe
+          est super professionnelle et ponctuelle. Nous vous remercions une fois de
+          plus."
         </h1>
         <h4 className="mt-7 text-xl ">Mr. Moustapha</h4>
         <p> Douala</p>
         <br />
-        <h1 className="w-sm sm:w-xl text-3xl sm:text-4xl">
-          ”Thanks, KTS team for taking good care of the kids. ”
+        <h1 className="max-w-sm sm:max-w-xl text-3xl sm:text-4xl">
+          "Thanks, KTS team for taking good care of the kids."
         </h1>
         <h4 className="mt-7 text-xl ">Mrs. Nji</h4>
         <p> Douala</p>
         <br />
-        <h1 className="w-sm sm:w-xl text-3xl sm:text-4xl">
-          ”The kids expressed their Gratitude for the excellent service, and
-          they are looking forward to next academic year ”
+        <h1 className="max-w-sm sm:max-w-xl text-3xl sm:text-4xl">
+          "The kids expressed their gratitude for the excellent service, and
+          they are looking forward to next academic year."
         </h1>
         <h4 className="mt-7 text-xl ">Mrs. Laura M</h4>
         <p> Douala</p>
         <br />
-        <h1 className="w-sm sm:w-xl text-3xl sm:text-4xl">
-          ”We are so blessed by the quality of your services and your staff. The
+        <h1 className="max-w-sm sm:max-w-xl text-3xl sm:text-4xl">
+          "We are so blessed by the quality of your services and your staff. The
           kids enjoyed every ride to school, and we are looking forward to
-          working with them again. ”
+          working with them again."
         </h1>
-        <h4 className="mt-7 text-xl ">Mrs. Mrs. Jamba D</h4>
+        {/* Fix: "Mrs. Mrs. Jamba D" -> doublon corrigé */}
+        <h4 className="mt-7 text-xl ">Mrs. Jamba D</h4>
         <p> Douala</p>
       </div>
       <div className="bg-yellow-300">
@@ -215,7 +220,7 @@ export default function CompanyPage() {
           <div className="w-full md:w-1/2 flex justify-center">
             <Image
               src="/images/team.webp"
-              alt="Team"
+              alt="L'équipe KTS Mobility"
               width={500}
               height={500}
               className="rounded-3xl object-cover w-full h-auto"
@@ -225,11 +230,11 @@ export default function CompanyPage() {
             className="w-full md:w-1/2 text-center md:text-left"
             id="team"
           >
-            <h1 className="text-3xl sm:text-5xl font-bold mb-5">Our Team</h1>
+            <h2 className="text-3xl sm:text-5xl font-bold mb-5">Our Team</h2>
             <p className="text-gray-700 text-lg sm:text-xl">
               Our employees, who we call partners, are at the heart of the
               business. Every person in our organization is dedicated to helping
-              kids get to their full potential. We’re seasoned professionals,
+              kids get to their full potential. We're seasoned professionals,
               caring parents, and committed advocates that believe we can make a
               difference by eliminating transportation challenges as a barrier
               to opportunity.
