@@ -47,6 +47,7 @@ export default function Header() {
   const [openMobileMenu, setOpenMobileMenu] = useState<string | null>(null);
   const pathname = usePathname();
   const [scrolled, setScrolled] = useState(false);
+  const [footerVisible, setFooterVisible] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -55,8 +56,25 @@ export default function Header() {
       // change à 50/100 selon la hauteur du bloc bleu
     };
 
+    handleScroll();
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  useEffect(() => {
+    const footer = document.querySelector("footer");
+    if (!footer) return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        const isDesktop = window.matchMedia("(min-width: 768px)").matches;
+        setFooterVisible(isDesktop && entry.intersectionRatio >= 0.1);
+      },
+      { threshold: [0, 0.1] },
+    );
+
+    observer.observe(footer);
+    return () => observer.disconnect();
   }, []);
 
   useEffect(() => {
@@ -72,7 +90,15 @@ export default function Header() {
   }, [mobileOpen]);
 
   return (
-    <header className="fixed justify-between top-11 z-50 w-full  transition-all duration-300 ">
+    <header
+      aria-hidden={footerVisible}
+      inert={footerVisible}
+      className={`fixed justify-between top-11 z-50 w-full transition-all duration-300 ${
+        footerVisible
+          ? "md:-translate-y-full md:opacity-0 md:pointer-events-none"
+          : "translate-y-0 opacity-100"
+      }`}
+    >
       <div className="relative flex  inset-0 z-0">
         {activeDropdown && (
           <div className="fixed  left-0 w-full h-[350px] bg-gray-900/90 z-50 pointer-events-none" />
@@ -177,9 +203,17 @@ export default function Header() {
         {/* Separator */}
 
         {/* Mobile Menu */}
-        {mobileOpen && (
-          <div className="fixed inset-10 w-full left-0 right-0 bottom-0 z-20 bg-gray-900  pt-30">
-            <div className="border-t border-gray-400 mb-4 mt-4" />
+        <div
+          aria-hidden={!mobileOpen}
+          inert={!mobileOpen}
+          className={`fixed inset-x-0 ${
+            scrolled ? "top-24" : "top-[8.75rem]"
+          } bottom-0 z-40 overflow-y-auto bg-gray-900 pt-4 transition-[opacity,translate,visibility] duration-500 ease-out md:hidden ${
+            mobileOpen
+              ? "visible translate-y-0 opacity-100"
+              : "invisible -translate-y-5 opacity-0 pointer-events-none"
+          }`}
+        >
             <nav>
               {navItems.map((nav) => (
                 <div
@@ -240,6 +274,7 @@ export default function Header() {
               <div className="flex justify-center items-center mt-15">
                 <Link
                   href="/contact"
+                  onClick={() => setMobileOpen(false)}
                   className="block bg-gray-100 text px-30 text-black py-3 rounded-3xl text-center"
                 >
                   Contact Us
@@ -247,9 +282,13 @@ export default function Header() {
               </div>
             </nav>
           </div>
-        )}
       </div>
-      <div className="border-t  mt-4 max-w-7xl mx-auto bg-gray-400"></div>
+      <div
+        aria-hidden="true"
+        className={`border-t mt-4 max-w-7xl mx-auto bg-gray-400 transition-opacity duration-300 ${
+          scrolled || mobileOpen ? "opacity-0" : "opacity-100"
+        }`}
+      />
     </header>
   );
 }

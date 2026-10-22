@@ -125,7 +125,7 @@ export default function CompanyPage() {
 
   return (
     <main className="bg-gray-300  overflow-x-hidden">
-      <div className=" bg-cover min-h-[100svh] inset-0  z-0  top-10">
+      <div className="bg-cover inset-0 z-0 top-10">
         <HeroSection
           backgroundImage="/images/company.webp"
           title=" School bus and Passenger van rentals."

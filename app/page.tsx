@@ -202,7 +202,7 @@ export default function Home() {
         <div className="z-10 max-w-7xl relative mx-auto w-full px-4 md:px-6 lg:px-8">
           <ScrollingCarousel />
 
-          <div className="relative h-screen mt-6 p-8">
+          <div className="relative mt-6 flex min-h-[100svh] flex-col justify-end px-4 pb-12 sm:px-8 sm:pb-16">
             {/* Image de fond avec overlay sombre */}
             <div
               className="absolute inset-0 bg-center bg-cover bg-no-repeat"
@@ -212,9 +212,7 @@ export default function Home() {
             {/* overlay sombre */}
             {/* Contenu au-dessus de l'image */}
             <div className="relative z-20  ">
-              <p className="text-white mb-4"></p>
-
-              <h1 className="text-3xl sm:text-4xl lg:text-6xl text-white font-bold mt-50">
+              <h1 className="text-3xl sm:text-4xl lg:text-6xl text-white font-bold">
                 Meet Peter
               </h1>
 

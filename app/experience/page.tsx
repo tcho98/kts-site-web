@@ -77,7 +77,7 @@ export default function Home() {
 
   return (
     <main className="  bg-white overflow-x-hidden ">
-      <div className=" bg-cover min-h-[100svh] inset-0 z-0 ">
+      <div className="bg-cover inset-0 z-0">
         <HeroSection
           backgroundImage="/images/Login.webp"
           title="Safe & Reliable School Transportation Solution"

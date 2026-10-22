@@ -1,16 +1,28 @@
 "use client";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 
 export default function VideoBackground() {
   const [videoLoaded, setVideoLoaded] = useState(false);
+  const [shouldLoadVideo, setShouldLoadVideo] = useState(false);
+
+  useEffect(() => {
+    const reducedMotion = window.matchMedia(
+      "(prefers-reduced-motion: reduce)",
+    ).matches;
+    const connection = (
+      navigator as Navigator & { connection?: { saveData?: boolean } }
+    ).connection;
+
+    setShouldLoadVideo(!reducedMotion && !connection?.saveData);
+  }, []);
 
   return (
     <div className="relative  min-h-screen  md:min-h-[100svh] h-screen w-full overflow-hidden">
       {/* Image placeholder */}
       <Image
-        src="/images/back2.webp"
+        src="/images/back2-1920-v1.webp"
         alt=""
         fill
         priority
@@ -28,14 +40,15 @@ export default function VideoBackground() {
         muted
         playsInline
         loop
-        preload="auto"
-        autoPlay={false} // option B: on contrôle le play
+        preload="none"
+        autoPlay={shouldLoadVideo}
         onLoadedData={(e) => {
-          setVideoLoaded(true);
-          const v = e.currentTarget;
-          setTimeout(() => v.play().catch(() => {}), 300);
+          e.currentTarget
+            .play()
+            .then(() => setVideoLoaded(true))
+            .catch(() => setVideoLoaded(false));
         }}
-        src="/video/noi.mp4"
+        src={shouldLoadVideo ? "/video/noi-720p-v1.mp4" : undefined}
       />
 
       {/* Overlay sombre (au-dessus vidéo) */}
