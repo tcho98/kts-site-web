@@ -65,16 +65,25 @@ export default function Header() {
     const footer = document.querySelector("footer");
     if (!footer) return;
 
+    const desktopQuery = window.matchMedia("(min-width: 768px)");
+    let footerInView = false;
+    const updateFooterVisibility = () => {
+      setFooterVisible(desktopQuery.matches && footerInView);
+    };
     const observer = new IntersectionObserver(
       ([entry]) => {
-        const isDesktop = window.matchMedia("(min-width: 768px)").matches;
-        setFooterVisible(isDesktop && entry.intersectionRatio >= 0.1);
+        footerInView = entry.intersectionRatio >= 0.1;
+        updateFooterVisibility();
       },
       { threshold: [0, 0.1] },
     );
 
+    desktopQuery.addEventListener("change", updateFooterVisibility);
     observer.observe(footer);
-    return () => observer.disconnect();
+    return () => {
+      observer.disconnect();
+      desktopQuery.removeEventListener("change", updateFooterVisibility);
+    };
   }, []);
 
   useEffect(() => {
@@ -206,15 +215,45 @@ export default function Header() {
         <div
           aria-hidden={!mobileOpen}
           inert={!mobileOpen}
-          className={`fixed inset-x-0 ${
-            scrolled ? "top-24" : "top-[8.75rem]"
-          } bottom-0 z-40 overflow-y-auto bg-gray-900 pt-4 transition-[opacity,translate,visibility] duration-500 ease-out md:hidden ${
+          className={`fixed inset-0 z-[60] overflow-y-auto bg-gray-900 transition-[opacity,visibility] duration-500 ease-out md:hidden ${
             mobileOpen
-              ? "visible translate-y-0 opacity-100"
-              : "invisible -translate-y-5 opacity-0 pointer-events-none"
+              ? "visible opacity-100"
+              : "invisible opacity-0 pointer-events-none"
           }`}
         >
-            <nav>
+            <div className="absolute inset-x-0 top-0 z-10 flex h-11 items-center justify-center bg-blue-400 px-12 text-center">
+              <Link
+                href="/contact"
+                onClick={() => setMobileOpen(false)}
+                className="text-[14px] font-bold text-black"
+              >
+                We&apos;re hiring bus drivers and attendants nationwide. Apply now!
+              </Link>
+            </div>
+            <div className="absolute inset-x-0 top-11 z-10 flex h-24 items-center justify-between bg-gray-900 px-3">
+              <Link
+                href="/"
+                onClick={() => setMobileOpen(false)}
+                className="relative pt-2"
+              >
+                <Image
+                  width={150}
+                  height={60}
+                  src="/logos/logo1.png"
+                  alt="KTS Mobility"
+                  className="object-contain"
+                />
+              </Link>
+              <button
+                type="button"
+                onClick={() => setMobileOpen(false)}
+                className="text-white"
+                aria-label="Close Menu"
+              >
+                <X className="w-8 h-8" />
+              </button>
+            </div>
+            <nav className="relative z-[1] pt-[8.75rem]">
               {navItems.map((nav) => (
                 <div
                   key={nav.title}
