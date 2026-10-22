@@ -96,7 +96,7 @@ export default function Header() {
       className={`fixed justify-between top-11 z-50 w-full transition-all duration-300 ${
         footerVisible
           ? "md:-translate-y-full md:opacity-0 md:pointer-events-none"
-          : "translate-y-0 opacity-100"
+          : "opacity-100"
       }`}
     >
       <div className="relative flex  inset-0 z-0">
